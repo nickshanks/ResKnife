@@ -1,5 +1,11 @@
 // !$*UTF8*$!
 {
+	F51C71F50269B2C501A8010C = {
+		fileReference = F5B588320156D40B01000001;
+		isa = PBXFileBreakpoint;
+		lineNumber = 120;
+		state = 1;
+	};
 	F5354437022674B401A80001 = {
 		activeExec = 0;
 		customExecs = {
@@ -23,57 +29,58 @@
 		);
 		breakpoints = (
 			F5ACB4180221B22401A80001,
+			F51C71F50269B2C501A8010C,
 		);
 		perUserDictionary = {
 			PBXWorkspaceConfiguration = {
-				ContentSize = "{1126, 780}";
+				ContentSize = "{996, 578}";
 				LeftSlideOut = {
 					ActiveTab = 0;
-					Frame = "{{0, 23}, {1126, 757}}";
+					Frame = "{{0, 23}, {996, 555}}";
 					Split0 = {
 						ActiveTab = 1;
-						Frame = "{{325, 0}, {801, 757}}";
+						Frame = "{{325, 0}, {671, 555}}";
 						Split0 = {
-							Frame = "{{0, 110}, {801, 647}}";
+							Frame = "{{0, 110}, {671, 445}}";
 						};
 						SplitCount = 1;
 						Tab0 = {
 							Debugger = {
 								ActiveTab = 0;
-								Frame = "{{0, 0}, {805, 289}}";
+								Frame = "{{0, 0}, {671, 289}}";
 								Split0 = {
-									Frame = "{{0, 131}, {805, 158}}";
+									Frame = "{{0, 131}, {671, 158}}";
 									Split0 = {
-										Frame = "{{0, 0}, {375, 158}}";
+										Frame = "{{0, 0}, {311, 158}}";
 									};
 									Split1 = {
-										Frame = "{{384, 0}, {421, 158}}";
+										Frame = "{{320, 0}, {351, 158}}";
 									};
 									SplitCount = 2;
 								};
 								SplitCount = 1;
 								Tab0 = {
-									Frame = "{{0, 0}, {805, 107}}";
+									Frame = "{{0, 0}, {671, 107}}";
 								};
 								Tab1 = {
 									Frame = "{{0, 0}, {745, 146}}";
 								};
 								TabCount = 2;
 							};
-							Frame = "{{0, 0}, {805, 289}}";
+							Frame = "{{0, 0}, {671, 289}}";
 							LauncherConfigVersion = 4;
 						};
 						Tab1 = {
-							Frame = "{{0, 0}, {801, 86}}";
+							Frame = "{{0, 0}, {671, 86}}";
 							LauncherConfigVersion = 3;
 							Runner = {
-								Frame = "{{0, 0}, {801, 86}}";
+								Frame = "{{0, 0}, {671, 86}}";
 							};
 						};
 						Tab2 = {
-							BuildMessageFrame = "{{0, 0}, {803, 134}}";
-							BuildTranscriptFrame = "{{0, 143}, {803, 85}}";
-							Frame = "{{0, 0}, {801, 226}}";
+							BuildMessageFrame = "{{0, 0}, {673, 134}}";
+							BuildTranscriptFrame = "{{0, 143}, {673, 85}}";
+							Frame = "{{0, 0}, {671, 226}}";
 						};
 						Tab3 = {
 							Frame = "{{0, 0}, {805, 281}}";
@@ -82,7 +89,7 @@
 					};
 					SplitCount = 1;
 					Tab0 = {
-						Frame = "{{0, 0}, {301, 757}}";
+						Frame = "{{0, 0}, {301, 555}}";
 					};
 					Tab1 = {
 						ClassesFrame = "{{0, 0}, {211, 350}}";
