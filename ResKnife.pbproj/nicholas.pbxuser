@@ -60,7 +60,8 @@
 			F5B5887B0156D5CB01000001,
 		);
 		perUserDictionary = {
-			PBXPerProjectTemplateStateSaveDate = 44496196;
+			PBXPerProjectTemplateStateSaveDate = 44877802;
+			PBXWorkspaceStateSaveDate = 44877802;
 		};
 		projectwideBuildSettings = {
 		};
