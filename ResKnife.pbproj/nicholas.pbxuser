@@ -1,9 +1,19 @@
 // !$*UTF8*$!
 {
+	F5354437022674B401A80001 = {
+		activeExec = 0;
+		customExecs = {
+		};
+	};
 	F57CEE0E0189C95101A8010B = {
 		activeExec = 0;
 		customExecs = {
 		};
+	};
+	F5ACB4180221B22401A80001 = {
+		isa = PBXSymbolicBreakpoint;
+		state = 1;
+		symbolName = "-[NSException raise]";
 	};
 	F5B5880F0156D2A601000001 = {
 		activeBuildStyle = F5EBF6B801573EC201000001;
@@ -12,18 +22,18 @@
 			F57CEE0E0189C95101A8010B,
 		);
 		breakpoints = (
+			F5ACB4180221B22401A80001,
 		);
 		perUserDictionary = {
 			PBXWorkspaceConfiguration = {
-				ContentSize = "{1009, 603}";
+				ContentSize = "{973, 576}";
 				LeftSlideOut = {
 					ActiveTab = 0;
-					Frame = "{{0, 23}, {1009, 580}}";
+					Frame = "{{0, 23}, {973, 553}}";
 					Split0 = {
-						ActiveTab = 2;
-						Frame = "{{309, 0}, {700, 580}}";
+						Frame = "{{267, 0}, {706, 553}}";
 						Split0 = {
-							Frame = "{{0, 192}, {700, 388}}";
+							Frame = "{{0, 24}, {706, 529}}";
 						};
 						SplitCount = 1;
 						Tab0 = {
@@ -33,10 +43,10 @@
 								Split0 = {
 									Frame = "{{0, 131}, {665, 158}}";
 									Split0 = {
-										Frame = "{{0, 0}, {323, 158}}";
+										Frame = "{{0, 0}, {315, 158}}";
 									};
 									Split1 = {
-										Frame = "{{332, 0}, {333, 158}}";
+										Frame = "{{324, 0}, {341, 158}}";
 									};
 									SplitCount = 2;
 								};
@@ -45,7 +55,7 @@
 									Frame = "{{0, 0}, {665, 107}}";
 								};
 								Tab1 = {
-									Frame = "{{0, 0}, {764, 146}}";
+									Frame = "{{0, 0}, {935, 146}}";
 								};
 								TabCount = 2;
 							};
@@ -53,25 +63,25 @@
 							LauncherConfigVersion = 4;
 						};
 						Tab1 = {
-							Frame = "{{0, 0}, {700, 208}}";
+							Frame = "{{0, 0}, {674, 208}}";
 							LauncherConfigVersion = 3;
 							Runner = {
-								Frame = "{{0, 0}, {700, 208}}";
+								Frame = "{{0, 0}, {674, 208}}";
 							};
 						};
 						Tab2 = {
-							BuildMessageFrame = "{{0, 0}, {702, 101}}";
-							BuildTranscriptFrame = "{{0, 110}, {702, 60}}";
-							Frame = "{{0, 0}, {700, 168}}";
+							BuildMessageFrame = "{{0, 0}, {676, 136}}";
+							BuildTranscriptFrame = "{{0, 145}, {676, 83}}";
+							Frame = "{{0, 0}, {674, 226}}";
 						};
 						Tab3 = {
-							Frame = "{{0, 0}, {700, 295}}";
+							Frame = "{{0, 0}, {706, 281}}";
 						};
 						TabCount = 4;
 					};
 					SplitCount = 1;
 					Tab0 = {
-						Frame = "{{0, 0}, {285, 580}}";
+						Frame = "{{0, 0}, {243, 553}}";
 					};
 					Tab1 = {
 						ClassesFrame = "{{0, 0}, {211, 350}}";
@@ -83,17 +93,17 @@
 						Frame = "{{0, 0}, {200, 100}}";
 					};
 					Tab3 = {
-						Frame = "{{0, 0}, {200, 740}}";
+						Frame = "{{0, 0}, {200, 806}}";
 						Split0 = {
-							Frame = "{{0, 0}, {200, 361}}";
+							Frame = "{{0, 0}, {200, 393}}";
 						};
 						Split1 = {
-							Frame = "{{0, 370}, {200, 370}}";
+							Frame = "{{0, 402}, {200, 404}}";
 						};
 						SplitCount = 2;
 					};
 					Tab4 = {
-						Frame = "{{0, 0}, {250, 100}}";
+						Frame = "{{0, 0}, {250, 806}}";
 					};
 					TabCount = 5;
 				};
