@@ -1,11 +1,5 @@
 // !$*UTF8*$!
 {
-	F51C71FA0269F15501A8010C = {
-		fileReference = F5EF83A8020C08E601A80001;
-		isa = PBXFileBreakpoint;
-		lineNumber = 136;
-		state = 1;
-	};
 	F5354437022674B401A80001 = {
 		activeExec = 0;
 	};
@@ -26,18 +20,18 @@
 		);
 		breakpoints = (
 			F5ACB4180221B22401A80001,
-			F51C71FA0269F15501A8010C,
 		);
 		executables = (
 			F5B588190156D30301000001,
 			F5B5887B0156D5CB01000001,
 		);
 		perUserDictionary = {
-			PBXPerProjectTemplateStateSaveDate = 41601555;
-			PBXWorkspaceStateSaveDate = 41601555;
+			PBXPerProjectTemplateStateSaveDate = 41887202;
+			PBXWorkspaceStateSaveDate = 41887202;
 		};
 		projectwideBuildSettings = {
 		};
+		userBookmarkGroup = F5C9ECCB027F25E101A8010C;
 		wantsIndex = 1;
 		wantsSCM = 1;
 	};
@@ -93,6 +87,23 @@
 	};
 	F5B5890B0156DC2201000001 = {
 		activeExec = 0;
+	};
+	F5C9ECCB027F25E101A8010C = {
+		children = (
+			F5C9ECDA027F59A901A8010C,
+		);
+		isa = PBXBookmarkGroup;
+		name = Root;
+	};
+	F5C9ECDA027F59A901A8010C = {
+		fRef = F5C9ECD8027F562201A8010C;
+		isa = PBXTextBookmark;
+		name = "Structs.h: 20";
+		rLen = 0;
+		rLoc = 547;
+		rType = 0;
+		vrLen = 873;
+		vrLoc = 0;
 	};
 	F5DF1C090254C6BA01A80001 = {
 		activeExec = 0;
