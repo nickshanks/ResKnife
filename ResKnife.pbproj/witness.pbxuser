@@ -51,20 +51,6 @@
 		sourceDirectories = (
 		);
 	};
-	3DD54D1E04E4A37100F59347 = {
-		fRef = 3D0933BE04DF151C00DD74B1;
-		isa = PBXBookmark;
-	};
-	3DD54D1F04E4A37100F59347 = {
-		fRef = 3D0933BE04DF151C00DD74B1;
-		isa = PBXTextBookmark;
-		name = "NuTemplateStream.h: 22";
-		rLen = 0;
-		rLoc = 350;
-		rType = 0;
-		vrLen = 977;
-		vrLoc = 0;
-	};
 	F50DFE1E036C255E01A8010A = {
 		activeExec = 0;
 	};
@@ -902,15 +888,9 @@
 					LeftSlideOut = {
 						Split0 = {
 							Split0 = {
-								NavContent0 = {
-									bookmark = 3DD54D1F04E4A37100F59347;
-									history = (
-										3DD54D1E04E4A37100F59347,
-									);
-								};
 								NavCount = 1;
 								NavGeometry0 = {
-									Frame = "{{0, 0}, {668, 621}}";
+									Frame = "{{0, 0}, {597, 325}}";
 									NavBarVisible = YES;
 								};
 								NavSplitVertical = NO;
@@ -1070,22 +1050,24 @@
 					StatusViewVisible = YES;
 					Template = F5E465990156DFB90DCA290F;
 					ToolbarVisible = YES;
-					WindowLocation = "{6, 127}";
+					WindowLocation = "{6, 128}";
 				},
 				{
-					ContentSize = "{668, 621}";
+					ContentSize = "{597, 562}";
 					LeftSlideOut = {
 						Collapsed = NO;
-						Frame = "{{0, 0}, {668, 621}}";
+						Frame = "{{0, 23}, {597, 539}}";
 						Split0 = {
+							ActiveTab = 4;
+							ActiveTabName = PBXCVSModule;
 							Collapsed = NO;
-							Frame = "{{0, 0}, {668, 621}}";
+							Frame = "{{0, 0}, {597, 539}}";
 							Split0 = {
-								Frame = "{{0, 0}, {668, 621}}";
+								Frame = "{{0, 214}, {597, 325}}";
 							};
 							SplitCount = 1;
 							Tab0 = {
-								Frame = "{{0, 0}, {484, 208}}";
+								Frame = "{{0, 0}, {597, 208}}";
 							};
 							Tab1 = {
 								Debugger = {
@@ -1136,7 +1118,7 @@
 								Frame = "{{0, 0}, {612, 295}}";
 							};
 							Tab4 = {
-								Frame = "{{0, 0}, {612, 295}}";
+								Frame = "{{0, 0}, {597, 226}}";
 							};
 							TabCount = 5;
 							TabsVisible = NO;
@@ -1193,17 +1175,13 @@
 						TabsVisible = NO;
 					};
 					NavBarShownByDefault = YES;
-					StatusViewVisible = NO;
-					Template = F5CA7ECB015C094F0DCA290F;
+					StatusViewVisible = YES;
+					Template = D1A6B68F034E715A00C919A9;
 					ToolbarVisible = NO;
-					WindowLocation = "{334, 103}";
+					WindowLocation = "{369, 162}";
 				},
 			);
 			PBXWorkspaceStateSaveDate = 82156661;
-		};
-		perUserProjectItems = {
-			3DD54D1E04E4A37100F59347 = 3DD54D1E04E4A37100F59347;
-			3DD54D1F04E4A37100F59347 = 3DD54D1F04E4A37100F59347;
 		};
 		projectwideBuildSettings = {
 		};
