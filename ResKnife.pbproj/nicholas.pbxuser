@@ -15,14 +15,15 @@
 		);
 		perUserDictionary = {
 			PBXWorkspaceConfiguration = {
-				ContentSize = "{1009, 678}";
+				ContentSize = "{1009, 603}";
 				LeftSlideOut = {
 					ActiveTab = 0;
-					Frame = "{{0, 23}, {1009, 655}}";
+					Frame = "{{0, 23}, {1009, 580}}";
 					Split0 = {
-						Frame = "{{309, 0}, {700, 655}}";
+						ActiveTab = 2;
+						Frame = "{{309, 0}, {700, 580}}";
 						Split0 = {
-							Frame = "{{0, 24}, {700, 631}}";
+							Frame = "{{0, 192}, {700, 388}}";
 						};
 						SplitCount = 1;
 						Tab0 = {
@@ -70,12 +71,12 @@
 					};
 					SplitCount = 1;
 					Tab0 = {
-						Frame = "{{0, 0}, {285, 655}}";
+						Frame = "{{0, 0}, {285, 580}}";
 					};
 					Tab1 = {
-						ClassesFrame = "{{0, 0}, {202, 464}}";
-						Frame = "{{0, 0}, {200, 764}}";
-						MembersFrame = "{{0, 473}, {202, 291}}";
+						ClassesFrame = "{{0, 0}, {211, 350}}";
+						Frame = "{{0, 0}, {209, 580}}";
+						MembersFrame = "{{0, 359}, {211, 221}}";
 						OptionsSetName = "Hierarchy, all classes";
 					};
 					Tab2 = {
