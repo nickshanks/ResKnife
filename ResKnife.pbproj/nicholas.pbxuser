@@ -9,6 +9,7 @@
 		activeBuildStyle = F5EBF6B801573EC201000001;
 		activeTarget = F5B588130156D30301000001;
 		addToTargets = (
+			F57CEE0E0189C95101A8010B,
 		);
 		breakpoints = (
 		);
