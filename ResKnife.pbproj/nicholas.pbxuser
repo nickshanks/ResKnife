@@ -1,90 +1,111 @@
 // !$*UTF8*$!
 {
+	F57CEE0E0189C95101A8010B = {
+		activeExec = 0;
+		customExecs = {
+		};
+	};
+	F583B47A0208692601A80001 = {
+		fileReference = F5CDEBA201FBD4E001A80001;
+		isa = PBXFileBreakpoint;
+		lineNumber = 117;
+		state = 1;
+	};
 	F5B5880F0156D2A601000001 = {
 		activeBuildStyle = F5EBF6B801573EC201000001;
 		activeTarget = F5B588130156D30301000001;
 		addToTargets = (
-			F5B588130156D30301000001,
+		);
+		breakpoints = (
+			F583B47A0208692601A80001,
 		);
 		perUserDictionary = {
 			PBXWorkspaceConfiguration = {
-				ContentSize = "{1182, 805}";
+				ContentSize = "{974, 615}";
 				LeftSlideOut = {
 					ActiveTab = 0;
-					Frame = "{{0, 23}, {1182, 782}}";
+					Frame = "{{0, 23}, {974, 592}}";
 					Split0 = {
-						ActiveTab = 1;
-						Frame = "{{309, 0}, {873, 782}}";
+						Frame = "{{361, 0}, {613, 592}}";
 						Split0 = {
-							Frame = "{{0, 233}, {873, 549}}";
+							Frame = "{{0, 24}, {613, 568}}";
 						};
 						SplitCount = 1;
 						Tab0 = {
 							Debugger = {
-								Frame = "{{0, 0}, {484, 208}}";
+								ActiveTab = 0;
+								Frame = "{{0, 0}, {724, 289}}";
 								Split0 = {
-									Frame = "{{0, 25}, {484, 183}}";
+									Frame = "{{0, 131}, {724, 158}}";
 									Split0 = {
-										Frame = "{{0, 0}, {236, 183}}";
+										Frame = "{{0, 0}, {353, 158}}";
 									};
 									Split1 = {
-										Frame = "{{245, 0}, {239, 183}}";
+										Frame = "{{362, 0}, {362, 158}}";
 									};
 									SplitCount = 2;
 								};
 								SplitCount = 1;
 								Tab0 = {
-									Frame = "{{0, 0}, {100, 50}}";
+									Frame = "{{0, 0}, {724, 107}}";
 								};
 								Tab1 = {
-									Frame = "{{0, 0}, {100, 50}}";
+									Frame = "{{0, 0}, {764, 146}}";
 								};
 								TabCount = 2;
 							};
-							Frame = "{{0, 0}, {484, 208}}";
+							Frame = "{{0, 0}, {724, 289}}";
 							LauncherConfigVersion = 4;
 						};
 						Tab1 = {
-							Frame = "{{0, 0}, {873, 208}}";
+							Frame = "{{0, 0}, {724, 208}}";
 							LauncherConfigVersion = 3;
 							Runner = {
-								Frame = "{{0, 0}, {873, 208}}";
+								Frame = "{{0, 0}, {724, 208}}";
 							};
 						};
 						Tab2 = {
-							BuildMessageFrame = "{{0, 0}, {875, 76}}";
-							BuildTranscriptFrame = "{{0, 85}, {875, 109}}";
-							Frame = "{{0, 0}, {873, 192}}";
+							BuildMessageFrame = "{{0, 0}, {615, 157}}";
+							BuildTranscriptFrame = "{{0, 166}, {615, 96}}";
+							Frame = "{{0, 0}, {613, 260}}";
 						};
 						Tab3 = {
-							Frame = "{{0, 0}, {612, 295}}";
+							Frame = "{{0, 0}, {764, 295}}";
 						};
 						TabCount = 4;
 					};
 					SplitCount = 1;
 					Tab0 = {
-						Frame = "{{0, 0}, {284, 782}}";
+						Frame = "{{0, 0}, {337, 592}}";
 					};
 					Tab1 = {
-						Frame = "{{0, 0}, {200, 100}}";
+						ClassesFrame = "{{0, 0}, {202, 464}}";
+						Frame = "{{0, 0}, {200, 764}}";
+						MembersFrame = "{{0, 473}, {202, 291}}";
+						OptionsSetName = "Hierarchy, all classes";
 					};
 					Tab2 = {
-						Frame = "{{0, 0}, {200, 721}}";
+						Frame = "{{0, 0}, {200, 100}}";
+					};
+					Tab3 = {
+						Frame = "{{0, 0}, {200, 740}}";
 						Split0 = {
-							Frame = "{{0, 0}, {200, 349}}";
+							Frame = "{{0, 0}, {200, 361}}";
 						};
 						Split1 = {
-							Frame = "{{0, 358}, {200, 363}}";
+							Frame = "{{0, 370}, {200, 370}}";
 						};
 						SplitCount = 2;
 					};
-					Tab3 = {
+					Tab4 = {
 						Frame = "{{0, 0}, {250, 100}}";
 					};
-					TabCount = 4;
+					TabCount = 5;
 				};
 			};
 		};
+		wantsIndex = 1;
+		wantsSCM = 1;
 	};
 	F5B588130156D30301000001 = {
 		activeExec = 0;
@@ -106,6 +127,8 @@
 		environmentEntries = (
 		);
 		isa = PBXExecutable;
+		shlibInfoDictList = (
+		);
 		sourceDirectories = (
 		);
 	};
@@ -129,6 +152,8 @@
 		environmentEntries = (
 		);
 		isa = PBXExecutable;
+		shlibInfoDictList = (
+		);
 		sourceDirectories = (
 		);
 	};
