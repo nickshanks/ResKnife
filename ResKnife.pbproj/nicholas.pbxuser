@@ -1,20 +1,16 @@
 // !$*UTF8*$!
 {
-	F51C71F50269B2C501A8010C = {
-		fileReference = F5B588320156D40B01000001;
+	F51C71FA0269F15501A8010C = {
+		fileReference = F5EF83A8020C08E601A80001;
 		isa = PBXFileBreakpoint;
-		lineNumber = 120;
+		lineNumber = 136;
 		state = 1;
 	};
 	F5354437022674B401A80001 = {
 		activeExec = 0;
-		customExecs = {
-		};
 	};
 	F57CEE0E0189C95101A8010B = {
 		activeExec = 0;
-		customExecs = {
-		};
 	};
 	F5ACB4180221B22401A80001 = {
 		isa = PBXSymbolicBreakpoint;
@@ -23,112 +19,33 @@
 	};
 	F5B5880F0156D2A601000001 = {
 		activeBuildStyle = F5EBF6B801573EC201000001;
+		activeExecutable = F5B588190156D30301000001;
 		activeTarget = F5B588130156D30301000001;
 		addToTargets = (
 			F5DF1C090254C6BA01A80001,
 		);
 		breakpoints = (
 			F5ACB4180221B22401A80001,
-			F51C71F50269B2C501A8010C,
+			F51C71FA0269F15501A8010C,
+		);
+		executables = (
+			F5B588190156D30301000001,
+			F5B5887B0156D5CB01000001,
 		);
 		perUserDictionary = {
-			PBXWorkspaceConfiguration = {
-				ContentSize = "{996, 578}";
-				LeftSlideOut = {
-					ActiveTab = 0;
-					Frame = "{{0, 23}, {996, 555}}";
-					Split0 = {
-						ActiveTab = 1;
-						Frame = "{{325, 0}, {671, 555}}";
-						Split0 = {
-							Frame = "{{0, 110}, {671, 445}}";
-						};
-						SplitCount = 1;
-						Tab0 = {
-							Debugger = {
-								ActiveTab = 0;
-								Frame = "{{0, 0}, {671, 289}}";
-								Split0 = {
-									Frame = "{{0, 131}, {671, 158}}";
-									Split0 = {
-										Frame = "{{0, 0}, {311, 158}}";
-									};
-									Split1 = {
-										Frame = "{{320, 0}, {351, 158}}";
-									};
-									SplitCount = 2;
-								};
-								SplitCount = 1;
-								Tab0 = {
-									Frame = "{{0, 0}, {671, 107}}";
-								};
-								Tab1 = {
-									Frame = "{{0, 0}, {745, 146}}";
-								};
-								TabCount = 2;
-							};
-							Frame = "{{0, 0}, {671, 289}}";
-							LauncherConfigVersion = 4;
-						};
-						Tab1 = {
-							Frame = "{{0, 0}, {671, 86}}";
-							LauncherConfigVersion = 3;
-							Runner = {
-								Frame = "{{0, 0}, {671, 86}}";
-							};
-						};
-						Tab2 = {
-							BuildMessageFrame = "{{0, 0}, {673, 134}}";
-							BuildTranscriptFrame = "{{0, 143}, {673, 85}}";
-							Frame = "{{0, 0}, {671, 226}}";
-						};
-						Tab3 = {
-							Frame = "{{0, 0}, {805, 281}}";
-						};
-						TabCount = 4;
-					};
-					SplitCount = 1;
-					Tab0 = {
-						Frame = "{{0, 0}, {301, 555}}";
-					};
-					Tab1 = {
-						ClassesFrame = "{{0, 0}, {211, 350}}";
-						Frame = "{{0, 0}, {209, 580}}";
-						MembersFrame = "{{0, 359}, {211, 221}}";
-						OptionsSetName = "Hierarchy, all classes";
-					};
-					Tab2 = {
-						Frame = "{{0, 0}, {200, 580}}";
-					};
-					Tab3 = {
-						Frame = "{{0, 0}, {200, 770}}";
-						Split0 = {
-							Frame = "{{0, 0}, {200, 374}}";
-						};
-						Split1 = {
-							Frame = "{{0, 383}, {200, 387}}";
-						};
-						SplitCount = 2;
-					};
-					Tab4 = {
-						Frame = "{{0, 0}, {250, 806}}";
-					};
-					TabCount = 5;
-				};
-			};
+			PBXPerProjectTemplateStateSaveDate = 41601555;
+			PBXWorkspaceStateSaveDate = 41601555;
+		};
+		projectwideBuildSettings = {
 		};
 		wantsIndex = 1;
 		wantsSCM = 1;
 	};
 	F5B588130156D30301000001 = {
 		activeExec = 0;
-		customExecs = {
-		};
-		targetExecs = {
-			macosx = (
-				F5B588190156D30301000001,
-			);
-		};
+		executables = (
+			F5B588190156D30301000001,
+		);
 	};
 	F5B588190156D30301000001 = {
 		activeArgIndex = 2147483647;
@@ -140,6 +57,7 @@
 		environmentEntries = (
 		);
 		isa = PBXExecutable;
+		name = "ResKnife Cocoa";
 		shlibInfoDictList = (
 		);
 		sourceDirectories = (
@@ -147,13 +65,9 @@
 	};
 	F5B588750156D5CB01000001 = {
 		activeExec = 0;
-		customExecs = {
-		};
-		targetExecs = {
-			macosx = (
-				F5B5887B0156D5CB01000001,
-			);
-		};
+		executables = (
+			F5B5887B0156D5CB01000001,
+		);
 	};
 	F5B5887B0156D5CB01000001 = {
 		activeArgIndex = 2147483647;
@@ -165,6 +79,7 @@
 		environmentEntries = (
 		);
 		isa = PBXExecutable;
+		name = "ResKnife Carbon";
 		shlibInfoDictList = (
 		);
 		sourceDirectories = (
@@ -172,22 +87,14 @@
 	};
 	F5B588D20156D78201000001 = {
 		activeExec = 0;
-		customExecs = {
-		};
 	};
 	F5B588EE0156DAF301000001 = {
 		activeExec = 0;
-		customExecs = {
-		};
 	};
 	F5B5890B0156DC2201000001 = {
 		activeExec = 0;
-		customExecs = {
-		};
 	};
 	F5DF1C090254C6BA01A80001 = {
 		activeExec = 0;
-		customExecs = {
-		};
 	};
 }
