@@ -3,6 +3,34 @@
 	F5354437022674B401A80001 = {
 		activeExec = 0;
 	};
+	F546270F02917D1501A8010C = {
+		activeExec = 0;
+	};
+	F557C04D0291ACF301A8010C = {
+		isa = PBXSymbolicBreakpoint;
+		state = 1;
+		symbolName = "+[NSCursor _buildCursor:cursorData:]";
+	};
+	F557C04E0291AD1F01A8010C = {
+		isa = PBXSymbolicBreakpoint;
+		state = 1;
+		symbolName = "-[NSCursor initWithCoder:]";
+	};
+	F557C04F0291AD2501A8010C = {
+		isa = PBXSymbolicBreakpoint;
+		state = 1;
+		symbolName = "-[NSCursor initWithImage:foregroundColorHint:backgroundColorHint:hotSpot:]";
+	};
+	F557C0500291AD3401A8010C = {
+		isa = PBXSymbolicBreakpoint;
+		state = 1;
+		symbolName = "-[NSCursor initWithImage:hotSpot:]";
+	};
+	F557C0510291AD3D01A8010C = {
+		isa = PBXSymbolicBreakpoint;
+		state = 1;
+		symbolName = "-[NSCursor init]";
+	};
 	F57CEE0E0189C95101A8010B = {
 		activeExec = 0;
 	};
@@ -16,18 +44,24 @@
 		activeExecutable = F5B588190156D30301000001;
 		activeTarget = F5B588130156D30301000001;
 		addToTargets = (
-			F5DF1C090254C6BA01A80001,
+			F5B588750156D5CB01000001,
 		);
 		breakpoints = (
 			F5ACB4180221B22401A80001,
+			F5E71B850291A69F01A8010C,
+			F557C04D0291ACF301A8010C,
+			F557C04E0291AD1F01A8010C,
+			F557C04F0291AD2501A8010C,
+			F557C0500291AD3401A8010C,
+			F557C0510291AD3D01A8010C,
 		);
 		executables = (
 			F5B588190156D30301000001,
 			F5B5887B0156D5CB01000001,
 		);
 		perUserDictionary = {
-			PBXPerProjectTemplateStateSaveDate = 41887202;
-			PBXWorkspaceStateSaveDate = 41887202;
+			PBXPerProjectTemplateStateSaveDate = 44496196;
+			PBXWorkspaceStateSaveDate = 44496196;
 		};
 		projectwideBuildSettings = {
 		};
@@ -100,12 +134,17 @@
 		isa = PBXTextBookmark;
 		name = "Structs.h: 20";
 		rLen = 0;
-		rLoc = 547;
+		rLoc = 548;
 		rType = 0;
 		vrLen = 873;
 		vrLoc = 0;
 	};
 	F5DF1C090254C6BA01A80001 = {
 		activeExec = 0;
+	};
+	F5E71B850291A69F01A8010C = {
+		isa = PBXSymbolicBreakpoint;
+		state = 1;
+		symbolName = "+[NSCursor _waitCursor]";
 	};
 }
