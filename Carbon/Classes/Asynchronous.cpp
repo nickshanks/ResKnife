@@ -15,22 +15,22 @@ static SICompletionUPP	gsSHRecordCompletionUPP;	// UPP for SIRecordCompletion	(B
 //=======================================================================================
 // Static prototypes
 //=======================================================================================
-static long SHNewRefNum( void );
-static OSErr SHNewOutRec( SHOutPtr *outRec );
-static pascal void SHPlayCompletion( SndChannelPtr channel, SndCommand *command );
-static pascal void SHRecordCompletion( SPBPtr inParams );
-static OSErr SHInitOutRec( SHOutPtr outRec, long refNum, Handle sound, char handleState );
-static void SHReleaseOutRec( SHOutPtr outRec );
-static OSErr SHQueueCallback( SndChannel *channel );
-static OSErr SHBeginPlayback( SHOutPtr outRec );
-static char SHGetState( Handle snd );
-static SHOutPtr SHOutRecFromRefNum( long refNum );
-static void SHPlayStopByRec( SHOutPtr outRec );
-static OSErr SHGetDeviceSettings( long inRefNum, short *numChannels, Fixed *sampleRate, short *sampleSize, OSType *compType );
+static long SHNewRefNum(void);
+static OSErr SHNewOutRec(SHOutPtr *outRec);
+static pascal void SHPlayCompletion(SndChannelPtr channel, SndCommand *command);
+static pascal void SHRecordCompletion(SPBPtr inParams);
+static OSErr SHInitOutRec(SHOutPtr outRec, long refNum, Handle sound, char handleState);
+static void SHReleaseOutRec(SHOutPtr outRec);
+static OSErr SHQueueCallback(SndChannel *channel);
+static OSErr SHBeginPlayback(SHOutPtr outRec);
+static char SHGetState(Handle snd);
+static SHOutPtr SHOutRecFromRefNum(long refNum);
+static void SHPlayStopByRec(SHOutPtr outRec);
+static OSErr SHGetDeviceSettings(long inRefNum, short *numChannels, Fixed *sampleRate, short *sampleSize, OSType *compType);
 
 //=======================================================================================
 //
-//	pascal OSErr SHInitSoundHelper( Boolean *attnFlag, short numChannels )
+//	pascal OSErr SHInitSoundHelper(Boolean *attnFlag, short numChannels)
 //
 //	Summary:
 //		This routine initializes the Asynchronous Sound Helper.
@@ -62,12 +62,12 @@ static OSErr SHGetDeviceSettings( long inRefNum, short *numChannels, Fixed *samp
 //		sets a flag that tells whether the Helper has been initialized.
 //
 //=======================================================================================
-pascal OSErr SHInitSoundHelper( Boolean *attnFlag, short numChannels )
+pascal OSErr SHInitSoundHelper(Boolean *attnFlag, short numChannels)
 {
 	OSErr error = noErr;
 	
 	// Use default number of channels if zero was specified
-	if( numChannels == 0 )
+	if(numChannels == 0)
 		numChannels = kSHDefChannels;
 	
 	// Remember the address of the application's "attention" flag
@@ -75,23 +75,23 @@ pascal OSErr SHInitSoundHelper( Boolean *attnFlag, short numChannels )
 	
 	// Allocate the channels
 	gsSHOutVars.numOutRecs = numChannels;
-	gsSHOutVars.outArray = (SHOutPtr) NewPtrClear( numChannels * sizeof(SHOutRec) );
+	gsSHOutVars.outArray = (SHOutPtr) NewPtrClear(numChannels * sizeof(SHOutRec));
 
 	// Set up UPPs for play completion and input completion
-	gsSHPlayCompletionUPP 	= NewSndCallBackUPP( SHPlayCompletion );
-	gsSHRecordCompletionUPP = NewSICompletionUPP( SHRecordCompletion );
+	gsSHPlayCompletionUPP 	= NewSndCallBackUPP(SHPlayCompletion);
+	gsSHRecordCompletionUPP = NewSICompletionUPP(SHRecordCompletion);
 	
 	// If successful, flag that we're initialized and exit
-	if( gsSHOutVars.outArray != nil )
+	if(gsSHOutVars.outArray != nil)
 	{
 		gsSHInited = true;
 		return error;
 	}
 	else
 	{
-		// Return some kind of error (MemError if there is one, otherwise make one up )
+		// Return some kind of error (MemError if there is one, otherwise make one up)
 		error = MemError();
-		if( error == noErr )
+		if(error == noErr)
 			error = memFullErr;
 		return error;
 	}
@@ -99,7 +99,7 @@ pascal OSErr SHInitSoundHelper( Boolean *attnFlag, short numChannels )
 
 //=======================================================================================
 //
-//	pascal void SHIdle( void )
+//	pascal void SHIdle(void)
 //
 //	Summary:
 //		This routine performs various cleanup operations when sounds have finished
@@ -131,7 +131,7 @@ pascal OSErr SHInitSoundHelper( Boolean *attnFlag, short numChannels )
 //		notified that recording is complete through his Boolean completion flag.
 //
 //=======================================================================================
-pascal void SHIdle( void )
+pascal void SHIdle(void)
 {
 	OSErr error = noErr;
 	long	realSize;
@@ -140,23 +140,23 @@ pascal void SHIdle( void )
 	*gsSHNeedsTime = false;
 
 	// Do playback cleanup
-	for( short i = 0; i < gsSHOutVars.numOutRecs; i++ )
-		if( gsSHOutVars.outArray[i].inUse &&
-				gsSHOutVars.outArray[i].channel.userInfo == kSHComplete )
+	for(short i = 0; i < gsSHOutVars.numOutRecs; i++)
+		if(gsSHOutVars.outArray[i].inUse &&
+				gsSHOutVars.outArray[i].channel.userInfo == kSHComplete)
 			// We've found a channel that needs closing...
-			SHReleaseOutRec( &gsSHOutVars.outArray[i] );
+			SHReleaseOutRec(&gsSHOutVars.outArray[i]);
 	
 	// Do recording cleaunp
-	if( gsSHInVars.recording && gsSHInVars.recordComplete )
+	if(gsSHInVars.recording && gsSHInVars.recordComplete)
 	{
-		HUnlock( gsSHInVars.inHandle );
+		HUnlock(gsSHInVars.inHandle);
 		
-		if( gsSHInVars.inPB.error && gsSHInVars.inPB.error != abortErr )
+		if(gsSHInVars.inPB.error && gsSHInVars.inPB.error != abortErr)
 		{
 			// An error (other than a manual stop) occurred during recording.  Kill the
 			// handle and save the error code.
 			gsSHInVars.recordErr = gsSHInVars.inPB.error;
-			DisposeHandle( gsSHInVars.inHandle );
+			DisposeHandle(gsSHInVars.inHandle);
 			gsSHInVars.inHandle = nil;
 		}
 		else
@@ -168,26 +168,26 @@ pascal void SHIdle( void )
 			// size -- that's why we don't bother checking the error).
 			gsSHInVars.recordErr = noErr;
 			realSize = gsSHInVars.inPB.count + gsSHInVars.headerLength;
-			error = SetupSndHeader( (SndListHandle) gsSHInVars.inHandle, gsSHInVars.numChannels,
+			error = SetupSndHeader((SndListHandle) gsSHInVars.inHandle, gsSHInVars.numChannels,
 				gsSHInVars.sampleRate, gsSHInVars.sampleSize, gsSHInVars.compType,
-				kSHBaseNote, realSize, &gsSHInVars.headerLength );
-			SetHandleSize( gsSHInVars.inHandle, realSize );		// Shorten the handle
+				kSHBaseNote, realSize, &gsSHInVars.headerLength);
+			SetHandleSize(gsSHInVars.inHandle, realSize);		// Shorten the handle
 		}
 		
 		// Error or not, close the recording device, and notify the application that
 		// recording is complete, through the recording-completed flag that the caller
 		// originally passed into SHRecordStart.
-		SPBCloseDevice( gsSHInVars.inRefNum );
+		SPBCloseDevice(gsSHInVars.inRefNum);
 		gsSHInVars.recording = false;
 		gsSHInVars.inRefNum = 0;
-		if( gsSHInVars.appComplete != nil )
+		if(gsSHInVars.appComplete != nil)
 			*gsSHInVars.appComplete = true;
 	}
 }
 
 //=======================================================================================
 //
-//	pascal void SHKillSoundHelper( void )
+//	pascal void SHKillSoundHelper(void)
 //
 //	Summary:
 //		This routine terminates the Asynchronous Sound Helper.
@@ -210,12 +210,12 @@ pascal void SHIdle( void )
 //		output records.
 //
 //=======================================================================================
-pascal void SHKillSoundHelper( void )
+pascal void SHKillSoundHelper(void)
 {
 	unsigned long	timeout;
 	Boolean	outputClean, inputClean;
 	
-	if( !gsSHInited )
+	if(!gsSHInited)
 		return;
 
 	SHPlayStopAll();	// Kill all playback
@@ -224,29 +224,29 @@ pascal void SHKillSoundHelper( void )
 	// Now sync-wait for everything to clean itself up
 	timeout = TickCount() + kSHSyncWaitTimeout;
 	do {
-		if( *gsSHNeedsTime )
+		if(*gsSHNeedsTime)
 			SHIdle();			// Clean up when required
 
 		// Check if all our output channels are cleaned up
 		outputClean = true;
-		for( short i = 0; i < gsSHOutVars.numOutRecs && outputClean; i++ )
-			if( gsSHOutVars.outArray[i].inUse )
+		for(short i = 0; i < gsSHOutVars.numOutRecs && outputClean; i++)
+			if(gsSHOutVars.outArray[i].inUse)
 				outputClean = false;
 		
 		// Check whether our recording is cleaned up
 		inputClean = !gsSHInVars.recording;
 		
-		if( inputClean && outputClean )
+		if(inputClean && outputClean)
 			break;
-	} while (TickCount() < timeout );
+	} while (TickCount() < timeout);
 	
 	// Lose our preallocated sound channels
-	DisposePtr( (Ptr) gsSHOutVars.outArray );
+	DisposePtr((Ptr) gsSHOutVars.outArray);
 }
 
 //=======================================================================================
 //
-//	long SHNewRefNum( void )
+//	long SHNewRefNum(void)
 //
 //	Summary:
 //		This routine returns the next available output reference number.
@@ -266,14 +266,14 @@ pascal void SHKillSoundHelper( void )
 //		erence numbers are unique throughout a session (modulo 2,147,483,647).
 //
 //=======================================================================================
-long SHNewRefNum( void )
+long SHNewRefNum(void)
 {
 	return gsSHOutVars.nextRef++;
 }
 
 //=======================================================================================
 //
-//	OSErr SHNewOutRec( SHOutPtr *outRec )
+//	OSErr SHNewOutRec(SHOutPtr *outRec)
 //
 //	Summary:
 //		This routine attempts to return the first available output record.
@@ -296,11 +296,11 @@ long SHNewRefNum( void )
 //		the record is stored via the VAR parameter, and noErr is returned.
 //
 //=======================================================================================
-OSErr SHNewOutRec( SHOutPtr *outRec )
+OSErr SHNewOutRec(SHOutPtr *outRec)
 {
 	// First look for a free channel among our preallocated output records
-	for( short i = 0; i < gsSHOutVars.numOutRecs; i++ )
-		if( !gsSHOutVars.outArray[i].inUse )
+	for(short i = 0; i < gsSHOutVars.numOutRecs; i++)
+		if(!gsSHOutVars.outArray[i].inUse)
 		{
 			*outRec = &gsSHOutVars.outArray[i];
 			return noErr;
@@ -311,7 +311,7 @@ OSErr SHNewOutRec( SHOutPtr *outRec )
 
 //=======================================================================================
 //
-//	pascal void SHPlayCompletion( SndChannelPtr channel, SndCommand *command )
+//	pascal void SHPlayCompletion(SndChannelPtr channel, SndCommand *command)
 //
 //	Summary:
 //		This routine is the playback callback routine we provide to the Sound Manager.
@@ -343,10 +343,10 @@ OSErr SHNewOutRec( SHOutPtr *outRec )
 //		freed.
 //
 //=======================================================================================
-pascal void SHPlayCompletion( SndChannelPtr channel, SndCommand *command )
+pascal void SHPlayCompletion(SndChannelPtr channel, SndCommand *command)
 {
 	// Look for our "callback signature" in the sound command.
-	if( command->param1 == kSHCompleteSig )
+	if(command->param1 == kSHCompleteSig)
 	{	
 		channel->userInfo = kSHComplete;
 		*gsSHNeedsTime = true;				// Tell the app to give us an SHIdle call
@@ -355,7 +355,7 @@ pascal void SHPlayCompletion( SndChannelPtr channel, SndCommand *command )
 
 //=======================================================================================
 //
-//	pascal void SHRecordCompletion( SPBPtr inParams )
+//	pascal void SHRecordCompletion(SPBPtr inParams)
 //
 //	Summary:
 //		This routine is the recording callback routine we provide to the Sound Manager.
@@ -376,19 +376,19 @@ pascal void SHPlayCompletion( SndChannelPtr channel, SndCommand *command )
 //		routine first grabs A5 from the SPB's userLong field and sets us up to use our
 //		globals.  Then, it sets the application's "Helper needs time" Boolean, and sets
 //		our internal flag that recording has completed (so SHIdle will know to close the
-//		recording device, etc. )
+//		recording device, etc.)
 //
 //=======================================================================================
-pascal void SHRecordCompletion( SPBPtr inParams )
+pascal void SHRecordCompletion(SPBPtr inParams)
 {
-	#pragma unused( inParams )
+	#pragma unused(inParams)
 	*gsSHNeedsTime = true;						// Notify the app to give us time
 	gsSHInVars.recordComplete = true;			// Make a note to ourselves, too
 }
 
 //=======================================================================================
 //
-//	OSErr SHInitOutRec( SHOutPtr outRec, long refNum, Handle sound, char handleState )
+//	OSErr SHInitOutRec(SHOutPtr outRec, long refNum, Handle sound, char handleState)
 //
 //	Summary:
 //		This routine is used to fill out an SHOutRec and call SndNewChannel.
@@ -420,19 +420,19 @@ pascal void SHRecordCompletion( SPBPtr inParams )
 //		SHPlayCompletion, to SndNewChannel.
 //
 //=======================================================================================
-OSErr SHInitOutRec( SHOutPtr outRec, long refNum, Handle sound, char handleState )
+OSErr SHInitOutRec(SHOutPtr outRec, long refNum, Handle sound, char handleState)
 {
 	OSErr			error;
 	SndChannelPtr	channel;
 	
 	// Initialize the sound channel inside outRec.  We'll clear the bytes to zero,
 	// install the proper queue size, then call SndNewChannel.
-	for( unsigned short i = 0; i < sizeof(SndChannel); i++ )
+	for(unsigned short i = 0; i < sizeof(SndChannel); i++)
 		((char *) &outRec->channel)[i] = 0;
 	outRec->channel.qLength = stdQLength;
 	channel = &outRec->channel;
-	error = SndNewChannel( &channel, kSHNoSynth, kSHNoInit, gsSHPlayCompletionUPP );
-	if( error != noErr )
+	error = SndNewChannel(&channel, kSHNoSynth, kSHNoInit, gsSHPlayCompletionUPP);
+	if(error != noErr)
 		return error;
 	
 	// Initialize the rest of the record and return noErr.  Note that we only set the
@@ -448,7 +448,7 @@ OSErr SHInitOutRec( SHOutPtr outRec, long refNum, Handle sound, char handleState
 
 //=======================================================================================
 //
-//	void SHReleaseOutRec( SHOutPtr outRec )
+//	void SHReleaseOutRec(SHOutPtr outRec)
 //
 //	Summary:
 //		This routine "releases," or frees up an output record.
@@ -471,27 +471,27 @@ OSErr SHInitOutRec( SHOutPtr outRec, long refNum, Handle sound, char handleState
 //		inUse flag, thereby allowing it to be reused.
 //
 //=======================================================================================
-void SHReleaseOutRec( SHOutPtr outRec )
+void SHReleaseOutRec(SHOutPtr outRec)
 {
 	Boolean found = false;
 	
 	// An SHOutRec's inUse flag only gets set if SndNewChannel has been called on the
 	// record's sound channel.  So if it is in use, we try a call to SndDisposeChannel,
-	// and ignore the error (what else can we do? )
-	if( outRec->inUse )
-		SndDisposeChannel( &outRec->channel, kSHQuietNow );
+	// and ignore the error (what else can we do?)
+	if(outRec->inUse)
+		SndDisposeChannel(&outRec->channel, kSHQuietNow);
 
 	// If this sound handle isn't being used by some other output record, kindly restore
 	// the original handle state.
-	if( outRec->sound != nil )
+	if(outRec->sound != nil)
 	{
-		for( short i = 0; i < gsSHOutVars.numOutRecs && !found; i++ )
-			if( &gsSHOutVars.outArray[i] != outRec && gsSHOutVars.outArray[i].inUse &&
-					gsSHOutVars.outArray[i].sound == outRec->sound )
+		for(short i = 0; i < gsSHOutVars.numOutRecs && !found; i++)
+			if(&gsSHOutVars.outArray[i] != outRec && gsSHOutVars.outArray[i].inUse &&
+					gsSHOutVars.outArray[i].sound == outRec->sound)
 				found = true;
 		
-		if( !found )
-			HSetState( outRec->sound,outRec->handleState );
+		if(!found)
+			HSetState(outRec->sound,outRec->handleState);
 	}
 	
 	outRec->inUse = false;
@@ -499,7 +499,7 @@ void SHReleaseOutRec( SHOutPtr outRec )
 
 //=======================================================================================
 //
-//	OSErr SHQueueCallback( SndChannel *channel )
+//	OSErr SHQueueCallback(SndChannel *channel)
 //
 //	Summary:
 //		This routine queues up a verifyable callback in the given sound channel.
@@ -522,7 +522,7 @@ void SHReleaseOutRec( SHOutPtr outRec )
 //		in param2.
 //
 //=======================================================================================
-OSErr SHQueueCallback( SndChannel *channel )
+OSErr SHQueueCallback(SndChannel *channel)
 {
 	SndCommand	command;
 
@@ -530,12 +530,12 @@ OSErr SHQueueCallback( SndChannel *channel )
 	command.param1 = kSHCompleteSig;		// To make the callback verifyable.
 	command.param2 = 0L;
 
-	return SndDoCommand( channel, &command, kSHWait );
+	return SndDoCommand(channel, &command, kSHWait);
 }
 
 //=======================================================================================
 //
-//	OSErr SHBeginPlayback(SHOutPtr outRec )
+//	OSErr SHBeginPlayback(SHOutPtr outRec)
 //
 //	Summary:
 //		This routine begins playback of the sound that's installed in the given SHOutRec.
@@ -569,24 +569,24 @@ OSErr SHQueueCallback( SndChannel *channel )
 //		then call SHGetChannel to retreive a pointer to the channel.
 //
 //=======================================================================================
-OSErr SHBeginPlayback( SHOutPtr outRec )
+OSErr SHBeginPlayback(SHOutPtr outRec)
 {
 	OSErr error = noErr;
 	
 	// First, initiate playback.  If an error occurs, return it immediately.
-	error = SndPlay( &outRec->channel, (SndListHandle)outRec->sound, kSHAsync );
-	if( error != noErr )
+	error = SndPlay(&outRec->channel, (SndListHandle)outRec->sound, kSHAsync);
+	if(error != noErr)
 		return error;
 	
 	// Playback started okay.  Let's queue up a callback command so we'll know when
 	// the sound is finished.
-	SHQueueCallback( &outRec->channel );		// ignore error (what can we do? )
+	SHQueueCallback(&outRec->channel);		// ignore error (what can we do?)
 	return error;
 }
 
 //=======================================================================================
 //
-//	char SHGetState( Handle snd )
+//	char SHGetState(Handle snd)
 //
 //	Summary:
 //		This routine is a local replacement for HGetState which tries to find snd in an
@@ -617,12 +617,12 @@ OSErr SHBeginPlayback( SHOutPtr outRec )
 //		when the sound has completed.
 //
 //=======================================================================================
-char SHGetState( Handle snd )
+char SHGetState(Handle snd)
 {
 	// Look for an output record that has snd for a sound.  If one is found, grab and
 	// return its handleState instead of the handle's current flags.
-	for( short i = 0; i < gsSHOutVars.numOutRecs; i++ )
-		if( gsSHOutVars.outArray[i].inUse && gsSHOutVars.outArray[i].sound == snd )
+	for(short i = 0; i < gsSHOutVars.numOutRecs; i++)
+		if(gsSHOutVars.outArray[i].inUse && gsSHOutVars.outArray[i].sound == snd)
 			return gsSHOutVars.outArray[i].handleState;
 	
 	return HGetState(snd);
@@ -630,7 +630,7 @@ char SHGetState( Handle snd )
 
 //=======================================================================================
 //
-//	pascal OSErr SHPlayByID( short resID, long *refNum )
+//	pascal OSErr SHPlayByID(short resID, long *refNum)
 //
 //	Summary:
 //		This routine begins asynchronous playback of the 'snd ' resource with ID resID.
@@ -671,7 +671,7 @@ char SHGetState( Handle snd )
 //		for SHPlayByHandle and SHBeginPlayback.
 //		
 //=======================================================================================
-pascal OSErr SHPlayByID( short resID, long *refNum )
+pascal OSErr SHPlayByID(short resID, long *refNum)
 {
 	Handle		sound;
 	char		oldhandleState;
@@ -684,50 +684,50 @@ pascal OSErr SHPlayByID( short resID, long *refNum )
 	// is because some of the Sound Manager stuff below may cause memory allocation,
 	// which could cause the sound to be purged.  We don't want that, since we're
 	// going to start playing it real soon.
-	sound = GetResource( soundListRsrc, resID );
-	if( sound == nil )
+	sound = GetResource(soundListRsrc, resID);
+	if(sound == nil)
 	{
 		error = ResError();
-		if( error == noErr )
+		if(error == noErr)
 			error = resNotFound;
 		return error;
 	}
-	oldhandleState = SHGetState(sound );
-	HNoPurge(sound );
+	oldhandleState = SHGetState(sound);
+	HNoPurge(sound);
 		
 	// Now let's get a reference number and an output record.
 	ref = SHNewRefNum();
-	error = SHNewOutRec( &outRec );
-	if( error != noErr )
+	error = SHNewOutRec(&outRec);
+	if(error != noErr)
 	{
-		HSetState( sound, oldhandleState );
+		HSetState(sound, oldhandleState);
 		return error;
 	}
 	
 	// Now let's fill in the output record with all the pertinent information.  This
 	// routine also initializes the sound channel and flags outRec as "in use."
-	error = SHInitOutRec(outRec, ref, sound, oldhandleState );
-	if( error != noErr )
+	error = SHInitOutRec(outRec, ref, sound, oldhandleState);
+	if(error != noErr)
 	{
-		HSetState( sound, oldhandleState );
-		SHReleaseOutRec( outRec );
+		HSetState(sound, oldhandleState);
+		SHReleaseOutRec(outRec);
 		return error;
 	}
 	
 	// At this point, we're in pretty good shape.  We've got a reference number, an
 	// initialized output record, and the sound handle.  Let's party.
-	MoveHHi( sound );
-	HLock( sound );
-	error = SHBeginPlayback( outRec );
-	if( error != noErr )
+	MoveHHi(sound);
+	HLock(sound);
+	error = SHBeginPlayback(outRec);
+	if(error != noErr)
 	{
-		HSetState( sound, oldhandleState );
-		SHReleaseOutRec( outRec );
+		HSetState(sound, oldhandleState);
+		SHReleaseOutRec(outRec);
 		return error;
 	}
 	else
 	{
-		if( refNum != nil  )			// refNum is optional -- the caller may not want it
+		if(refNum != nil )			// refNum is optional -- the caller may not want it
 			*refNum = ref;
 		return error;
 	}
@@ -735,7 +735,7 @@ pascal OSErr SHPlayByID( short resID, long *refNum )
 
 //=======================================================================================
 //
-//	pascal OSErr SHPlayByHandle( Handle sound, long *refNum )
+//	pascal OSErr SHPlayByHandle(Handle sound, long *refNum)
 //
 //	Summary:
 //		This routine begins asynchronous playback of a sound provided in a handle.
@@ -775,7 +775,7 @@ pascal OSErr SHPlayByID( short resID, long *refNum )
 //		See the comments for SHBeginPlayback.
 //		
 //=======================================================================================
-pascal OSErr SHPlayByHandle( Handle sound, long *refNum )
+pascal OSErr SHPlayByHandle(Handle sound, long *refNum)
 {
 	char		oldhandleState;
 	short		ref;
@@ -788,56 +788,56 @@ pascal OSErr SHPlayByHandle( Handle sound, long *refNum )
 	// it real soon.  If the caller gave us nil for a sound handle, that means he's
 	// really just interested in having the sound channel.  So, we go on our merrory way
 	// without a sound handle.
-	if( sound != nil )
+	if(sound != nil)
 	{
-		oldhandleState = SHGetState( sound );
-		HNoPurge(sound );
+		oldhandleState = SHGetState(sound);
+		HNoPurge(sound);
 	} else oldhandleState = 0;
 		
 	// Now, let's get a reference number and an output record.
 	ref = SHNewRefNum();
-	error = SHNewOutRec( &outRec );
-	if( error != noErr )
+	error = SHNewOutRec(&outRec);
+	if(error != noErr)
 	{
-		if( sound != nil )
-			HSetState( sound, oldhandleState );
+		if(sound != nil)
+			HSetState(sound, oldhandleState);
 		return error;
 	}
 	
 	// Now let's fill in the output record with all the pertinent information.  This
 	// routine also initializes the sound channel and flags outRec as "in use."
-	error = SHInitOutRec( outRec, ref, sound, oldhandleState );
-	if( error != noErr )
+	error = SHInitOutRec(outRec, ref, sound, oldhandleState);
+	if(error != noErr)
 	{
-		if( sound != nil )
-			HSetState( sound, oldhandleState );
-		SHReleaseOutRec( outRec );
+		if(sound != nil)
+			HSetState(sound, oldhandleState);
+		SHReleaseOutRec(outRec);
 		return error;
 	}
 	
 	// At this point, we're in pretty good shape.  We've got a reference number, an
 	// initialized output record, and the sound handle.  Let's get whacky.
-	if( sound != nil )
+	if(sound != nil)
 	{			// if we've got a sound, lock and begin playback
-		MoveHHi( sound );
-		HLock( sound );
-		error = SHBeginPlayback( outRec );
-		if( error != noErr )
+		MoveHHi(sound);
+		HLock(sound);
+		error = SHBeginPlayback(outRec);
+		if(error != noErr)
 	{
-			HSetState( sound, oldhandleState );
-			SHReleaseOutRec( outRec );
+			HSetState(sound, oldhandleState);
+			SHReleaseOutRec(outRec);
 			return error;
 		}
 	else
 	{
-			if( refNum != nil )		// refNum is optional -  the caller may not want it
+			if(refNum != nil)		// refNum is optional -  the caller may not want it
 				*refNum = ref;
 			return error;
 		}
 	}
 	else
 	{						// if there's no sound, go ahead and return noErr
-		if( refNum != nil )			// refNum is optional -  the caller may not want it
+		if(refNum != nil)			// refNum is optional -  the caller may not want it
 			*refNum = ref;
 		return error;
 	}
@@ -845,7 +845,7 @@ pascal OSErr SHPlayByHandle( Handle sound, long *refNum )
 
 //=======================================================================================
 //
-//	SHOutPtr SHOutRecFromRefNum( long refNum )
+//	SHOutPtr SHOutRecFromRefNum(long refNum)
 //
 //	Summary:
 //		This routine finds that SHOutRec that is associated with a given refNum, if any.
@@ -866,24 +866,24 @@ pascal OSErr SHPlayByHandle( Handle sound, long *refNum )
 //		returned.  If not, then nil is returned.
 //
 //=======================================================================================
-SHOutPtr SHOutRecFromRefNum( long refNum )
+SHOutPtr SHOutRecFromRefNum(long refNum)
 {
 	short i;
 	
 	// Search for the specified refNum
-	for( i = 0; i < gsSHOutVars.numOutRecs; i++ )
-		if( gsSHOutVars.outArray[i].inUse && gsSHOutVars.outArray[i].refNum == refNum )
+	for(i = 0; i < gsSHOutVars.numOutRecs; i++)
+		if(gsSHOutVars.outArray[i].inUse && gsSHOutVars.outArray[i].refNum == refNum)
 			break;
 	
 	// If we found it, return a pointer to that record, otherwise, nil.
-	if( i == gsSHOutVars.numOutRecs )
+	if(i == gsSHOutVars.numOutRecs)
 		return nil;
 	else return &gsSHOutVars.outArray[i];
 }
 
 //=======================================================================================
 //
-//	void SHPlayStopByRec( SHOutPtr outRec )
+//	void SHPlayStopByRec(SHOutPtr outRec)
 //
 //	Summary:
 //		This routine stops sound playback on the channel associated with the given
@@ -907,7 +907,7 @@ SHOutPtr SHOutRecFromRefNum( long refNum )
 //		commands are just eaten by the Sound Manager.
 //
 //=======================================================================================
-void SHPlayStopByRec( SHOutPtr outRec )
+void SHPlayStopByRec(SHOutPtr outRec)
 {
 	SndCommand	cmd;
 
@@ -915,22 +915,22 @@ void SHPlayStopByRec( SHOutPtr outRec )
 	cmd.cmd = flushCmd;
 	cmd.param1 = 0;
 	cmd.param2 = 0;
-	SndDoImmediate( &outRec->channel, &cmd );
+	SndDoImmediate(&outRec->channel, &cmd);
 	
 	// Shut up this minute!  Go to your room!  No dessert tonight for you, little boy.
 	cmd.cmd = quietCmd;
 	cmd.param1 = 0;
 	cmd.param2 = 0;
-	SndDoImmediate( &outRec->channel, &cmd );
+	SndDoImmediate(&outRec->channel, &cmd);
 	
 	// It is now safe to just manually dump our channel (we'll just skip the whole
 	// callback thing in this case).
-	SHReleaseOutRec( outRec );
+	SHReleaseOutRec(outRec);
 }
 
 //=======================================================================================
 //
-//	pascal OSErr SHPlayStop( long refNum )
+//	pascal OSErr SHPlayStop(long refNum)
 //
 //	Summary:
 //		This routine stops playback on the output record referrored to by refNum.
@@ -946,7 +946,7 @@ void SHPlayStopByRec( SHOutPtr outRec )
 //							record.  (Note that this is not necessarily bad.  If they
 //							try to stop a sound that has already stopped by its own
 //							accord, this error will be returned.  Usually you can call
-//							this routine and ignore the error. )
+//							this routine and ignore the error.)
 //		noErr				Otherwise.
 //
 //	Operation:
@@ -955,17 +955,17 @@ void SHPlayStopByRec( SHOutPtr outRec )
 //		playback for that output record.
 //
 //=======================================================================================
-pascal OSErr SHPlayStop( long refNum )
+pascal OSErr SHPlayStop(long refNum)
 {
 	SHOutPtr	outRec;
 	
 	// Look for the associated output record.
-	outRec = SHOutRecFromRefNum( refNum );
+	outRec = SHOutRecFromRefNum(refNum);
 	
 	// If we found it, call SHPlayStopByRec to stop playback.
-	if( outRec != nil )
+	if(outRec != nil)
 	{
-		SHPlayStopByRec( outRec );
+		SHPlayStopByRec(outRec);
 		return noErr;
 	}
 	else return kSHErrBadRefNum;
@@ -973,7 +973,7 @@ pascal OSErr SHPlayStop( long refNum )
 
 //=======================================================================================
 //
-//	pascal OSErr SHPlayStopAll( void )
+//	pascal OSErr SHPlayStopAll(void)
 //
 //	Summary:
 //		This routine stops all sound that the Helper initiated.
@@ -993,20 +993,20 @@ pascal OSErr SHPlayStop( long refNum )
 //		by calling SHPlayStopByRec.  Errors are ignored.
 //
 //=======================================================================================
-pascal OSErr SHPlayStopAll( void )
+pascal OSErr SHPlayStopAll(void)
 {
 	// Look for output records that are in use and stop their playback with
 	// SHPlayStopByRec.
-	for( short i = 0; i < gsSHOutVars.numOutRecs; i++ )
-		if( gsSHOutVars.outArray[i].inUse )
-			SHPlayStopByRec( &gsSHOutVars.outArray[i] );
+	for(short i = 0; i < gsSHOutVars.numOutRecs; i++)
+		if(gsSHOutVars.outArray[i].inUse)
+			SHPlayStopByRec(&gsSHOutVars.outArray[i]);
 	
 	return noErr;
 }
 
 //=======================================================================================
 //
-//	pascal OSErr SHPlayPause( long refNum )
+//	pascal OSErr SHPlayPause(long refNum)
 //
 //	Summary:
 //		This routine pauses playback of sound associated with refNum.
@@ -1047,39 +1047,39 @@ pascal OSErr SHPlayStopAll( void )
 //		If the sound was successfully paused, the output record's paused flag is set.
 //
 //=======================================================================================
-pascal OSErr SHPlayPause( long refNum )
+pascal OSErr SHPlayPause(long refNum)
 {
 	SHOutPtr	outRec;
 	SndCommand	cmd;
 	OSErr		error;
 	
-	outRec = SHOutRecFromRefNum(refNum );
-	if( outRec != nil )
+	outRec = SHOutRecFromRefNum(refNum);
+	if(outRec != nil)
 	{
 		// Don't bother with this if we're already paused.
-		if( outRec->paused )
+		if(outRec->paused)
 			return kSHErrAlreadyPaused;
 		
 		// Get the current playback rate for this sound.
 /*		cmd.cmd = getRateCmd;
 		cmd.param1 = 0;
 		cmd.param2 = (long) &outRec->rate;
-		error = SndDoImmediate( &outRec->channel, &cmd );
-		if( error != noErr )
+		error = SndDoImmediate(&outRec->channel, &cmd);
+		if(error != noErr)
 			return error;
 */		
 		// Now pause with either a rateCmd or a pauseCmd, as appropriate
 		cmd.param1 = 0;
 		cmd.param2 = 0;
-/*		if( outRec->rate != 0 )
+/*		if(outRec->rate != 0)
 		{
 			// If we get something non-zero, it's safe to assume that whatever
 			// synthesizer we're talking to will be able to understand a rateCmd to
 			// restore the rate (probably the sampled synthesizer).  To pause the
 			// sound, we'll set the rate to zero.
 			cmd.cmd = rateCmd;
-			error = SndDoImmediate( &outRec->channel, &cmd );
-			if( error != noErr )
+			error = SndDoImmediate(&outRec->channel, &cmd);
+			if(error != noErr)
 				return error;
 		}
 		else
@@ -1088,8 +1088,8 @@ pascal OSErr SHPlayPause( long refNum )
 			// pause command queue processing with a pauseCmd.  This is how command-type
 			// sounds (e.g. Simple Beep) are paused.
 			cmd.cmd = pauseCmd;
-			error = SndDoImmediate( &outRec->channel, &cmd );
-			if( error != noErr )
+			error = SndDoImmediate(&outRec->channel, &cmd);
+			if(error != noErr)
 				return error;
 /*		}
 */
@@ -1101,7 +1101,7 @@ pascal OSErr SHPlayPause( long refNum )
 
 //=======================================================================================
 //
-//	pascal OSErr SHPlayContinue( long refNum )
+//	pascal OSErr SHPlayContinue(long refNum)
 //
 //	Summary:
 //		This routine continues playback of a previously paused sound.
@@ -1129,29 +1129,29 @@ pascal OSErr SHPlayPause( long refNum )
 //		we clear the output record's paused flag.
 //
 //=======================================================================================
-pascal OSErr SHPlayContinue( long refNum )
+pascal OSErr SHPlayContinue(long refNum)
 {
 	SHOutPtr	outRec;
 	SndCommand	cmd;
 	OSErr		error;
 	
-	outRec = SHOutRecFromRefNum(refNum );
-	if( outRec != nil )
+	outRec = SHOutRecFromRefNum(refNum);
+	if(outRec != nil)
 	{
 		// Don't even bother with this stuff if the channel isn't paused.
-		if( !outRec->paused )
+		if(!outRec->paused)
 			return kSHErrAlreadyContinued;
 		
 		// Now continue playback with a rateCmd or a resumeCmd, as appropriate.
 		cmd.param1 = 0;
-/*		if( outRec->rate != 0 )
+/*		if(outRec->rate != 0)
 		{
 			// Resume sampled sound playback by restoring the synthesizer's playback
 			// rate with a rateCmd.
 			cmd.cmd = rateCmd;
 			cmd.param2 = outRec->rate;
-			error = SndDoImmediate( &outRec->channel, &cmd );
-			if( error != noErr )
+			error = SndDoImmediate(&outRec->channel, &cmd);
+			if(error != noErr)
 				return error;
 		}
 		else
@@ -1159,8 +1159,8 @@ pascal OSErr SHPlayContinue( long refNum )
 */			// Resume sound queue processing with a resumeCmd.
 			cmd.cmd = resumeCmd;
 			cmd.param2 = 0;
-			error = SndDoImmediate( &outRec->channel, &cmd );
-			if( error != noErr )
+			error = SndDoImmediate(&outRec->channel, &cmd);
+			if(error != noErr)
 				return error;
 /*		}
 */		
@@ -1172,7 +1172,7 @@ pascal OSErr SHPlayContinue( long refNum )
 
 //=======================================================================================
 //
-//	pascal SHPlayStat SHPlayStatus( long refNum )
+//	pascal SHPlayStat SHPlayStatus(long refNum)
 //
 //	Summary:
 //		This routine returns a status value for the sound associated with refNum.
@@ -1199,17 +1199,17 @@ pascal OSErr SHPlayContinue( long refNum )
 //		shpPlaying based on the value of the output record's paused flag.
 //
 //=======================================================================================
-pascal SHPlayStat SHPlayStatus( long refNum )
+pascal SHPlayStat SHPlayStatus(long refNum)
 {
 	SHOutPtr	outRec;
 	
-	if( refNum >= gsSHOutVars.nextRef )
+	if(refNum >= gsSHOutVars.nextRef)
 		return shpError;
 	else
 	{
-		outRec = SHOutRecFromRefNum( refNum );
+		outRec = SHOutRecFromRefNum(refNum);
 	
-		if( outRec != nil )
+		if(outRec != nil)
 		{
 			// We found an SHOutRec for the guy's ref num, (so it's in use).
 			return outRec->paused? shpPaused:shpPlaying;
@@ -1226,7 +1226,7 @@ pascal SHPlayStat SHPlayStatus( long refNum )
 
 //=======================================================================================
 //
-//	pascal OSErr SHGetChannel( long refNum, SndChannelPtr *channel )
+//	pascal OSErr SHGetChannel(long refNum, SndChannelPtr *channel)
 //
 //	Summary:
 //		This routine allows the caller to retrieve a pointer to the sound channel that
@@ -1255,7 +1255,7 @@ pascal SHPlayStat SHPlayStatus( long refNum )
 //		the channel pointer by calling SHGetChannel, manually PlaySnd the background
 //		music sound (which should contain a soundCmd to install the music as a voice),
 //		then send a freqCmd to start the music playing.  It'll keep looping until a
-//		quietCmd comes along.  (SEE NOTE BELOW. )
+//		quietCmd comes along.  (SEE NOTE BELOW.)
 //
 //	IMPORTANT:
 //		If you use the above-described technique to provide looped background sound, it
@@ -1266,15 +1266,15 @@ pascal SHPlayStat SHPlayStatus( long refNum )
 //		pre-7.0 Systems.
 //
 //=======================================================================================
-pascal OSErr SHGetChannel( long refNum, SndChannelPtr *channel )
+pascal OSErr SHGetChannel(long refNum, SndChannelPtr *channel)
 {
 	SHOutPtr	outRec;
 	
 	// Look for the output record associated with refNum.
-	outRec = SHOutRecFromRefNum( refNum );
+	outRec = SHOutRecFromRefNum(refNum);
 	
 	// If we found one, return a pointer to the sound channel.
-	if( outRec != nil )
+	if(outRec != nil)
 	{
 		*channel = &outRec->channel;
 		return noErr;
@@ -1284,7 +1284,7 @@ pascal OSErr SHGetChannel( long refNum, SndChannelPtr *channel )
 
 //=======================================================================================
 //
-//	OSErr SHGetDeviceSettings( long inRefNum, short *numChannels, Fixed *sampleRate, short *sampleSize, OSType *compType )
+//	OSErr SHGetDeviceSettings(long inRefNum, short *numChannels, Fixed *sampleRate, short *sampleSize, OSType *compType)
 //
 //	Summary:
 //		This routine gets several parameters from an open sound input device.
@@ -1310,24 +1310,24 @@ pascal OSErr SHGetChannel( long refNum, SndChannelPtr *channel )
 //		Volume 6.
 //
 //=======================================================================================
-OSErr SHGetDeviceSettings( long inRefNum, short *numChannels, Fixed *sampleRate, short *sampleSize, OSType *compType )
+OSErr SHGetDeviceSettings(long inRefNum, short *numChannels, Fixed *sampleRate, short *sampleSize, OSType *compType)
 {
 	OSErr error = noErr;
 	
 	// Hit on that sound input device.
-	error = SPBGetDeviceInfo( inRefNum, siNumberChannels, (Ptr) numChannels );
-	if( error != noErr ) return error;
-	error = SPBGetDeviceInfo( inRefNum, siSampleRate, (Ptr) sampleRate );
-	if( error != noErr ) return error;
-	error = SPBGetDeviceInfo(inRefNum, siSampleSize, (Ptr) sampleSize );
-	if( error != noErr ) return error;
-	error = SPBGetDeviceInfo(inRefNum, siCompressionType, (Ptr) compType );
+	error = SPBGetDeviceInfo(inRefNum, siNumberChannels, (Ptr) numChannels);
+	if(error != noErr) return error;
+	error = SPBGetDeviceInfo(inRefNum, siSampleRate, (Ptr) sampleRate);
+	if(error != noErr) return error;
+	error = SPBGetDeviceInfo(inRefNum, siSampleSize, (Ptr) sampleSize);
+	if(error != noErr) return error;
+	error = SPBGetDeviceInfo(inRefNum, siCompressionType, (Ptr) compType);
 	return error;
 }
 
 //=======================================================================================
 //
-//	pascal OSErr SHRecordStart( short maxK, OSType quality, Boolean *doneFlag )
+//	pascal OSErr SHRecordStart(short maxK, OSType quality, Boolean *doneFlag)
 //
 //	Summary:
 //		This routine initiates asynchronous sound recording.
@@ -1387,7 +1387,7 @@ OSErr SHGetDeviceSettings( long inRefNum, short *numChannels, Fixed *sampleRate,
 //		the sound input buffer may be deallocated.
 //
 //=======================================================================================
-pascal OSErr SHRecordStart( short maxK, OSType quality, Boolean *doneFlag )
+pascal OSErr SHRecordStart(short maxK, OSType quality, Boolean *doneFlag)
 {
 	Boolean	deviceOpened = false;
 	Boolean	allocated = false;
@@ -1398,61 +1398,61 @@ pascal OSErr SHRecordStart( short maxK, OSType quality, Boolean *doneFlag )
 	long	allocSize;
 	
 	// 1. Try to open the current sound input device
-	error = SPBOpenDevice( nil, siWritePermission, &gsSHInVars.inRefNum );
-	if( error == noErr )
+	error = SPBOpenDevice(nil, siWritePermission, &gsSHInVars.inRefNum);
+	if(error == noErr)
 		deviceOpened = true;
 
 	// 2. Now let's see if this device can even handle asynchronous recording.
-	if( error == noErr )
+	if(error == noErr)
 	{
-		error = SPBGetDeviceInfo( gsSHInVars.inRefNum, siAsync, (Ptr) &canDoAsync );
-		if( error == noErr && !canDoAsync )
+		error = SPBGetDeviceInfo(gsSHInVars.inRefNum, siAsync, (Ptr) &canDoAsync);
+		if(error == noErr && !canDoAsync)
 			error = kSHErrNonAsychDevice;
 	}
 	
 	// 3. Try to allocate memory for the guy's sound.
-	if( error == noErr )
+	if(error == noErr)
 	{
 		allocSize = (maxK * 1024) + kSHHeaderSlop;
-		gsSHInVars.inHandle = NewHandle(allocSize );
-		if( gsSHInVars.inHandle == nil )
+		gsSHInVars.inHandle = NewHandle(allocSize);
+		if(gsSHInVars.inHandle == nil)
 	{
 			error = MemError();
-			if( error == noErr )
+			if(error == noErr)
 				error = memFullErr;
 		}
-		if( error == noErr )
+		if(error == noErr)
 			allocated = true;
 	}
 		
-	// 4. Set up various recording parameters (metering and quality )
-	if( error == noErr )
+	// 4. Set up various recording parameters (metering and quality)
+	if(error == noErr)
 	{
 		metering = 1;
-		SPBSetDeviceInfo( gsSHInVars.inRefNum, siLevelMeterOnOff, (Ptr) &metering );
-		error = SPBSetDeviceInfo( gsSHInVars.inRefNum, siRecordingQuality, (Ptr) &quality );
+		SPBSetDeviceInfo(gsSHInVars.inRefNum, siLevelMeterOnOff, (Ptr) &metering);
+		error = SPBSetDeviceInfo(gsSHInVars.inRefNum, siRecordingQuality, (Ptr) &quality);
 	}
 	
 	// 5. Call SHGetDeviceSettings to determine a bunch of information we'll need to
 	// make a header for this sound.
-	if( error == noErr )
+	if(error == noErr)
 	{
 		error = SHGetDeviceSettings(gsSHInVars.inRefNum, &gsSHInVars.numChannels,
-			&gsSHInVars.sampleRate, &gsSHInVars.sampleSize, &gsSHInVars.compType );
+			&gsSHInVars.sampleRate, &gsSHInVars.sampleSize, &gsSHInVars.compType);
 	}
 	
 	// 6. Create a header for this sound.
-	if( error == noErr )
+	if(error == noErr)
 	{
 		error = SetupSndHeader((SndListHandle)gsSHInVars.inHandle, gsSHInVars.numChannels, gsSHInVars.sampleRate, gsSHInVars.sampleSize,
-			gsSHInVars.compType, kSHBaseNote, allocSize, &gsSHInVars.headerLength );
+			gsSHInVars.compType, kSHBaseNote, allocSize, &gsSHInVars.headerLength);
 	}
 	
 	// 7. Lock the input sound handle and set up the input parameter block.
-	if( error == noErr )
+	if(error == noErr)
 	{
-		MoveHHi( gsSHInVars.inHandle );
-		HLock( gsSHInVars.inHandle );
+		MoveHHi(gsSHInVars.inHandle);
+		HLock(gsSHInVars.inHandle);
 		
 		allocSize -= gsSHInVars.headerLength;
 		gsSHInVars.inPB.inRefNum = gsSHInVars.inRefNum;
@@ -1471,27 +1471,27 @@ pascal OSErr SHRecordStart( short maxK, OSType quality, Boolean *doneFlag )
 	
 	// 8. Finally, if all went well, set our recording flag, make sure our record
 	// completion flag is clear, and initiate asychronous recording.
-	if( error == noErr )
+	if(error == noErr)
 	{
 		gsSHInVars.recording = true;
 		gsSHInVars.recordComplete = false;
 		gsSHInVars.appComplete = doneFlag;
 		gsSHInVars.paused = false;
-		if( gsSHInVars.appComplete != nil )
+		if(gsSHInVars.appComplete != nil)
 			*gsSHInVars.appComplete = false;
 		
-		error = SPBRecord(&gsSHInVars.inPB, kSHAsync );
+		error = SPBRecord(&gsSHInVars.inPB, kSHAsync);
 	}
 	
 	// Now clean up any errors that might have occurred.
-	if( error != noErr )
+	if(error != noErr)
 	{
 		gsSHInVars.recording = false;
-		if( deviceOpened )
-			SPBCloseDevice( gsSHInVars.inRefNum );
-		if( allocated )
+		if(deviceOpened)
+			SPBCloseDevice(gsSHInVars.inRefNum);
+		if(allocated)
 		{
-			DisposeHandle( gsSHInVars.inHandle );
+			DisposeHandle(gsSHInVars.inHandle);
 			gsSHInVars.inHandle = nil;
 		}
 	}
@@ -1501,7 +1501,7 @@ pascal OSErr SHRecordStart( short maxK, OSType quality, Boolean *doneFlag )
 
 //=======================================================================================
 //
-//	pascal OSErr SHGetRecordedSound( Handle *theSound )
+//	pascal OSErr SHGetRecordedSound(Handle *theSound)
 //
 //	Summary:
 //		This routine returns the sound handle from the last sound the Helper recorded.
@@ -1526,11 +1526,11 @@ pascal OSErr SHRecordStart( short maxK, OSType quality, Boolean *doneFlag )
 //		complete.
 //
 //=======================================================================================
-pascal OSErr SHGetRecordedSound( Handle *theSound )
+pascal OSErr SHGetRecordedSound(Handle *theSound)
 {
-	if( gsSHInVars.recordComplete )
+	if(gsSHInVars.recordComplete)
 	{
-		if( gsSHInVars.recordErr != noErr )
+		if(gsSHInVars.recordErr != noErr)
 		{
 			*theSound = nil;
 			return gsSHInVars.recordErr;
@@ -1550,7 +1550,7 @@ pascal OSErr SHGetRecordedSound( Handle *theSound )
 
 //=======================================================================================
 //
-//	pascal OSErr SHRecordStop( void )
+//	pascal OSErr SHRecordStop(void)
 //
 //	Summary:
 //		This routine immediately stops sound recording.
@@ -1570,16 +1570,16 @@ pascal OSErr SHGetRecordedSound( Handle *theSound )
 //		routine.  Use this routine to implement a "stop" button.
 //
 //=======================================================================================
-pascal OSErr SHRecordStop( void )
+pascal OSErr SHRecordStop(void)
 {
-	if( gsSHInVars.recording )
+	if(gsSHInVars.recording)
 		return SPBStopRecording(gsSHInVars.inRefNum);
 	return noErr;
 }
 
 //=======================================================================================
 //
-//	pascal OSErr SHRecordPause( void )
+//	pascal OSErr SHRecordPause(void)
 //
 //	Summary:
 //		This routine pauses sound recording.
@@ -1600,14 +1600,14 @@ pascal OSErr SHRecordStop( void )
 //		paused.  Use this routine to implement a "pause" button.
 //
 //=======================================================================================
-pascal OSErr SHRecordPause( void )
+pascal OSErr SHRecordPause(void)
 {
 	OSErr error = noErr;
-	if( gsSHInVars.recording )
+	if(gsSHInVars.recording)
 	{
-		if( !gsSHInVars.paused )
+		if(!gsSHInVars.paused)
 	{
-			error = SPBPauseRecording( gsSHInVars.inRefNum );
+			error = SPBPauseRecording(gsSHInVars.inRefNum);
 			gsSHInVars.paused = (error == noErr);
 			return error;
 		}
@@ -1618,7 +1618,7 @@ pascal OSErr SHRecordPause( void )
 
 //=======================================================================================
 //
-//	pascal OSErr SHRecordContinue( void )
+//	pascal OSErr SHRecordContinue(void)
 //
 //	Summary:
 //		This routine resumes recording when recording has previously been paused.
@@ -1639,15 +1639,15 @@ pascal OSErr SHRecordPause( void )
 //		previously paused.  Use this routine to implement a "unpause" button.
 //
 //=======================================================================================
-pascal OSErr SHRecordContinue( void )
+pascal OSErr SHRecordContinue(void)
 {
 	OSErr error = noErr;
 	
-	if( gsSHInVars.recording )
+	if(gsSHInVars.recording)
 	{
-		if( gsSHInVars.paused )
+		if(gsSHInVars.paused)
 		{
-			error = SPBResumeRecording( gsSHInVars.inRefNum );
+			error = SPBResumeRecording(gsSHInVars.inRefNum);
 			gsSHInVars.paused = !(error == noErr);
 			return error;
 		}
@@ -1658,7 +1658,7 @@ pascal OSErr SHRecordContinue( void )
 
 //=======================================================================================
 //
-//	pascal OSErr SHRecordStatus( SHRecordStatusRec *recordStatus )
+//	pascal OSErr SHRecordStatus(SHRecordStatusRec *recordStatus)
 //
 //	Summary:
 //		This routine returns status information on sound that is being recorded.
@@ -1683,23 +1683,23 @@ pascal OSErr SHRecordContinue( void )
 //		error occurs, we give a status of shrError.
 //
 //=======================================================================================
-pascal OSErr SHRecordStatus( SHRecordStatusRec *recordStatus )
+pascal OSErr SHRecordStatus(SHRecordStatusRec *recordStatus)
 {
 	short			recStatus;
 	OSErr			error = noErr;
 	unsigned long	totalSamplesToRecord,numberOfSamplesRecorded;
 	
-	if( gsSHInVars.recording )
+	if(gsSHInVars.recording)
 	{
-		error = SPBGetRecordingStatus( gsSHInVars.inRefNum, &recStatus,
+		error = SPBGetRecordingStatus(gsSHInVars.inRefNum, &recStatus,
 			&recordStatus->meterLevel, &totalSamplesToRecord, &numberOfSamplesRecorded,
-			&recordStatus->totalRecordTime, &recordStatus->currentRecordTime );
-		if( error == noErr )
-			recordStatus->recordStatus = ( gsSHInVars.paused? shrPaused:shrRecording );
+			&recordStatus->totalRecordTime, &recordStatus->currentRecordTime);
+		if(error == noErr)
+			recordStatus->recordStatus = (gsSHInVars.paused? shrPaused:shrRecording);
 		else recordStatus->recordStatus = shrError;
 		return error;
 	}
-	else if( gsSHInVars.recordComplete )
+	else if(gsSHInVars.recordComplete)
 	{
 		recordStatus->recordStatus = shrFinished;
 		recordStatus->meterLevel = 0;

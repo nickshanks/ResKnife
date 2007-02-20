@@ -94,28 +94,28 @@ typedef struct
 }	SHInputVars;
 
 // Initialization, idle, and termination
-pascal OSErr SHInitSoundHelper( Boolean *attnFlag, short numChannels );
-pascal void SHIdle( void );
-pascal void SHKillSoundHelper(void );
+pascal OSErr SHInitSoundHelper(Boolean *attnFlag, short numChannels);
+pascal void SHIdle(void);
+pascal void SHKillSoundHelper(void);
 
 // Easy sound output
-pascal OSErr SHPlayByID( short resID, long *refNum );
-pascal OSErr SHPlayByHandle( Handle sound, long *refNum );
-pascal OSErr SHPlayStop( long refNum );
-pascal OSErr SHPlayStopAll( void );
+pascal OSErr SHPlayByID(short resID, long *refNum);
+pascal OSErr SHPlayByHandle(Handle sound, long *refNum);
+pascal OSErr SHPlayStop(long refNum);
+pascal OSErr SHPlayStopAll(void);
 
 // Advanced sound output
-pascal OSErr SHPlayPause( long refNum );
-pascal OSErr SHPlayContinue( long refNum );
-pascal SHPlayStat SHPlayStatus( long refNum );
-pascal OSErr SHGetChannel( long refNum, SndChannelPtr *channel );
+pascal OSErr SHPlayPause(long refNum);
+pascal OSErr SHPlayContinue(long refNum);
+pascal SHPlayStat SHPlayStatus(long refNum);
+pascal OSErr SHGetChannel(long refNum, SndChannelPtr *channel);
 
 // Easy sound input
-pascal OSErr SHRecordStart( short maxK, OSType quality, Boolean *doneFlag );
-pascal OSErr SHGetRecordedSound( Handle *theSound );
-pascal OSErr SHRecordStop( void );
+pascal OSErr SHRecordStart(short maxK, OSType quality, Boolean *doneFlag);
+pascal OSErr SHGetRecordedSound(Handle *theSound);
+pascal OSErr SHRecordStop(void);
 
 // Advanced sound input
-pascal OSErr SHRecordPause( void );
-pascal OSErr SHRecordContinue( void );
-pascal OSErr SHRecordStatus( SHRecordStatusRec *recordStatus );
+pascal OSErr SHRecordPause(void);
+pascal OSErr SHRecordContinue(void);
+pascal OSErr SHRecordStatus(SHRecordStatusRec *recordStatus);

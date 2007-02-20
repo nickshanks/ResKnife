@@ -1,4 +1,10 @@
-#include "ResKnife.h"
+#if !TARGET_API_MAC_OS8
+	#if defined(__APPLE_CC__)		// compiling with gcc
+		#include <Carbon/Carbon.h>
+	#else							// compiling with CodeWarrior, __MWERKS__
+		#include <Carbon.h>
+	#endif
+#endif
 
 #ifndef _ResKnife_Utility_
 #define _ResKnife_Utility_
@@ -11,55 +17,63 @@
 /*!
 	@function		SetColour
 */
-void SetColour( RGBColor *colour, UInt16 red, UInt16 green, UInt16 blue );
+void SetColour(RGBColor *colour, UInt16 red, UInt16 green, UInt16 blue);
+/*!
+	@function		MakeLocal
+*/
+void MakeLocal( WindowRef window, Point globalPoint, Point *localPoint );
+/*!
+	@function		MakeGlobal
+*/
+void MakeGlobal( WindowRef window, Point localPoint, Point *globalPoint );
 /*!
 	@function		CStringLength
 */
-unsigned long CStringLength( char *string );
+unsigned long CStringLength(char *string);
 /*!
 	@function		PStringLength
 */
-unsigned char PStringLength( unsigned char *string );
+unsigned char PStringLength(unsigned char *string);
 /*!
 	@function		TypeToCString
 */
-void TypeToCString( const OSType type, char *string );
+void TypeToCString(const OSType type, char *string);
 /*!
 	@function		TypeToPString
 */
-void TypeToPString( const OSType type, Str255 string );
+void TypeToPString(const OSType type, Str255 string);
 /*!
 	@function		TypeToCFString
 */
-void TypeToCFString( const OSType type, CFStringRef *string );
+void TypeToCFString(const OSType type, CFStringRef *string);
 /*!
 	@function		CopyCString
 */
-void CopyCString( const UInt8 *source, UInt8 *dest );
+void CopyCString(const UInt8 *source, UInt8 *dest);
 /*!
 	@function		CopyPString
 */
-void CopyPString( const UInt8 *source, UInt8 *dest );
+void CopyPString(const UInt8 *source, UInt8 *dest);
 /*!
 	@function		EqualCStrings
 */
-Boolean EqualCStrings( UInt8 *source, UInt8 *dest );
+Boolean EqualCStrings(UInt8 *source, UInt8 *dest);
 /*!
 	@function		EqualPStrings
 */
-Boolean EqualPStrings( UInt8 *source, UInt8 *dest );
+Boolean EqualPStrings(UInt8 *source, UInt8 *dest);
 /*!
 	@function		AppendPString
 */
-void AppendPString( Str255 original, ConstStr255Param added );
+void AppendPString(Str255 original, ConstStr255Param added);
 /*!
 	@function		MenuItemEnable
 */
-void MenuItemEnable( MenuRef menu, MenuItemIndex item, Boolean enable );
+void MenuItemEnable(MenuRef menu, MenuItemIndex item, Boolean enable);
 /*!
 	@function		EnableCommand
 */
-void EnableCommand( MenuRef menu, MenuCommand command, Boolean enable );
+void EnableCommand(MenuRef menu, MenuCommand command, Boolean enable);
 /*!
 	@function		MakeRelativeAliasFile
 */
@@ -68,6 +82,6 @@ OSErr MakeRelativeAliasFile(FSSpec *targetFile, FSSpec *aliasDest);
 	@function		LaunchURL
 	@param url		A C string containing the address to which you want the user to go. You must include 'http://' if necessary, and all addresses to a directory should have a trailing slash.
 */
-OSStatus LaunchURL( char *url );
+OSStatus LaunchURL(char *url);
 
 #endif

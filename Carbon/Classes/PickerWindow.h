@@ -17,7 +17,7 @@ class PickerWindow : PlugWindow
 {
 public:
 // methods
-				PickerWindow( FileWindowPtr ownerFile, ResType resType );
+				PickerWindow(FileWindowPtr ownerFile, ResType resType);
 };
 
 #endif
