@@ -1,0 +1,1734 @@
+// !$*UTF8*$!
+{
+	3D0933F404DFD7CF00DD74B1 /* TODO.txt */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1479, 581}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 425}";
+		};
+	};
+	3D0ABFB904E152CA00C85300 /* TEMPLATE EDITOR.txt */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1479, 1064}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 2207}";
+		};
+	};
+	3D0ABFBC04E172F700C85300 /* README.txt */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1494, 1060}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 1902}";
+		};
+	};
+	3D35755A04DAEB4300B8225B /* main.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1494, 84}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 0}";
+		};
+	};
+	E1B2A3850E410C3500A72928 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+			repositoryName = ResKnife;
+		};
+	};
+	E1B2A3860E410C3500A72928 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	E1B2A3DE0E41103700A72928 /* ResKnife Cocoa */ = {
+		activeExec = 0;
+		executables = (
+			E1B2A43D0E41103800A72928 /* ResKnife Cocoa */,
+		);
+	};
+	E1B2A43D0E41103800A72928 /* ResKnife Cocoa */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = "ResKnife Cocoa";
+		savedGlobals = {
+		};
+		sourceDirectories = (
+		);
+	};
+	E1B2A43E0E41103800A72928 /* Hex Editor Cocoa */ = {
+		activeExec = 0;
+	};
+	E1B2A4580E41103800A72928 /* Nick's Template Editor (Abandoned) */ = {
+		activeExec = 0;
+	};
+	E1B2A46A0E41103800A72928 /* NovaTools */ = {
+		activeExec = 0;
+	};
+	E1B2A4950E41103800A72928 /* ResKnife Carbon */ = {
+		activeExec = 0;
+		executables = (
+			E1B2A4C50E41103900A72928 /* ResKnife Carbon */,
+		);
+	};
+	E1B2A4C50E41103900A72928 /* ResKnife Carbon */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 1;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = "ResKnife Carbon";
+		sourceDirectories = (
+		);
+	};
+	E1B2A4C60E41103900A72928 /* libResKnife */ = {
+		activeExec = 0;
+	};
+	E1B2A4F10E41103900A72928 /* Hex Editor Carbon */ = {
+		activeExec = 0;
+	};
+	E1B2A5080E41103900A72928 /* Template Editor Carbon */ = {
+		activeExec = 0;
+	};
+	E1B2A5190E41103900A72928 /* PICT Editor */ = {
+		activeExec = 0;
+	};
+	E1B2A52A0E41103900A72928 /* Uli's Template Editor (Abandoned) */ = {
+		activeExec = 0;
+	};
+	E1B2A5490E41103A00A72928 /* Bitmap Editor Cocoa */ = {
+		activeExec = 0;
+	};
+	E1B2A55B0E41103A00A72928 /* Template Editor Cocoa */ = {
+		activeExec = 0;
+	};
+	E1B2A6000E41172B00A72928 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = E1B2A6010E41172B00A72928 /* Files.h */;
+		name = "Files.h: 7299";
+		rLen = 129;
+		rLoc = 278871;
+		rType = 0;
+		vrLen = 1381;
+		vrLoc = 278034;
+	};
+	E1B2A6010E41172B00A72928 /* Files.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = Files.h;
+		path = /System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/Files.h;
+		sourceTree = "<absolute>";
+	};
+	E1B2A6020E41172B00A72928 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F5DF1BF10254AD8801A80001 /* MoreFilesX.h */;
+		name = "MoreFilesX.h: 1489";
+		rLen = 0;
+		rLoc = 47097;
+		rType = 0;
+		vrLen = 1023;
+		vrLoc = 46179;
+	};
+	E1B2A6030E41172B00A72928 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F5DF1BF00254AD8801A80001 /* MoreFilesX.c */;
+		name = "MoreFilesX.c: 185";
+		rLen = 0;
+		rLoc = 5775;
+		rType = 0;
+		vrLen = 1278;
+		vrLoc = 5135;
+	};
+	E1B2A6040E41172B00A72928 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = E1B2A6050E41172B00A72928 /* nicholas.perspectivev3 */;
+		name = "nicholas.perspectivev3: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1096;
+		vrLoc = 0;
+	};
+	E1B2A6050E41172B00A72928 /* nicholas.perspectivev3 */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = text.xml;
+		name = nicholas.perspectivev3;
+		path = /Users/nicholas/Projects/ResKnife/ResKnife.xcodeproj/nicholas.perspectivev3;
+		sourceTree = "<absolute>";
+	};
+	E1B2A6060E41172B00A72928 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = E1B2A6070E41172B00A72928 /* InfoPlist.strings */;
+		name = "InfoPlist.strings: 6";
+		rLen = 1;
+		rLoc = 224;
+		rType = 0;
+		vrLen = 253;
+		vrLoc = 0;
+	};
+	E1B2A6070E41172B00A72928 /* InfoPlist.strings */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = text.plist.strings;
+		name = InfoPlist.strings;
+		path = "/Users/nicholas/Projects/ResKnife-old/Cocoa/en.lproj/InfoPlist.strings";
+		sourceTree = "<absolute>";
+	};
+	E1B2A6080E41172B00A72928 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F5B588430156D40B01000001 /* English */;
+		name = "InfoPlist.strings: 5";
+		rLen = 0;
+		rLoc = 149;
+		rType = 0;
+		vrLen = 236;
+		vrLoc = 0;
+	};
+	E1B2A6090E41172B00A72928 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F5B588450156D40B01000001 /* English */;
+		name = "Localizable.strings: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1493;
+		vrLoc = 0;
+	};
+	E1B2A60B0E41172B00A72928 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F5DF1BF10254AD8801A80001 /* MoreFilesX.h */;
+		name = "MoreFilesX.h: 1320";
+		rLen = 21;
+		rLoc = 42947;
+		rType = 0;
+		vrLen = 1124;
+		vrLoc = 42324;
+	};
+	E1B2A60C0E41172B00A72928 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = E1B2A60D0E41172B00A72928 /* Files.h */;
+		name = "Files.h: 3816";
+		rLen = 180;
+		rLoc = 159513;
+		rType = 0;
+		vrLen = 1675;
+		vrLoc = 158802;
+	};
+	E1B2A60D0E41172B00A72928 /* Files.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = Files.h;
+		path = /System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/Files.h;
+		sourceTree = "<absolute>";
+	};
+	E1B2A60E0E41172B00A72928 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F5DF1BF10254AD8801A80001 /* MoreFilesX.h */;
+		name = "MoreFilesX.h: 1320";
+		rLen = 21;
+		rLoc = 42947;
+		rType = 0;
+		vrLen = 1049;
+		vrLoc = 42323;
+	};
+	E1B2A60F0E41172B00A72928 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = E1B2A6100E41172B00A72928 /* Files.h */;
+		name = "Files.h: 3816";
+		rLen = 180;
+		rLoc = 159513;
+		rType = 0;
+		vrLen = 1675;
+		vrLoc = 158802;
+	};
+	E1B2A6100E41172B00A72928 /* Files.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = Files.h;
+		path = /System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/Files.h;
+		sourceTree = "<absolute>";
+	};
+	E1B2A6110E41172B00A72928 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F5DF1BF10254AD8801A80001 /* MoreFilesX.h */;
+		name = "MoreFilesX.h: 1320";
+		rLen = 21;
+		rLoc = 42947;
+		rType = 0;
+		vrLen = 1084;
+		vrLoc = 42288;
+	};
+	E1B2A6120E41172B00A72928 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = E1B2A6130E41172B00A72928 /* Files.h */;
+		name = "Files.h: 3816";
+		rLen = 180;
+		rLoc = 159513;
+		rType = 0;
+		vrLen = 1675;
+		vrLoc = 158802;
+	};
+	E1B2A6130E41172B00A72928 /* Files.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = Files.h;
+		path = /System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/Files.h;
+		sourceTree = "<absolute>";
+	};
+	E1B2A6140E41172B00A72928 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F5DF1BF10254AD8801A80001 /* MoreFilesX.h */;
+		name = "MoreFilesX.h: 1320";
+		rLen = 21;
+		rLoc = 42947;
+		rType = 0;
+		vrLen = 1083;
+		vrLoc = 42288;
+	};
+	E1B2A6150E41172B00A72928 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = E1B2A6160E41172B00A72928 /* Files.h */;
+		name = "Files.h: 7299";
+		rLen = 129;
+		rLoc = 278871;
+		rType = 0;
+		vrLen = 1381;
+		vrLoc = 278034;
+	};
+	E1B2A6160E41172B00A72928 /* Files.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = Files.h;
+		path = /System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/Files.h;
+		sourceTree = "<absolute>";
+	};
+	E1B2A6170E41172B00A72928 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F5DF1BF10254AD8801A80001 /* MoreFilesX.h */;
+		name = "MoreFilesX.h: 1489";
+		rLen = 0;
+		rLoc = 47097;
+		rType = 0;
+		vrLen = 1023;
+		vrLoc = 46179;
+	};
+	E1B2A6180E41172B00A72928 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F5DF1BF00254AD8801A80001 /* MoreFilesX.c */;
+		name = "MoreFilesX.c: 185";
+		rLen = 0;
+		rLoc = 5775;
+		rType = 0;
+		vrLen = 1278;
+		vrLoc = 5135;
+	};
+	E1B2A6190E41172B00A72928 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = E1B2A61A0E41172B00A72928 /* nicholas.perspectivev3 */;
+		name = "nicholas.perspectivev3: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1096;
+		vrLoc = 0;
+	};
+	E1B2A61A0E41172B00A72928 /* nicholas.perspectivev3 */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = text.xml;
+		name = nicholas.perspectivev3;
+		path = /Users/nicholas/Projects/ResKnife/ResKnife.xcodeproj/nicholas.perspectivev3;
+		sourceTree = "<absolute>";
+	};
+	E1B2A61B0E41172B00A72928 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F5B588430156D40B01000001 /* English */;
+		name = "InfoPlist.strings: 5";
+		rLen = 0;
+		rLoc = 149;
+		rType = 0;
+		vrLen = 236;
+		vrLoc = 0;
+	};
+	E1B2A61C0E41172B00A72928 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F5B588450156D40B01000001 /* English */;
+		name = "Localizable.strings: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1493;
+		vrLoc = 0;
+	};
+	E1B2A6370E41198D00A72928 /* Info.plist */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = text.plist.xml;
+		name = Info.plist;
+		path = /Users/nicholas/Projects/ResKnife/Cocoa/Info.plist;
+		sourceTree = "<absolute>";
+	};
+	E1B2A63E0E4119FE00A72928 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = E1B2A6370E41198D00A72928 /* Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = /Users/nicholas/Projects/ResKnife/Cocoa/Info.plist;
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	E1B2A63F0E4119FE00A72928 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F543AFF0027C716E01A8010C /* English */;
+		name = "Resource Types.strings: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 542;
+		vrLoc = 0;
+	};
+	E1B2A6400E4119FE00A72928 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = E1B2A6370E41198D00A72928 /* Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = /Users/nicholas/Projects/ResKnife/Cocoa/Info.plist;
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	E1B2A6460E411A8300A72928 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F543AFF0027C716E01A8010C /* English */;
+		name = "Resource Types.strings: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 542;
+		vrLoc = 0;
+	};
+	E1B2A6BC0E411CE100A72928 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F543AFF0027C716E01A8010C /* English */;
+		name = "Resource Types.strings: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 542;
+		vrLoc = 0;
+	};
+	E1B2A6BD0E411CE100A72928 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3D0ABFB904E152CA00C85300 /* TEMPLATE EDITOR.txt */;
+		name = "TEMPLATE EDITOR.txt: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 2207;
+		vrLoc = 0;
+	};
+	E1B2A6BE0E411CE100A72928 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = E1B2A5850E41103A00A72928 /* Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = /Users/nicholas/Projects/ResKnife/NuTemplateEditor/Info.plist;
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	E1B2A6BF0E411CE100A72928 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 3D0933F404DFD7CF00DD74B1 /* TODO.txt */;
+	};
+	E1B2A6C00E411CE100A72928 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F543AFF0027C716E01A8010C /* English */;
+		name = "Resource Types.strings: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 542;
+		vrLoc = 0;
+	};
+	E1B2A6C10E411CE100A72928 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3D0ABFB904E152CA00C85300 /* TEMPLATE EDITOR.txt */;
+		name = "TEMPLATE EDITOR.txt: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 2207;
+		vrLoc = 0;
+	};
+	E1B2A6C20E411CE100A72928 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = E1B2A5850E41103A00A72928 /* Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = /Users/nicholas/Projects/ResKnife/NuTemplateEditor/Info.plist;
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	E1B2A6C30E411CE100A72928 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3D0933F404DFD7CF00DD74B1 /* TODO.txt */;
+		name = "TODO.txt: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 425;
+		vrLoc = 0;
+	};
+	E1B2A6C80E411CF800A72928 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3D0933F404DFD7CF00DD74B1 /* TODO.txt */;
+		name = "TODO.txt: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 425;
+		vrLoc = 0;
+	};
+	E1B2A6D20E411D0500A72928 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3D0933F404DFD7CF00DD74B1 /* TODO.txt */;
+		name = "TODO.txt: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 425;
+		vrLoc = 0;
+	};
+	E1B2A6D50E411D2400A72928 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3D0933F404DFD7CF00DD74B1 /* TODO.txt */;
+		name = "TODO.txt: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 425;
+		vrLoc = 0;
+	};
+	E1B2A6D70E411D2A00A72928 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3D0933F404DFD7CF00DD74B1 /* TODO.txt */;
+		name = "TODO.txt: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 425;
+		vrLoc = 0;
+	};
+	F543AFF0027C716E01A8010C /* English */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1479, 604}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 542}";
+		};
+	};
+	F591B14C030E75FA01A8010C /* -[NSMenuItem setTitle:] */ = {
+		isa = PBXSymbolicBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		hitCount = 0;
+		ignoreCount = 0;
+		modificationTime = 239148273.579776;
+		state = 2;
+		symbolName = "-[NSMenuItem setTitle:]";
+	};
+	F591B14D030E75FA01A8010C /* -[NSMenuItem initWithTitle:] */ = {
+		isa = PBXSymbolicBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		hitCount = 0;
+		ignoreCount = 0;
+		modificationTime = 239148273.579961;
+		state = 2;
+		symbolName = "-[NSMenuItem initWithTitle:]";
+	};
+	F591B14E030E75FA01A8010C /* -[NSMenu initWithTitle:] */ = {
+		isa = PBXSymbolicBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		hitCount = 0;
+		ignoreCount = 0;
+		modificationTime = 239148273.580132;
+		state = 2;
+		symbolName = "-[NSMenu initWithTitle:]";
+	};
+	F59481B603D078E401A8010A /* ResourceDataSource.m:35 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = F5B588300156D40B01000001 /* ResourceDataSource.m */;
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 35;
+		location = "ResKnife Cocoa";
+		modificationTime = 239148328.526119;
+		state = 1;
+	};
+	F59D5DE40320DFF601A8010C /* NSString-FSSpec.h */ = {
+		uiCtxt = {
+			sepNavWindowFrame = "{{391, 221}, {750, 502}}";
+		};
+	};
+	F59D5DE8032106D201A8010C /* NSNumber-Range.h */ = {
+		uiCtxt = {
+			sepNavWindowFrame = "{{38, 474}, {750, 502}}";
+		};
+	};
+	F5ACB4180221B22401A80001 /* -[NSException raise] */ = {
+		isa = PBXSymbolicBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		hitCount = 0;
+		ignoreCount = 0;
+		location = CoreFoundation;
+		modificationTime = 239148273.579433;
+		state = 1;
+		symbolName = "-[NSException raise]";
+	};
+	F5B5880F0156D2A601000001 /* Project object */ = {
+		activeBuildConfigurationName = Release;
+		activeExecutable = E1B2A43D0E41103800A72928 /* ResKnife Cocoa */;
+		activeTarget = E1B2A3DE0E41103700A72928 /* ResKnife Cocoa */;
+		addToTargets = (
+		);
+		breakpoints = (
+			F5ACB4180221B22401A80001 /* -[NSException raise] */,
+			F591B14C030E75FA01A8010C /* -[NSMenuItem setTitle:] */,
+			F591B14D030E75FA01A8010C /* -[NSMenuItem initWithTitle:] */,
+			F591B14E030E75FA01A8010C /* -[NSMenu initWithTitle:] */,
+			F59481B603D078E401A8010A /* ResourceDataSource.m:35 */,
+		);
+		codeSenseManager = E1B2A3860E410C3500A72928 /* Code sense */;
+		executables = (
+			E1B2A43D0E41103800A72928 /* ResKnife Cocoa */,
+			E1B2A4C50E41103900A72928 /* ResKnife Carbon */,
+		);
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					1289,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXConfiguration.PBXTargetDataSource.PBXTargetDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					1249,
+					60,
+					20,
+					48,
+					43,
+					43,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXTargetDataSource_PrimaryAttribute,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 239147817;
+			PBXWorkspaceContents = (
+				{
+					LeftSlideOut = {
+						Split0 = {
+							Split0 = {
+								NavContent0 = {
+									bookmark = E1B8315903EA23A900A8010A;
+									history = (
+										F59EE065033683B101A8010C,
+										F532DB39034F0C7A01A8010A,
+										F532DB3A034F0C7A01A8010A,
+										F532DB3E034F0C7A01A8010A,
+										F50DFEC1036C357D01A8010A,
+										F50DFEC2036C357D01A8010A,
+										F50DFEC4036C357D01A8010A,
+										F50DFEC7036C357D01A8010A,
+										F50DFECA036C357D01A8010A,
+										F50DFECF036C357D01A8010A,
+										F50DFED2036C357D01A8010A,
+										F50DFED3036C357D01A8010A,
+										F50DFED4036C357D01A8010A,
+										F50DFED5036C357D01A8010A,
+										F50DFED6036C357D01A8010A,
+										F50DFED7036C357D01A8010A,
+										F50DFED8036C357D01A8010A,
+										F50DFEDA036C357D01A8010A,
+										F7F6010803B7F4E3011FA8E1,
+										F7F6010903B7F4E3011FA8E1,
+										F7F6010B03B7F4E3011FA8E1,
+										F7F6010D03B7F4E3011FA8E1,
+										F7F6010E03B7F4E3011FA8E1,
+										F7F6011103B7F4E3011FA8E1,
+										F7F6011603B7F4E3011FA8E1,
+										F7F6011A03B7F4E3011FA8E1,
+										F7634BCD03B90B3F0107CC6F,
+										F7634BD803B90B3F0107CC6F,
+										F7634BD903B90B3F0107CC6F,
+										F7634BDA03B90B3F0107CC6F,
+										F7634BDB03B90B3F0107CC6F,
+										F7634C1203BA53EC0107CC6F,
+										F7634C1503BA53EC0107CC6F,
+										F7634C1603BA53EC0107CC6F,
+										F7634C1903BA53EC0107CC6F,
+										F7634C1B03BA53EC0107CC6F,
+										F7634C1C03BA53EC0107CC6F,
+										F7634C1E03BA53EC0107CC6F,
+										F7634C1F03BA53EC0107CC6F,
+										F7634C2003BA53EC0107CC6F,
+										F7634C2103BA53EC0107CC6F,
+										F7634C2203BA53EC0107CC6F,
+										F7634C2303BA53EC0107CC6F,
+										F7634C2403BA53EC0107CC6F,
+										F7634C2503BA53EC0107CC6F,
+										F7634C2603BA53EC0107CC6F,
+										F7634C2803BA53EC0107CC6F,
+										F7634C2903BA53EC0107CC6F,
+										F7C0290303BC35E3017A2919,
+										F7C0290603BC35E3017A2919,
+										F7C0290703BC35E3017A2919,
+										F7C0290803BC35E3017A2919,
+										F7C0290903BC35E3017A2919,
+										F7C0290B03BC35E3017A2919,
+										F7C0290D03BC35E3017A2919,
+										F7C0291103BC35E3017A2919,
+										F7C0291203BC35E3017A2919,
+										F7C0291303BC35E3017A2919,
+										F7C0291603BC35E3017A2919,
+										F7C0291703BC35E3017A2919,
+										F7C0291803BC35E3017A2919,
+										F7C0291903BC35E3017A2919,
+										F7C0291B03BC35E3017A2919,
+										F7A345AF03BD151A0185AE74,
+										F7A345B003BD151A0185AE74,
+										F7A345B103BD151A0185AE74,
+										F7A345B203BD151A0185AE74,
+										F7A345B403BD151A0185AE74,
+										F7A345B503BD151A0185AE74,
+										F7A345B603BD151A0185AE74,
+										F7A345B703BD151A0185AE74,
+										F7A345B803BD151A0185AE74,
+										F7A345B903BD151A0185AE74,
+										F7A345BA03BD151A0185AE74,
+										F7A345BB03BD151A0185AE74,
+										F7A345BC03BD151A0185AE74,
+										F7A345BD03BD151A0185AE74,
+										F77EDD4003C1F748014A0620,
+										F77EDD4103C1F748014A0620,
+										F5F1071F03CEFF6401A8010A,
+										F5F1072203CEFF6401A8010A,
+										F5F1072303CEFF6401A8010A,
+										F5F1072703CEFF6401A8010A,
+										F5F1072803CEFF6401A8010A,
+										F5F1072C03CEFF6401A8010A,
+										F59481B703D0F64301A8010A,
+										F59481B803D0F64301A8010A,
+										F59481BA03D0F64301A8010A,
+										F59481BB03D0F64301A8010A,
+										F59481BC03D0F64301A8010A,
+										F59481BD03D0F64301A8010A,
+										F59481BE03D0F64301A8010A,
+										F59481BF03D0F64301A8010A,
+										F59481C003D0F64301A8010A,
+										F59481C103D0F64301A8010A,
+										F59481C203D0F64301A8010A,
+										F59481C403D0F64301A8010A,
+										F59481C503D0F64301A8010A,
+										F59481C603D0F64301A8010A,
+										F59481C703D0F64301A8010A,
+										F59481C803D0F64301A8010A,
+										F59481C903D0F64301A8010A,
+										F59481CA03D0F64301A8010A,
+										F59481CC03D0F64301A8010A,
+										F59481CD03D0F64301A8010A,
+										F59481CE03D0F64301A8010A,
+										F59481CF03D0F64301A8010A,
+										F5E440D203D19D7101A8010A,
+										F5D9A11303D8577A01A8010A,
+										E1E4D1C503DB1A6500A8010A,
+										E1E4D1C703DB1A6500A8010A,
+										E1DB5FE303E193B700A8010A,
+										E1DB5FE403E193B700A8010A,
+										E1DB5FE503E193B700A8010A,
+										E1DB5FE603E193B700A8010A,
+										E1B2F26F03E44CD100A8010A,
+										E1B2F27103E44CD100A8010A,
+										E1B2F27203E44CD100A8010A,
+										E1B2F2AF03E5CEF700A8010A,
+										E1B2F2B003E5CEF700A8010A,
+										E1B8313F03EA23A900A8010A,
+										E1B8314003EA23A900A8010A,
+										E1B8314103EA23A900A8010A,
+										E1B8314203EA23A900A8010A,
+										E1B8314303EA23A900A8010A,
+										E1B8314403EA23A900A8010A,
+										E1B8314503EA23A900A8010A,
+										E1B8314603EA23A900A8010A,
+										E1B8314703EA23A900A8010A,
+										E1B8314803EA23A900A8010A,
+										E1B8314903EA23A900A8010A,
+										E1B8314A03EA23A900A8010A,
+										E1B8314B03EA23A900A8010A,
+										E1B8314C03EA23A900A8010A,
+									);
+									prevStack = (
+										F59EE067033683B101A8010C,
+										F532DB49034F0C7A01A8010A,
+										F532DB4A034F0C7A01A8010A,
+										F532DB4B034F0C7A01A8010A,
+										F532DB4E034F0C7A01A8010A,
+										F532DB4F034F0C7A01A8010A,
+										F532DB50034F0C7A01A8010A,
+										F532DB51034F0C7A01A8010A,
+										F532DB53034F0C7A01A8010A,
+										F532DB54034F0C7A01A8010A,
+										F532DB55034F0C7A01A8010A,
+										F532DB58034F0C7A01A8010A,
+										F532DB59034F0C7A01A8010A,
+										F532DB5A034F0C7A01A8010A,
+										F532DB5B034F0C7A01A8010A,
+										F532DB5C034F0C7A01A8010A,
+										F532DB5D034F0C7A01A8010A,
+										F532DB5E034F0C7A01A8010A,
+										F532DB5F034F0C7A01A8010A,
+										F532DB60034F0C7A01A8010A,
+										F532DB61034F0C7A01A8010A,
+										F532DB62034F0C7A01A8010A,
+										F532DB63034F0C7A01A8010A,
+										F532DB64034F0C7A01A8010A,
+										F532DB65034F0C7A01A8010A,
+										F532DB66034F0C7A01A8010A,
+										F532DB67034F0C7A01A8010A,
+										F532DB68034F0C7A01A8010A,
+										F532DB69034F0C7A01A8010A,
+										F532DB6A034F0C7A01A8010A,
+										F532DB6B034F0C7A01A8010A,
+										F532DB6C034F0C7A01A8010A,
+										F532DB6D034F0C7A01A8010A,
+										F532DB6E034F0C7A01A8010A,
+										F532DB6F034F0C7A01A8010A,
+										F532DB70034F0C7A01A8010A,
+										F532DB71034F0C7A01A8010A,
+										F532DB72034F0C7A01A8010A,
+										F532DB73034F0C7A01A8010A,
+										F532DB74034F0C7A01A8010A,
+										F50DFEDE036C357D01A8010A,
+										F50DFEDF036C357D01A8010A,
+										F50DFEE0036C357D01A8010A,
+										F50DFEE1036C357D01A8010A,
+										F50DFEE2036C357D01A8010A,
+										F50DFEE3036C357D01A8010A,
+										F50DFEE4036C357D01A8010A,
+										F50DFEE5036C357D01A8010A,
+										F50DFEE6036C357D01A8010A,
+										F50DFEE7036C357D01A8010A,
+										F50DFEEA036C357D01A8010A,
+										F50DFEEB036C357D01A8010A,
+										F50DFEEC036C357D01A8010A,
+										F50DFEF2036C357D01A8010A,
+										F50DFEF6036C357D01A8010A,
+										F50DFEF7036C357D01A8010A,
+										F50DFEF8036C357D01A8010A,
+										F50DFEF9036C357D01A8010A,
+										F50DFEFA036C357D01A8010A,
+										F50DFEFB036C357D01A8010A,
+										F50DFEFC036C357D01A8010A,
+										F50DFEFD036C357D01A8010A,
+										F50DFEFE036C357D01A8010A,
+										F50DFEFF036C357D01A8010A,
+										F50DFF00036C357D01A8010A,
+										F50DFF01036C357D01A8010A,
+										F50DFF02036C357D01A8010A,
+										F50DFF03036C357D01A8010A,
+										F50DFF05036C357D01A8010A,
+										F5B377410374CF3301A8010A,
+										F50502690387052E01A8010A,
+										F505026A0387052E01A8010A,
+										F505026B0387052E01A8010A,
+										F505026C0387052E01A8010A,
+										F505026D0387052E01A8010A,
+										F505026E0387052E01A8010A,
+										F505026F0387052E01A8010A,
+										F50502700387052E01A8010A,
+										F50502710387052E01A8010A,
+										F50502720387052E01A8010A,
+										F50502730387052E01A8010A,
+										F50502740387052E01A8010A,
+										F50502750387052E01A8010A,
+										F50502760387052E01A8010A,
+										F50502770387052E01A8010A,
+										F50502780387052E01A8010A,
+										F50502790387052E01A8010A,
+										F7F6011C03B7F4E3011FA8E1,
+										F7F6011D03B7F4E3011FA8E1,
+										F7F6011E03B7F4E3011FA8E1,
+										F7F6011F03B7F4E3011FA8E1,
+										F7F6012003B7F4E3011FA8E1,
+										F7F6012103B7F4E3011FA8E1,
+										F7F6012203B7F4E3011FA8E1,
+										F7F6012303B7F4E3011FA8E1,
+										F7F6012403B7F4E3011FA8E1,
+										F7F6012503B7F4E3011FA8E1,
+										F7F6012603B7F4E3011FA8E1,
+										F7F6012703B7F4E3011FA8E1,
+										F7F6012803B7F4E3011FA8E1,
+										F7F6012903B7F4E3011FA8E1,
+										F7F6012A03B7F4E3011FA8E1,
+										F7F6012B03B7F4E3011FA8E1,
+										F7F6012C03B7F4E3011FA8E1,
+										F7F6012D03B7F4E3011FA8E1,
+										F7F6012E03B7F4E3011FA8E1,
+										F7F6012F03B7F4E3011FA8E1,
+										F7634BE103B90B3F0107CC6F,
+										F7634BE203B90B3F0107CC6F,
+										F7634BE303B90B3F0107CC6F,
+										F7634BE403B90B3F0107CC6F,
+										F7634BE503B90B3F0107CC6F,
+										F7634BE603B90B3F0107CC6F,
+										F7634BE703B90B3F0107CC6F,
+										F7634BE803B90B3F0107CC6F,
+										F7634BE903B90B3F0107CC6F,
+										F7634BEA03B90B3F0107CC6F,
+										F7634BEB03B90B3F0107CC6F,
+										F7634BEC03B90B3F0107CC6F,
+										F7634BED03B90B3F0107CC6F,
+										F7634BEE03B90B3F0107CC6F,
+										F7634BEF03B90B3F0107CC6F,
+										F7634BF003B90B3F0107CC6F,
+										F7634BF103B90B3F0107CC6F,
+										F7634BF203B90B3F0107CC6F,
+										F7634BF303B90B3F0107CC6F,
+										F7634BF403B90B3F0107CC6F,
+										F7634BF503B90B3F0107CC6F,
+										F7634BF603B90B3F0107CC6F,
+										F7634BF703B90B3F0107CC6F,
+										F7634BF803B90B3F0107CC6F,
+										F7634BF903B90B3F0107CC6F,
+										F7634BFA03B90B3F0107CC6F,
+										F7634BFB03B90B3F0107CC6F,
+										F7634BFC03B90B3F0107CC6F,
+										F7634BFD03B90B3F0107CC6F,
+										F7634BFE03B90B3F0107CC6F,
+										F7634BFF03B90B3F0107CC6F,
+										F7634C0003B90B3F0107CC6F,
+										F7634C0103B90B3F0107CC6F,
+										F7634C0203B90B3F0107CC6F,
+										F7634C0303B90B3F0107CC6F,
+										F7634C0403B90B3F0107CC6F,
+										F7634C0503B90B3F0107CC6F,
+										F7634C0603B90B3F0107CC6F,
+										F7634C0703B90B3F0107CC6F,
+										F7634C0803B90B3F0107CC6F,
+										F7634C0903B90B3F0107CC6F,
+										F7634C0A03B90B3F0107CC6F,
+										F7634C0B03B90B3F0107CC6F,
+										F7634C2B03BA53EC0107CC6F,
+										F7634C2C03BA53EC0107CC6F,
+										F7634C2D03BA53EC0107CC6F,
+										F7634C2E03BA53EC0107CC6F,
+										F7634C2F03BA53EC0107CC6F,
+										F7634C3003BA53EC0107CC6F,
+										F7634C3103BA53EC0107CC6F,
+										F7634C3203BA53EC0107CC6F,
+										F7634C3303BA53EC0107CC6F,
+										F7634C3403BA53EC0107CC6F,
+										F7634C3503BA53EC0107CC6F,
+										F7634C3603BA53EC0107CC6F,
+										F7634C3703BA53EC0107CC6F,
+										F7634C3803BA53EC0107CC6F,
+										F7634C3903BA53EC0107CC6F,
+										F7634C3A03BA53EC0107CC6F,
+										F7634C3B03BA53EC0107CC6F,
+										F7634C3C03BA53EC0107CC6F,
+										F7634C3D03BA53EC0107CC6F,
+										F7634C3E03BA53EC0107CC6F,
+										F7634C3F03BA53EC0107CC6F,
+										F7634C4003BA53EC0107CC6F,
+										F7634C4103BA53EC0107CC6F,
+										F7634C4203BA53EC0107CC6F,
+										F7634C4303BA53EC0107CC6F,
+										F7634C4403BA53EC0107CC6F,
+										F7634C4503BA53EC0107CC6F,
+										F7634C4603BA53EC0107CC6F,
+										F7634C4703BA53EC0107CC6F,
+										F7634C4803BA53EC0107CC6F,
+										F7634C4903BA53EC0107CC6F,
+										F7634C4A03BA53EC0107CC6F,
+										F7634C4B03BA53EC0107CC6F,
+										F7634C4C03BA53EC0107CC6F,
+										F7634C4D03BA53EC0107CC6F,
+										F7634C4E03BA53EC0107CC6F,
+										F7634C4F03BA53EC0107CC6F,
+										F7634C5003BA53EC0107CC6F,
+										F7634C5103BA53EC0107CC6F,
+										F7634C5203BA53EC0107CC6F,
+										F7634C5303BA53EC0107CC6F,
+										F7634C5403BA53EC0107CC6F,
+										F7634C5503BA53EC0107CC6F,
+										F7634C5603BA53EC0107CC6F,
+										F7C0291E03BC35E3017A2919,
+										F7C0291F03BC35E3017A2919,
+										F7C0292003BC35E3017A2919,
+										F7C0292103BC35E3017A2919,
+										F7C0292203BC35E3017A2919,
+										F7C0292303BC35E3017A2919,
+										F7C0292403BC35E3017A2919,
+										F7C0292503BC35E3017A2919,
+										F7C0292603BC35E3017A2919,
+										F7C0292703BC35E3017A2919,
+										F7C0292803BC35E3017A2919,
+										F7C0292903BC35E3017A2919,
+										F7C0292A03BC35E3017A2919,
+										F7C0292B03BC35E3017A2919,
+										F7C0292C03BC35E3017A2919,
+										F7C0292D03BC35E3017A2919,
+										F7C0292E03BC35E3017A2919,
+										F7C0292F03BC35E3017A2919,
+										F7C0293003BC35E3017A2919,
+										F7C0293103BC35E3017A2919,
+										F7C0293203BC35E3017A2919,
+										F7C0293303BC35E3017A2919,
+										F7C0293403BC35E3017A2919,
+										F7C0293503BC35E3017A2919,
+										F7C0293603BC35E3017A2919,
+										F7C0293703BC35E3017A2919,
+										F7C0293803BC35E3017A2919,
+										F7C0293903BC35E3017A2919,
+										F7C0293A03BC35E3017A2919,
+										F7C0293B03BC35E3017A2919,
+										F7C0293C03BC35E3017A2919,
+										F7C0293D03BC35E3017A2919,
+										F7C0293E03BC35E3017A2919,
+										F7C0293F03BC35E3017A2919,
+										F7C0294003BC35E3017A2919,
+										F7C0294103BC35E3017A2919,
+										F7C0294203BC35E3017A2919,
+										F7C0294303BC35E3017A2919,
+										F7C0294403BC35E3017A2919,
+										F7C0294503BC35E3017A2919,
+										F7C0294603BC35E3017A2919,
+										F7C0294703BC35E3017A2919,
+										F7C0294803BC35E3017A2919,
+										F7C0294903BC35E3017A2919,
+										F7C0294A03BC35E3017A2919,
+										F7C0294B03BC35E3017A2919,
+										F7C0294C03BC35E3017A2919,
+										F7C0294D03BC35E3017A2919,
+										F7C0294E03BC35E3017A2919,
+										F7C0294F03BC35E3017A2919,
+										F7C0295003BC35E3017A2919,
+										F7C0295103BC35E3017A2919,
+										F7C0295203BC35E3017A2919,
+										F7C0295303BC35E3017A2919,
+										F7C0295403BC35E3017A2919,
+										F7C0295503BC35E3017A2919,
+										F7C0295603BC35E3017A2919,
+										F7C0295703BC35E3017A2919,
+										F7C0295803BC35E3017A2919,
+										F7C0295903BC35E3017A2919,
+										F7C0295A03BC35E3017A2919,
+										F7C0295B03BC35E3017A2919,
+										F7C0295C03BC35E3017A2919,
+										F7C0295D03BC35E3017A2919,
+										F7C0295E03BC35E3017A2919,
+										F7C0295F03BC35E3017A2919,
+										F7C0296003BC35E3017A2919,
+										F7C0296103BC35E3017A2919,
+										F7C0296203BC35E3017A2919,
+										F7C0296303BC35E3017A2919,
+										F7C0296403BC35E3017A2919,
+										F7C0296503BC35E3017A2919,
+										F7C0296603BC35E3017A2919,
+										F7C0296703BC35E3017A2919,
+										F7C0296803BC35E3017A2919,
+										F7C0296903BC35E3017A2919,
+										F7C0296A03BC35E3017A2919,
+										F7C0296B03BC35E3017A2919,
+										F7C0296C03BC35E3017A2919,
+										F7C0296D03BC35E3017A2919,
+										F7C0296E03BC35E3017A2919,
+										F7C0296F03BC35E3017A2919,
+										F7C0297003BC35E3017A2919,
+										F7C0297103BC35E3017A2919,
+										F7C0297203BC35E3017A2919,
+										F7C0297303BC35E3017A2919,
+										F7C0297403BC35E3017A2919,
+										F7C0297503BC35E3017A2919,
+										F7C0297603BC35E3017A2919,
+										F7C0297703BC35E3017A2919,
+										F7C0297803BC35E3017A2919,
+										F7C0297903BC35E3017A2919,
+										F7C0297A03BC35E3017A2919,
+										F7C0297B03BC35E3017A2919,
+										F7C0297D03BC35E3017A2919,
+										F7C0297E03BC35E3017A2919,
+										F7C0297F03BC35E3017A2919,
+										F7C0298003BC35E3017A2919,
+										F7C0298103BC35E3017A2919,
+										F7C0298203BC35E3017A2919,
+										F7C0298303BC35E3017A2919,
+										F7C0298403BC35E3017A2919,
+										F7C0298503BC35E3017A2919,
+										F7C0298603BC35E3017A2919,
+										F7C0298703BC35E3017A2919,
+										F7C0298803BC35E3017A2919,
+										F7C0298903BC35E3017A2919,
+										F7C0298A03BC35E3017A2919,
+										F7C0298B03BC35E3017A2919,
+										F7C0298C03BC35E3017A2919,
+										F7C0298D03BC35E3017A2919,
+										F7C0298E03BC35E3017A2919,
+										F7C0298F03BC35E3017A2919,
+										F7C0299003BC35E3017A2919,
+										F7C0299103BC35E3017A2919,
+										F7C0299203BC35E3017A2919,
+										F7C0299303BC35E3017A2919,
+										F7C0299403BC35E3017A2919,
+										F7C0299503BC35E3017A2919,
+										F7C0299603BC35E3017A2919,
+										F7C0299703BC35E3017A2919,
+										F7C0299803BC35E3017A2919,
+										F7C0299903BC35E3017A2919,
+										F7C0299A03BC35E3017A2919,
+										F7C0299B03BC35E3017A2919,
+										F7C0299C03BC35E3017A2919,
+										F7C0299D03BC35E3017A2919,
+										F7C0299E03BC35E3017A2919,
+										F7C0299F03BC35E3017A2919,
+										F7C029A003BC35E3017A2919,
+										F7C029A103BC35E3017A2919,
+										F7C029A203BC35E3017A2919,
+										F7C029A303BC35E3017A2919,
+										F7C029A403BC35E3017A2919,
+										F7C029A503BC35E3017A2919,
+										F7C029A603BC35E3017A2919,
+										F7C029A703BC35E3017A2919,
+										F7C029A803BC35E3017A2919,
+										F7C029A903BC35E3017A2919,
+										F7C029AA03BC35E3017A2919,
+										F7C029AB03BC35E3017A2919,
+										F7C029AC03BC35E3017A2919,
+										F7C029AD03BC35E3017A2919,
+										F7C029AE03BC35E3017A2919,
+										F7C029AF03BC35E3017A2919,
+										F7C029B003BC35E3017A2919,
+										F7C029B103BC35E3017A2919,
+										F7C029B203BC35E3017A2919,
+										F7C029B303BC35E3017A2919,
+										F7C029B403BC35E3017A2919,
+										F7C029B503BC35E3017A2919,
+										F7C029B603BC35E3017A2919,
+										F7C029B703BC35E3017A2919,
+										F7C029B803BC35E3017A2919,
+										F7C029B903BC35E3017A2919,
+										F7C029BA03BC35E3017A2919,
+										F7C029BB03BC35E3017A2919,
+										F7C029BC03BC35E3017A2919,
+										F7C029BD03BC35E3017A2919,
+										F7C029BE03BC35E3017A2919,
+										F7C029BF03BC35E3017A2919,
+										F7C029C003BC35E3017A2919,
+										F7C029C103BC35E3017A2919,
+										F7C029C203BC35E3017A2919,
+										F7C029C303BC35E3017A2919,
+										F7C029C403BC35E3017A2919,
+										F7C029C503BC35E3017A2919,
+										F7C029C603BC35E3017A2919,
+										F7C029C703BC35E3017A2919,
+										F7C029C803BC35E3017A2919,
+										F7C029C903BC35E3017A2919,
+										F7C029CA03BC35E3017A2919,
+										F7C029CB03BC35E3017A2919,
+										F7C029CC03BC35E3017A2919,
+										F7C029CD03BC35E3017A2919,
+										F7C029CE03BC35E3017A2919,
+										F7C029CF03BC35E3017A2919,
+										F7C029D003BC35E3017A2919,
+										F7C029D103BC35E3017A2919,
+										F7C029D203BC35E3017A2919,
+										F7C029D303BC35E3017A2919,
+										F7C029D403BC35E3017A2919,
+										F7C029D503BC35E3017A2919,
+										F7C029D603BC35E3017A2919,
+										F7C029D703BC35E3017A2919,
+										F7C029D803BC35E3017A2919,
+										F7C029D903BC35E3017A2919,
+										F7C029DA03BC35E3017A2919,
+										F7C029DB03BC35E3017A2919,
+										F7C029DC03BC35E3017A2919,
+										F7C029DD03BC35E3017A2919,
+										F7C029DE03BC35E3017A2919,
+										F7C029DF03BC35E3017A2919,
+										F7C029E003BC35E3017A2919,
+										F7C029E103BC35E3017A2919,
+										F7C029E203BC35E3017A2919,
+										F7C029E303BC35E3017A2919,
+										F7C029E403BC35E3017A2919,
+										F7C029E503BC35E3017A2919,
+										F7C029E603BC35E3017A2919,
+										F7C029E703BC35E3017A2919,
+										F7C029E803BC35E3017A2919,
+										F7C029E903BC35E3017A2919,
+										F7C029EA03BC35E3017A2919,
+										F7C029EB03BC35E3017A2919,
+										F7C029EC03BC35E3017A2919,
+										F7C029ED03BC35E3017A2919,
+										F7C029EE03BC35E3017A2919,
+										F7C029EF03BC35E3017A2919,
+										F7C029F003BC35E3017A2919,
+										F7C029F103BC35E3017A2919,
+										F7C029F203BC35E3017A2919,
+										F7C029F303BC35E3017A2919,
+										F7C029F403BC35E3017A2919,
+										F7C029F503BC35E3017A2919,
+										F7C029F603BC35E3017A2919,
+										F7C029F703BC35E3017A2919,
+										F7C029F803BC35E3017A2919,
+										F7C029F903BC35E3017A2919,
+										F7C029FA03BC35E3017A2919,
+										F7C029FB03BC35E3017A2919,
+										F7C029FC03BC35E3017A2919,
+										F7C029FD03BC35E3017A2919,
+										F7C029FE03BC35E3017A2919,
+										F7C029FF03BC35E3017A2919,
+										F7C02A0003BC35E3017A2919,
+										F7C02A0103BC35E3017A2919,
+										F7C02A0203BC35E3017A2919,
+										F7A345C003BD151A0185AE74,
+										F7A345C103BD151A0185AE74,
+										F7A345C203BD151A0185AE74,
+										F7A345C303BD151A0185AE74,
+										F7A345C403BD151A0185AE74,
+										F7A345C503BD151A0185AE74,
+										F7A345C603BD151A0185AE74,
+										F7A345C703BD151A0185AE74,
+										F7A345C803BD151A0185AE74,
+										F7A345C903BD151A0185AE74,
+										F7A345CA03BD151A0185AE74,
+										F7A345CB03BD151A0185AE74,
+										F7A345CC03BD151A0185AE74,
+										F7A345CD03BD151A0185AE74,
+										F7A345CE03BD151A0185AE74,
+										F7A345CF03BD151A0185AE74,
+										F7A345D003BD151A0185AE74,
+										F7A345D103BD151A0185AE74,
+										F7A345D203BD151A0185AE74,
+										F7A345D303BD151A0185AE74,
+										F7A345D403BD151A0185AE74,
+										F7A345D503BD151A0185AE74,
+										F7A345D603BD151A0185AE74,
+										F7A345D703BD151A0185AE74,
+										F7A345D803BD151A0185AE74,
+										F7A345D903BD151A0185AE74,
+										F7A345DA03BD151A0185AE74,
+										F7A345DB03BD151A0185AE74,
+										F7A345DC03BD151A0185AE74,
+										F7A345DD03BD151A0185AE74,
+										F7A345DE03BD151A0185AE74,
+										F7A345DF03BD151A0185AE74,
+										F7A345E003BD151A0185AE74,
+										F7A345E103BD151A0185AE74,
+										F7A345E203BD151A0185AE74,
+										F7A345E303BD151A0185AE74,
+										F7A345E403BD151A0185AE74,
+										F7A345E503BD151A0185AE74,
+										F7A345E603BD151A0185AE74,
+										F7A345E703BD151A0185AE74,
+										F7A345E803BD151A0185AE74,
+										F7A345E903BD151A0185AE74,
+										F7A345EA03BD151A0185AE74,
+										F7A345EB03BD151A0185AE74,
+										F7A345EC03BD151A0185AE74,
+										F7A345ED03BD151A0185AE74,
+										F7A345EE03BD151A0185AE74,
+										F7A345EF03BD151A0185AE74,
+										F7A345F003BD151A0185AE74,
+										F7A345F103BD151A0185AE74,
+										F7A345F203BD151A0185AE74,
+										F7A345F303BD151A0185AE74,
+										F7A345F403BD151A0185AE74,
+										F7A345F503BD151A0185AE74,
+										F7A345F603BD151A0185AE74,
+										F7A345F703BD151A0185AE74,
+										F7A345F803BD151A0185AE74,
+										F7A345F903BD151A0185AE74,
+										F7A345FA03BD151A0185AE74,
+										F7A345FB03BD151A0185AE74,
+										F5F1073003CEFF6401A8010A,
+										F5F1073103CEFF6401A8010A,
+										F5F1073203CEFF6401A8010A,
+										F5F1073303CEFF6401A8010A,
+										F5F1073403CEFF6401A8010A,
+										F5F1073503CEFF6401A8010A,
+										F5F1073603CEFF6401A8010A,
+										F5F1073703CEFF6401A8010A,
+										F5F1073803CEFF6401A8010A,
+										F5F1073903CEFF6401A8010A,
+										F5F1073A03CEFF6401A8010A,
+										F5F1073B03CEFF6401A8010A,
+										F5F1073C03CEFF6401A8010A,
+										F5F1073D03CEFF6401A8010A,
+										F5F1073E03CEFF6401A8010A,
+										F5F1073F03CEFF6401A8010A,
+										F5F1074003CEFF6401A8010A,
+										F5F1074103CEFF6401A8010A,
+										F5F1074203CEFF6401A8010A,
+										F5F1074303CEFF6401A8010A,
+										F5F1074403CEFF6401A8010A,
+										F5F1074503CEFF6401A8010A,
+										F5F1074603CEFF6401A8010A,
+										F5F1074703CEFF6401A8010A,
+										F5F1074803CEFF6401A8010A,
+										F5F1074903CEFF6401A8010A,
+										F5F1074A03CEFF6401A8010A,
+										F5F1074B03CEFF6401A8010A,
+										F5F1074C03CEFF6401A8010A,
+										F5F1074D03CEFF6401A8010A,
+										F5F1074E03CEFF6401A8010A,
+										F5F1074F03CEFF6401A8010A,
+										F5F1075003CEFF6401A8010A,
+										F5F1075103CEFF6401A8010A,
+										F5F1075203CEFF6401A8010A,
+										F5F1075303CEFF6401A8010A,
+										F5F1075403CEFF6401A8010A,
+										F5F1075503CEFF6401A8010A,
+										F59481D103D0F64301A8010A,
+										F59481D203D0F64301A8010A,
+										F59481D303D0F64301A8010A,
+										F59481D403D0F64301A8010A,
+										F59481D503D0F64301A8010A,
+										F59481D603D0F64301A8010A,
+										F59481D703D0F64301A8010A,
+										F59481D803D0F64301A8010A,
+										F59481D903D0F64301A8010A,
+										F59481DA03D0F64301A8010A,
+										F59481DB03D0F64301A8010A,
+										F59481DC03D0F64301A8010A,
+										F59481DD03D0F64301A8010A,
+										F59481DE03D0F64301A8010A,
+										F59481DF03D0F64301A8010A,
+										F59481E003D0F64301A8010A,
+										F59481E103D0F64301A8010A,
+										F59481E203D0F64301A8010A,
+										F59481E303D0F64301A8010A,
+										F59481E403D0F64301A8010A,
+										F59481E503D0F64301A8010A,
+										F59481E603D0F64301A8010A,
+										F59481E703D0F64301A8010A,
+										F59481E803D0F64301A8010A,
+										F59481E903D0F64301A8010A,
+										F59481EA03D0F64301A8010A,
+										F59481EB03D0F64301A8010A,
+										F59481EC03D0F64301A8010A,
+										F59481ED03D0F64301A8010A,
+										F59481EE03D0F64301A8010A,
+										F59481EF03D0F64301A8010A,
+										F59481F003D0F64301A8010A,
+										F59481F103D0F64301A8010A,
+										F59481F203D0F64301A8010A,
+										F59481F303D0F64301A8010A,
+										F59481F403D0F64301A8010A,
+										F59481F503D0F64301A8010A,
+										F59481F603D0F64301A8010A,
+										F59481F703D0F64301A8010A,
+										F59481F803D0F64301A8010A,
+										F59481F903D0F64301A8010A,
+										F59481FA03D0F64301A8010A,
+										F59481FB03D0F64301A8010A,
+										F59481FC03D0F64301A8010A,
+										F59481FD03D0F64301A8010A,
+										F59481FE03D0F64301A8010A,
+										F59481FF03D0F64301A8010A,
+										F594820003D0F64301A8010A,
+										F594820103D0F64301A8010A,
+										F594820203D0F64301A8010A,
+										F594820303D0F64301A8010A,
+										F594820403D0F64301A8010A,
+										F594820503D0F64301A8010A,
+										F594820603D0F64301A8010A,
+										F594820703D0F64301A8010A,
+										F594820803D0F64301A8010A,
+										F594820903D0F64301A8010A,
+										F594820A03D0F64301A8010A,
+										F594820B03D0F64301A8010A,
+										F594820C03D0F64301A8010A,
+										F594820D03D0F64301A8010A,
+										F594820E03D0F64301A8010A,
+										F594820F03D0F64301A8010A,
+										F594821003D0F64301A8010A,
+										F594821103D0F64301A8010A,
+										F594821203D0F64301A8010A,
+										F594821303D0F64301A8010A,
+										F594821403D0F64301A8010A,
+										F594821503D0F64301A8010A,
+										F594821603D0F64301A8010A,
+										F594821703D0F64301A8010A,
+										F594821803D0F64301A8010A,
+										F594821903D0F64301A8010A,
+										F594821A03D0F64301A8010A,
+										F594821B03D0F64301A8010A,
+										F594821C03D0F64301A8010A,
+										F594821D03D0F64301A8010A,
+										F594821E03D0F64301A8010A,
+										F594821F03D0F64301A8010A,
+										F594822003D0F64301A8010A,
+										F594822103D0F64301A8010A,
+										F594822203D0F64301A8010A,
+										F594822303D0F64301A8010A,
+										F594822403D0F64301A8010A,
+										F594822503D0F64301A8010A,
+										F594822603D0F64301A8010A,
+										F5E440D403D19D7101A8010A,
+										F5D9A11603D8577A01A8010A,
+										E1E4D1C903DB1A6500A8010A,
+										E1E4D1CA03DB1A6500A8010A,
+										E1B2F2B103E5CEF700A8010A,
+										E1B2F2B203E5CEF700A8010A,
+										E1B8314D03EA23A900A8010A,
+										E1B8314E03EA23A900A8010A,
+										E1B8314F03EA23A900A8010A,
+										E1B8315003EA23A900A8010A,
+										E1B8315103EA23A900A8010A,
+										E1B8315203EA23A900A8010A,
+										E1B8315303EA23A900A8010A,
+										E1B8315403EA23A900A8010A,
+										E1B8315503EA23A900A8010A,
+										E1B8315603EA23A900A8010A,
+										E1B8315703EA23A900A8010A,
+										E1B8315803EA23A900A8010A,
+									);
+								};
+								NavCount = 1;
+								NavGeometry0 = {
+									Frame = "{{0, 0}, {740, 659}}";
+									NavBarVisible = YES;
+								};
+								NavSplitVertical = NO;
+							};
+							SplitCount = 1;
+							Tab1 = {
+								Debugger = {
+									Split0 = {
+										SplitCount = 2;
+									};
+									SplitCount = 1;
+									TabCount = 2;
+								};
+								LauncherConfigVersion = 7;
+							};
+							Tab2 = {
+								LauncherConfigVersion = 3;
+								Runner = {
+								};
+							};
+							TabCount = 5;
+						};
+						SplitCount = 1;
+						Tab1 = {
+							OptionsSetName = "Hierarchy, all classes";
+						};
+						TabCount = 5;
+					};
+				},
+			);
+			PBXWorkspaceGeometries = (
+				{
+					ContentSize = "{1024, 706}";
+					LeftSlideOut = {
+						ActiveTab = 0;
+						ActiveTabName = PBXGroupTreeModule;
+						Collapsed = NO;
+						Frame = "{{0, 23}, {1024, 683}}";
+						Split0 = {
+							Collapsed = NO;
+							Frame = "{{284, 0}, {740, 683}}";
+							Split0 = {
+								Frame = "{{0, 24}, {740, 659}}";
+							};
+							SplitCount = 1;
+							Tab0 = {
+								Frame = "{{0, 0}, {1316, 330}}";
+							};
+							Tab1 = {
+								Debugger = {
+									Collapsed = NO;
+									Frame = "{{0, 0}, {1316, 381}}";
+									Split0 = {
+										Frame = "{{0, 24}, {1316, 357}}";
+										Split0 = {
+											Frame = "{{0, 0}, {649, 357}}";
+										};
+										Split1 = {
+											DebugVariablesTableConfiguration = (
+												Name,
+												123,
+												Value,
+												85,
+												Summary,
+												424.123,
+											);
+											Frame = "{{658, 0}, {658, 357}}";
+										};
+										SplitCount = 2;
+									};
+									SplitCount = 1;
+									Tab0 = {
+										Frame = "{{0, 0}, {100, 50}}";
+									};
+									Tab1 = {
+										Frame = "{{0, 0}, {100, 50}}";
+									};
+									TabCount = 2;
+									TabsVisible = YES;
+								};
+								Frame = "{{0, 0}, {1316, 381}}";
+								LauncherConfigVersion = 7;
+							};
+							Tab2 = {
+								Frame = "{{0, 0}, {1316, 170}}";
+								LauncherConfigVersion = 3;
+								Runner = {
+									Frame = "{{0, 0}, {1316, 170}}";
+								};
+							};
+							Tab3 = {
+								BuildMessageFrame = "{{0, 0}, {1318, 232}}";
+								BuildTranscriptFrame = "{{0, 241}, {1318, 2}}";
+								BuildTranscriptFrameExpanded = YES;
+								Frame = "{{0, 0}, {1316, 265}}";
+							};
+							Tab4 = {
+								Frame = "{{0, 0}, {740, 295}}";
+							};
+							TabCount = 5;
+							TabsVisible = YES;
+						};
+						SplitCount = 1;
+						Tab0 = {
+							Frame = "{{0, 0}, {260, 683}}";
+							GroupTreeTableConfiguration = (
+								SCMStatusColumn,
+								22,
+								TargetStatusColumn,
+								18,
+								MainColumn,
+								205,
+							);
+						};
+						Tab1 = {
+							ClassesFrame = "{{0, 0}, {247, 330}}";
+							ClassesTreeTableConfiguration = (
+								PBXBookColumnIdentifier,
+								20,
+								PBXClassColumnIdentifier,
+								204,
+							);
+							Frame = "{{0, 0}, {245, 549}}";
+							MembersFrame = "{{0, 339}, {247, 210}}";
+							MembersTreeTableConfiguration = (
+								PBXBookColumnIdentifier,
+								20,
+								PBXMethodColumnIdentifier,
+								203,
+							);
+						};
+						Tab2 = {
+							Frame = "{{0, 0}, {226, 549}}";
+						};
+						Tab3 = {
+							Frame = "{{0, 0}, {191, 842}}";
+							TargetTableConfiguration = (
+								ActiveObject,
+								16,
+								ObjectNames,
+								202.296,
+							);
+						};
+						Tab4 = {
+							BreakpointsTreeTableConfiguration = (
+								breakpointColumn,
+								138,
+								enabledColumn,
+								31,
+							);
+							Frame = "{{0, 0}, {191, 549}}";
+						};
+						TabCount = 5;
+						TabsVisible = YES;
+					};
+					NavBarShownByDefault = YES;
+					StatusViewVisible = YES;
+					Template = F5F68CF101725D4C0D7A8F4C;
+					ToolbarVisible = YES;
+					WindowLocation = "{1600, 256}";
+				},
+			);
+			PBXWorkspaceStateSaveDate = 239147817;
+		};
+		perUserProjectItems = {
+			E1B2A6000E41172B00A72928 = E1B2A6000E41172B00A72928 /* PBXTextBookmark */;
+			E1B2A6020E41172B00A72928 = E1B2A6020E41172B00A72928 /* PBXTextBookmark */;
+			E1B2A6030E41172B00A72928 = E1B2A6030E41172B00A72928 /* PBXTextBookmark */;
+			E1B2A6040E41172B00A72928 = E1B2A6040E41172B00A72928 /* PBXTextBookmark */;
+			E1B2A6060E41172B00A72928 = E1B2A6060E41172B00A72928 /* PBXTextBookmark */;
+			E1B2A6080E41172B00A72928 = E1B2A6080E41172B00A72928 /* PBXTextBookmark */;
+			E1B2A6090E41172B00A72928 = E1B2A6090E41172B00A72928 /* PBXTextBookmark */;
+			E1B2A60B0E41172B00A72928 = E1B2A60B0E41172B00A72928 /* PBXTextBookmark */;
+			E1B2A60C0E41172B00A72928 = E1B2A60C0E41172B00A72928 /* PBXTextBookmark */;
+			E1B2A60E0E41172B00A72928 = E1B2A60E0E41172B00A72928 /* PBXTextBookmark */;
+			E1B2A60F0E41172B00A72928 = E1B2A60F0E41172B00A72928 /* PBXTextBookmark */;
+			E1B2A6110E41172B00A72928 = E1B2A6110E41172B00A72928 /* PBXTextBookmark */;
+			E1B2A6120E41172B00A72928 = E1B2A6120E41172B00A72928 /* PBXTextBookmark */;
+			E1B2A6140E41172B00A72928 = E1B2A6140E41172B00A72928 /* PBXTextBookmark */;
+			E1B2A6150E41172B00A72928 = E1B2A6150E41172B00A72928 /* PBXTextBookmark */;
+			E1B2A6170E41172B00A72928 = E1B2A6170E41172B00A72928 /* PBXTextBookmark */;
+			E1B2A6180E41172B00A72928 = E1B2A6180E41172B00A72928 /* PBXTextBookmark */;
+			E1B2A6190E41172B00A72928 = E1B2A6190E41172B00A72928 /* PBXTextBookmark */;
+			E1B2A61B0E41172B00A72928 = E1B2A61B0E41172B00A72928 /* PBXTextBookmark */;
+			E1B2A61C0E41172B00A72928 = E1B2A61C0E41172B00A72928 /* PBXTextBookmark */;
+			E1B2A63E0E4119FE00A72928 = E1B2A63E0E4119FE00A72928 /* PlistBookmark */;
+			E1B2A63F0E4119FE00A72928 = E1B2A63F0E4119FE00A72928 /* PBXTextBookmark */;
+			E1B2A6400E4119FE00A72928 = E1B2A6400E4119FE00A72928 /* PlistBookmark */;
+			E1B2A6460E411A8300A72928 = E1B2A6460E411A8300A72928 /* PBXTextBookmark */;
+			E1B2A6BC0E411CE100A72928 /* PBXTextBookmark */ = E1B2A6BC0E411CE100A72928 /* PBXTextBookmark */;
+			E1B2A6BD0E411CE100A72928 /* PBXTextBookmark */ = E1B2A6BD0E411CE100A72928 /* PBXTextBookmark */;
+			E1B2A6BE0E411CE100A72928 /* PlistBookmark */ = E1B2A6BE0E411CE100A72928 /* PlistBookmark */;
+			E1B2A6BF0E411CE100A72928 /* PBXBookmark */ = E1B2A6BF0E411CE100A72928 /* PBXBookmark */;
+			E1B2A6C00E411CE100A72928 /* PBXTextBookmark */ = E1B2A6C00E411CE100A72928 /* PBXTextBookmark */;
+			E1B2A6C10E411CE100A72928 /* PBXTextBookmark */ = E1B2A6C10E411CE100A72928 /* PBXTextBookmark */;
+			E1B2A6C20E411CE100A72928 /* PlistBookmark */ = E1B2A6C20E411CE100A72928 /* PlistBookmark */;
+			E1B2A6C30E411CE100A72928 /* PBXTextBookmark */ = E1B2A6C30E411CE100A72928 /* PBXTextBookmark */;
+			E1B2A6C80E411CF800A72928 /* PBXTextBookmark */ = E1B2A6C80E411CF800A72928 /* PBXTextBookmark */;
+			E1B2A6D20E411D0500A72928 /* PBXTextBookmark */ = E1B2A6D20E411D0500A72928 /* PBXTextBookmark */;
+			E1B2A6D50E411D2400A72928 /* PBXTextBookmark */ = E1B2A6D50E411D2400A72928 /* PBXTextBookmark */;
+			E1B2A6D70E411D2A00A72928 /* PBXTextBookmark */ = E1B2A6D70E411D2A00A72928 /* PBXTextBookmark */;
+		};
+		sourceControlManager = E1B2A3850E410C3500A72928 /* Source Control */;
+		userBookmarkGroup = F5C9ECCB027F25E101A8010C /* PBXBookmarkGroup */;
+		userBuildSettings = {
+		};
+	};
+	F5B588430156D40B01000001 /* English */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1479, 604}}";
+			sepNavSelRange = "{149, 0}";
+			sepNavVisRange = "{0, 236}";
+		};
+	};
+	F5B588450156D40B01000001 /* English */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1479, 686}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 1493}";
+		};
+	};
+	F5C9ECCB027F25E101A8010C /* PBXBookmarkGroup */ = {
+		isa = PBXBookmarkGroup;
+		children = (
+			F5C9ECDA027F59A901A8010C /* PBXTextBookmark */,
+		);
+		name = Root;
+	};
+	F5C9ECDA027F59A901A8010C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F5C9ECD8027F562201A8010C /* Structs.h */;
+		name = "Structs.h: 20";
+		rLen = 0;
+		rLoc = 745;
+		rType = 0;
+		vrLen = 873;
+		vrLoc = 0;
+	};
+	F5DF1BF00254AD8801A80001 /* MoreFilesX.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1479, 39102}}";
+			sepNavSelRange = "{5775, 0}";
+			sepNavVisRange = "{5351, 1130}";
+		};
+	};
+	F5DF1BF10254AD8801A80001 /* MoreFilesX.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1479, 25704}}";
+			sepNavSelRange = "{47097, 0}";
+			sepNavVisRange = "{46179, 1023}";
+		};
+	};
+}
