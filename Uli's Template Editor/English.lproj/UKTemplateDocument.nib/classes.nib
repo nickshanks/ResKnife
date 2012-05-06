@@ -1,0 +1,15 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {CLASS = MyDocument; LANGUAGE = ObjC; SUPERCLASS = NSDocument; }, 
+        {CLASS = UKScrollDocumentView; LANGUAGE = ObjC; SUPERCLASS = NSView; }, 
+        {
+            ACTIONS = {copyFileAsPList = id; }; 
+            CLASS = UKTemplateDocument; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {fieldList = NSOutlineView; }; 
+            SUPERCLASS = NSDocument; 
+        }
+    ); 
+    IBVersion = 1; 
+}

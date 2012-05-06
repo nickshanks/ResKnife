@@ -1,0 +1,131 @@
+WHAT IS A TEMPLATE?
+
+For AngelTemplate, a Template is a file that describes a (binary) file format.
+AngelTemplate uses template files to find out how to best display certain
+kinds of binary files to you.
+
+
+HOW DO I CREATE A TEMPLATE?
+
+A template is basically a property list file. So, just use Property List
+Editor to create your template, and when you're finished change its file
+name extension from ".plist" to ".fileTemplate" and drop it in your ~/Library/Application Support/AngelTemplate/Templates/ folder.
+
+
+BASIC STRUCTURE OF A TEMPLATE
+
+A template file's root is a dictionary. It contains a "templateType" key that
+must currently always be set to the string "fieldList", and a "templateVersion"
+key that must currently always be set to the number "1".
+
+A field list template consists of a list of "fields", which are the individual
+pieces of data present in the file. An example of a field would be an integer,
+a string, or a boolean. In addition, some fields can contain other fields, for
+example the Array field can in turn contain integers, strings etc.
+
+In addition to the keys mentioned above, fieldList Templates of type 1 (the only
+type of template at this time) also contain the following keys:
+
+fieldDefaults	-	A dictionary containing fallback key-value pairs for certain
+					field types. For example, if a field's value can be stored
+					as big-endian or little-endian, and you want all fields to
+					be big-endian, you can specify the "endianness" key with
+					value "big" in this dictionary instead of for each field,
+					and thus make the entire file big-endian.
+
+fieldList		-	An array of dictionaries, where each dictionary contains
+					key-value pairs describing a certain field. All fields
+					have at least the following two key-value pairs:
+					
+					type		-	A string identifying the type of field. See
+									below for a list of supported field types.
+					label		-	A label to display to the left of this field.
+									This is a bit of description whose text you
+									can choose arbitrarily to tell people using
+									this template what a particular field
+									contains.
+					
+					Some field types also understand the following (optional)
+					key-value pairs:
+					
+					description -	A piece of (longer) descriptional text that
+									you can choose arbitrarily to provide
+									additional information about a field.
+					endianness	-	This is a string cintaining either "big" or
+									"little" and decides whether multi-byte data
+									types like integers and array counters will
+									be stored with least-significant byte first
+									(Intel) or last (PowerPC, M68000). If you
+									do not specify this key, the little-endian
+									format used on today's Intel-Chip-Based Macs
+									is used.
+					defaultValue -	This is a value that will be used for new
+									fields to fill them with an initial value.
+									You can for example use this to fill in the
+									newest version number into a data structure.
+									Depending on what type a field has, the
+									defaultValue will adopt an appropriate
+									data type, generally a string or a number.
+					fieldList	-	Some fields can contain other fields. For
+									example, array fields contain a list of
+									fields that make up one array item. The
+									fieldList key is used in the array field and
+									other fields with sub-fields to hold an
+									Array listing these fields. Such a fieldList
+									has the exact same format as the fieldList
+									at the root level of the file.
+									Generally, if a field type understands the
+									fieldList field, it is /not/ optional.
+					setVariable	-	This is a string used as a variable name in
+									which this field's value will be stored. You
+									can then later take the saved value and
+									specify it to another field to use as its
+									value. This is e.g. useful with arrays where
+									the number of elements doesn't immediately
+									precede the array items.
+					
+LIST OF FIELD TYPES
+
+The following field types are currently available in AngelTemplate:
+
+Integer					-	A 4-byte signed integer.
+UnsignedInteger			-	A 4-byte unsigned integer.
+TwoByteInteger			-	A 2-byte signed integer.
+TwoByteUnsignedInteger	-	A 2-byte unsigned integer.
+UnsignedTwoByteInteger	-	A 2-byte unsigned integer.
+Boolean					-	A 1-byte boolean value that is either 1 or 0
+							(YES or NO).
+Comment					-	This is a field that only exists in the template. It
+							does not read or write any data from/to the file,
+							but rather simply displays its label in the template.
+							You can use this to group together certain fields
+							and add descriptions.
+CString			-	A C string is a bunch of characters followed by a zero byte.
+					You can specify an "encoding" key for this field containing
+					a string like "MacOSRoman", "UTF8", "ISOLatin1" or "ASCII"
+					(See NSStringEncoding for other encoding names you can use.
+					Simply take the xxx part of the "NSxxxStringEncoding"
+					constants). If no encoding is specified, AngelTemplate will
+					assume an encoding of "UTF8".
+PString			-	A Pascal String. Pascal Strings start with one byte
+					indicating their length in bytes, and up to 255 characters
+					after that.
+					Like for C strings, you can specify the "encoding" key. Note
+					that most Pascal strings out there won't be in the default
+					encoding of UTF8, so you'd better explicitly specify
+					MacRoman or ISOLatin1.
+Array			-	An array of other fields. The array starts off with a 4-byte
+					integer containing the number of array elements, followed
+					by that many array items. Each array item's field layout is
+					defined by the fieldList contained in the array field.
+TwoByteArray	-	Like Array, but the counter is a two-byte integer instead of
+					a 4-byte integer.
+					
+					
+					
+					
+					
+					
+					
+					
+					

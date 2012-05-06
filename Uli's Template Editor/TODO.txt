@@ -1,0 +1,8 @@
+-> Add "offset" and "size" fields that are tagged so an offset and a size can be
+	used together for blocks that just "float" in a file.
+-> Also allow for offsets that don't have a size associated, where the size is
+	decided by the data itself, but watch out that we don't show "excess data"
+	error messages for those.
+-> With offsets, we may have to keep track of used ranges and then detect
+	"holes". But make sure that can be turned off in case a template doesn't
+	include certain padding data but uses offsets.

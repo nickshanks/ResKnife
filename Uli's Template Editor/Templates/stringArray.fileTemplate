@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>fieldList</key>
+	<array>
+		<dict>
+			<key>defaultValue</key>
+			<integer>2</integer>
+			<key>fieldList</key>
+			<array>
+				<dict>
+					<key>label</key>
+					<string>String</string>
+					<key>type</key>
+					<string>PString</string>
+				</dict>
+			</array>
+			<key>label</key>
+			<string>Strings</string>
+			<key>type</key>
+			<string>Array</string>
+		</dict>
+	</array>
+	<key>templateType</key>
+	<string>fieldList</string>
+	<key>templateVersion</key>
+	<integer>1</integer>
+</dict>
+</plist>

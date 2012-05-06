@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>fieldDefaults</key>
+	<dict>
+		<key>endianness</key>
+		<string>big</string>
+	</dict>
+	<key>fieldList</key>
+	<array>
+		<dict>
+			<key>defaultValue</key>
+			<integer>77</integer>
+			<key>description</key>
+			<string>This is a custom description specified in the template.</string>
+			<key>label</key>
+			<string>Number 1</string>
+			<key>type</key>
+			<string>Integer</string>
+		</dict>
+		<dict>
+			<key>defaultValue</key>
+			<integer>88</integer>
+			<key>label</key>
+			<string>Number 2</string>
+			<key>type</key>
+			<string>TwoByteInteger</string>
+		</dict>
+		<dict>
+			<key>defaultValue</key>
+			<integer>99</integer>
+			<key>label</key>
+			<string>Number 3</string>
+			<key>type</key>
+			<string>TwoByteInteger</string>
+		</dict>
+		<dict>
+			<key>label</key>
+			<string>Now come some more interesting fields:</string>
+			<key>type</key>
+			<string>Comment</string>
+		</dict>
+		<dict>
+			<key>defaultValue</key>
+			<string>Well, what have we here?</string>
+			<key>encoding</key>
+			<string>MacOSRoman</string>
+			<key>label</key>
+			<string>String 1</string>
+			<key>type</key>
+			<string>PString</string>
+		</dict>
+		<dict>
+			<key>defaultValue</key>
+			<integer>11</integer>
+			<key>label</key>
+			<string>Number 4</string>
+			<key>type</key>
+			<string>Integer</string>
+		</dict>
+		<dict>
+			<key>defaultValue</key>
+			<string>A C string.</string>
+			<key>label</key>
+			<string>String 2</string>
+			<key>type</key>
+			<string>CString</string>
+		</dict>
+		<dict>
+			<key>defaultValue</key>
+			<integer>22</integer>
+			<key>label</key>
+			<string>Number 5</string>
+			<key>type</key>
+			<string>Integer</string>
+		</dict>
+		<dict>
+			<key>defaultValue</key>
+			<true/>
+			<key>label</key>
+			<string>Frobnitz the Mxlyptztik</string>
+			<key>type</key>
+			<string>Boolean</string>
+		</dict>
+		<dict>
+			<key>defaultValue</key>
+			<integer>2</integer>
+			<key>fieldList</key>
+			<array>
+				<dict>
+					<key>defaultValue</key>
+					<true/>
+					<key>label</key>
+					<string>Truify</string>
+					<key>type</key>
+					<string>Boolean</string>
+				</dict>
+				<dict>
+					<key>defaultValue</key>
+					<false/>
+					<key>label</key>
+					<string>Falsify</string>
+					<key>type</key>
+					<string>Boolean</string>
+				</dict>
+				<dict>
+					<key>defaultValue</key>
+					<integer>2048</integer>
+					<key>label</key>
+					<string>Number in Array</string>
+					<key>type</key>
+					<string>Integer</string>
+				</dict>
+			</array>
+			<key>label</key>
+			<string>Array 1</string>
+			<key>type</key>
+			<string>Array</string>
+		</dict>
+	</array>
+	<key>templateType</key>
+	<string>fieldList</string>
+	<key>templateVersion</key>
+	<integer>1</integer>
+</dict>
+</plist>

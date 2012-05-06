@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'SamplePluginFieldType' target in the 'SamplePluginFieldType' project.
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif

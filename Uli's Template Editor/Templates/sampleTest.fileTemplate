@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>fieldList</key>
+	<array>
+		<dict>
+			<key>defaultValue</key>
+			<integer>5</integer>
+			<key>description</key>
+			<string>This is a custom description specified in the template.</string>
+			<key>label</key>
+			<string>Sample Field Test</string>
+			<key>type</key>
+			<string>Sample</string>
+		</dict>
+	</array>
+	<key>templateType</key>
+	<string>fieldList</string>
+	<key>templateVersion</key>
+	<integer>1</integer>
+</dict>
+</plist>

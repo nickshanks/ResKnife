@@ -1,0 +1,12 @@
+{
+    IBClasses = (
+        {
+            ACTIONS = {addNewField = id; copyFileAsPList = id; }; 
+            CLASS = FirstResponder; 
+            LANGUAGE = ObjC; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {CLASS = UKAngelTemplateAppDelegate; LANGUAGE = ObjC; SUPERCLASS = NSObject; }
+    ); 
+    IBVersion = 1; 
+}
