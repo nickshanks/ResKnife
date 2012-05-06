@@ -1,13 +1,17 @@
 
 # /
-/build
+*/build
+build
 
 # /ResKnife.xcodeproj/
-/ResKnife.xcodeproj/lane.pbxuser
-/ResKnife.xcodeproj/lane.perspectivev3
+*.pbxuser
+*.perspectivev3
 
 .DS_Store
 
 *.xcworkspace/
 xcuserdata/
 
+-1
+
+Uli's Template Editor/*
