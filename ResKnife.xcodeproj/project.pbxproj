@@ -12,6 +12,35 @@
 		0EF71540122BD0D0005DF94E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0EF7153F122BD0D0005DF94E /* Localizable.strings */; };
 		3DB9D66412307A9400DDA647 /* NovaTools.plugin in Copy Plugins */ = {isa = PBXBuildFile; fileRef = E17ADBC006A2132800842474 /* NovaTools.plugin */; };
 		3DB9D6E712307F6300DDA647 /* Bitmap Editor.plugin in Copy Plugins */ = {isa = PBXBuildFile; fileRef = E18BF69D069FEA1800F076B8 /* Bitmap Editor.plugin */; };
+		A597747F1556EB2D0093DD6B /* NGSTemplateWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = A597747E1556EB2D0093DD6B /* NGSTemplateWindowController.h */; };
+		A59774A11556EBB30093DD6B /* NGSElement.h in Headers */ = {isa = PBXBuildFile; fileRef = A59774A01556EBB30093DD6B /* NGSElement.h */; };
+		A59774D81556EE8D0093DD6B /* CDStructures.h in Headers */ = {isa = PBXBuildFile; fileRef = A59774BF1556EE8D0093DD6B /* CDStructures.h */; };
+		A59774D91556EE8D0093DD6B /* NSObject-UKSubclasses.h in Headers */ = {isa = PBXBuildFile; fileRef = A59774C01556EE8D0093DD6B /* NSObject-UKSubclasses.h */; };
+		A59774DA1556EE8D0093DD6B /* NSObject+Subclasses.h in Headers */ = {isa = PBXBuildFile; fileRef = A59774C11556EE8D0093DD6B /* NSObject+Subclasses.h */; };
+		A59774DB1556EE8D0093DD6B /* NSOutlineView-UKExpandAllItems.h in Headers */ = {isa = PBXBuildFile; fileRef = A59774C21556EE8D0093DD6B /* NSOutlineView-UKExpandAllItems.h */; };
+		A59774DC1556EE8D0093DD6B /* SamplePluginTemplateField.h in Headers */ = {isa = PBXBuildFile; fileRef = A59774C31556EE8D0093DD6B /* SamplePluginTemplateField.h */; };
+		A59774DD1556EE8D0093DD6B /* UKAngelTemplateAppDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = A59774C41556EE8D0093DD6B /* UKAngelTemplateAppDelegate.h */; };
+		A59774DE1556EE8D0093DD6B /* UKArrayItemTemplateField.h in Headers */ = {isa = PBXBuildFile; fileRef = A59774C51556EE8D0093DD6B /* UKArrayItemTemplateField.h */; };
+		A59774DF1556EE8D0093DD6B /* UKArrayTemplateField.h in Headers */ = {isa = PBXBuildFile; fileRef = A59774C61556EE8D0093DD6B /* UKArrayTemplateField.h */; };
+		A59774E01556EE8D0093DD6B /* UKBooleanTemplateField.h in Headers */ = {isa = PBXBuildFile; fileRef = A59774C71556EE8D0093DD6B /* UKBooleanTemplateField.h */; };
+		A59774E11556EE8D0093DD6B /* UKCommentTemplateField.h in Headers */ = {isa = PBXBuildFile; fileRef = A59774C81556EE8D0093DD6B /* UKCommentTemplateField.h */; };
+		A59774E21556EE8D0093DD6B /* UKCStringTemplateField.h in Headers */ = {isa = PBXBuildFile; fileRef = A59774C91556EE8D0093DD6B /* UKCStringTemplateField.h */; };
+		A59774E31556EE8D0093DD6B /* UKIntegerTemplateField.h in Headers */ = {isa = PBXBuildFile; fileRef = A59774CA1556EE8D0093DD6B /* UKIntegerTemplateField.h */; };
+		A59774E41556EE8D0093DD6B /* UKNibOwner.h in Headers */ = {isa = PBXBuildFile; fileRef = A59774CB1556EE8D0093DD6B /* UKNibOwner.h */; };
+		A59774E51556EE8D0093DD6B /* UKPluginRegistry.h in Headers */ = {isa = PBXBuildFile; fileRef = A59774CC1556EE8D0093DD6B /* UKPluginRegistry.h */; };
+		A59774E61556EE8D0093DD6B /* UKPluginTemplateField.h in Headers */ = {isa = PBXBuildFile; fileRef = A59774CD1556EE8D0093DD6B /* UKPluginTemplateField.h */; };
+		A59774E71556EE8D0093DD6B /* UKPStringTemplateField.h in Headers */ = {isa = PBXBuildFile; fileRef = A59774CE1556EE8D0093DD6B /* UKPStringTemplateField.h */; };
+		A59774E81556EE8D0093DD6B /* UKScrollDocumentView.h in Headers */ = {isa = PBXBuildFile; fileRef = A59774CF1556EE8D0093DD6B /* UKScrollDocumentView.h */; };
+		A59774E91556EE8D0093DD6B /* UKTemplateDocument.h in Headers */ = {isa = PBXBuildFile; fileRef = A59774D01556EE8D0093DD6B /* UKTemplateDocument.h */; };
+		A59774EA1556EE8D0093DD6B /* UKTemplateField.h in Headers */ = {isa = PBXBuildFile; fileRef = A59774D11556EE8D0093DD6B /* UKTemplateField.h */; };
+		A59774EB1556EE8D0093DD6B /* UKTemplateFieldOverridableMethods-Protocol.h in Headers */ = {isa = PBXBuildFile; fileRef = A59774D21556EE8D0093DD6B /* UKTemplateFieldOverridableMethods-Protocol.h */; };
+		A59774EC1556EE8D0093DD6B /* UKTemplateFieldProtocol-Protocol.h in Headers */ = {isa = PBXBuildFile; fileRef = A59774D31556EE8D0093DD6B /* UKTemplateFieldProtocol-Protocol.h */; };
+		A59774ED1556EE8D0093DD6B /* UKTemplateFieldProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = A59774D41556EE8D0093DD6B /* UKTemplateFieldProtocol.h */; };
+		A59774EE1556EE8D0093DD6B /* UKTextUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = A59774D51556EE8D0093DD6B /* UKTextUtilities.h */; };
+		A59774EF1556EE8D0093DD6B /* UKUnsignedIntegerTemplateField.h in Headers */ = {isa = PBXBuildFile; fileRef = A59774D61556EE8D0093DD6B /* UKUnsignedIntegerTemplateField.h */; };
+		A59774F01556EE8D0093DD6B /* SamplePluginFieldType_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = A59774D71556EE8D0093DD6B /* SamplePluginFieldType_Prefix.pch */; };
+		A59774F21556EE950093DD6B /* SamplePluginTemplateField.m in Sources */ = {isa = PBXBuildFile; fileRef = A59774F11556EE950093DD6B /* SamplePluginTemplateField.m */; };
+		A59774FD1556EF2F0093DD6B /* Templar.h in Headers */ = {isa = PBXBuildFile; fileRef = A59774FB1556EF2F0093DD6B /* Templar.h */; };
 		E1193609099830D300A3A6EA /* FontDocument.nib in Resources */ = {isa = PBXBuildFile; fileRef = E1193607099830D200A3A6EA /* FontDocument.nib */; };
 		E11936660998552900A3A6EA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E11936650998552900A3A6EA /* Localizable.strings */; };
 		E1193683099864AD00A3A6EA /* ElementUBYT.h in Headers */ = {isa = PBXBuildFile; fileRef = E119367D099864AD00A3A6EA /* ElementUBYT.h */; };
@@ -122,8 +151,6 @@
 		E18BF59F069FEA1400F076B8 /* Notifications.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C9ECCE027F474A01A8010C /* Notifications.m */; };
 		E18BF5A0069FEA1400F076B8 /* NSData-HexRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C5E08F055D98D50001A04A /* NSData-HexRepresentation.m */; };
 		E18BF5A2069FEA1400F076B8 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B5884B0156D40B01000001 /* Cocoa.framework */; };
-		E18BF5A9069FEA1400F076B8 /* NGSTemplateWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = F535443E0226752901A80001 /* NGSTemplateWindowController.h */; };
-		E18BF5AA069FEA1400F076B8 /* NGSElement.h in Headers */ = {isa = PBXBuildFile; fileRef = F535444D0226B5F501A80001 /* NGSElement.h */; };
 		E18BF5AC069FEA1400F076B8 /* TemplateWindow.nib in Resources */ = {isa = PBXBuildFile; fileRef = F5D0CBD302278F8B01A80001 /* TemplateWindow.nib */; };
 		E18BF5AE069FEA1400F076B8 /* NGSTemplateWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = F535443F0226752901A80001 /* NGSTemplateWindowController.m */; };
 		E18BF5AF069FEA1400F076B8 /* NGSElement.m in Sources */ = {isa = PBXBuildFile; fileRef = F535444E0226B5F501A80001 /* NGSElement.m */; };
@@ -375,6 +402,35 @@
 		3D50047404EF122000F3B64D /* ElementLSTC.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = ElementLSTC.h; sourceTree = "<group>"; };
 		3D53A9FD04F171DC006651FA /* RKSupportResourceRegistry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKSupportResourceRegistry.h; sourceTree = "<group>"; };
 		3D53A9FE04F171DC006651FA /* RKSupportResourceRegistry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKSupportResourceRegistry.m; sourceTree = "<group>"; };
+		A597747E1556EB2D0093DD6B /* NGSTemplateWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NGSTemplateWindowController.h; sourceTree = "<group>"; };
+		A59774A01556EBB30093DD6B /* NGSElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NGSElement.h; sourceTree = "<group>"; };
+		A59774BF1556EE8D0093DD6B /* CDStructures.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDStructures.h; sourceTree = "<group>"; };
+		A59774C01556EE8D0093DD6B /* NSObject-UKSubclasses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject-UKSubclasses.h"; sourceTree = "<group>"; };
+		A59774C11556EE8D0093DD6B /* NSObject+Subclasses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Subclasses.h"; sourceTree = "<group>"; };
+		A59774C21556EE8D0093DD6B /* NSOutlineView-UKExpandAllItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSOutlineView-UKExpandAllItems.h"; sourceTree = "<group>"; };
+		A59774C31556EE8D0093DD6B /* SamplePluginTemplateField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SamplePluginTemplateField.h; sourceTree = "<group>"; };
+		A59774C41556EE8D0093DD6B /* UKAngelTemplateAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UKAngelTemplateAppDelegate.h; sourceTree = "<group>"; };
+		A59774C51556EE8D0093DD6B /* UKArrayItemTemplateField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UKArrayItemTemplateField.h; sourceTree = "<group>"; };
+		A59774C61556EE8D0093DD6B /* UKArrayTemplateField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UKArrayTemplateField.h; sourceTree = "<group>"; };
+		A59774C71556EE8D0093DD6B /* UKBooleanTemplateField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UKBooleanTemplateField.h; sourceTree = "<group>"; };
+		A59774C81556EE8D0093DD6B /* UKCommentTemplateField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UKCommentTemplateField.h; sourceTree = "<group>"; };
+		A59774C91556EE8D0093DD6B /* UKCStringTemplateField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UKCStringTemplateField.h; sourceTree = "<group>"; };
+		A59774CA1556EE8D0093DD6B /* UKIntegerTemplateField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UKIntegerTemplateField.h; sourceTree = "<group>"; };
+		A59774CB1556EE8D0093DD6B /* UKNibOwner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UKNibOwner.h; sourceTree = "<group>"; };
+		A59774CC1556EE8D0093DD6B /* UKPluginRegistry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UKPluginRegistry.h; sourceTree = "<group>"; };
+		A59774CD1556EE8D0093DD6B /* UKPluginTemplateField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UKPluginTemplateField.h; sourceTree = "<group>"; };
+		A59774CE1556EE8D0093DD6B /* UKPStringTemplateField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UKPStringTemplateField.h; sourceTree = "<group>"; };
+		A59774CF1556EE8D0093DD6B /* UKScrollDocumentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UKScrollDocumentView.h; sourceTree = "<group>"; };
+		A59774D01556EE8D0093DD6B /* UKTemplateDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UKTemplateDocument.h; sourceTree = "<group>"; };
+		A59774D11556EE8D0093DD6B /* UKTemplateField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UKTemplateField.h; sourceTree = "<group>"; };
+		A59774D21556EE8D0093DD6B /* UKTemplateFieldOverridableMethods-Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UKTemplateFieldOverridableMethods-Protocol.h"; sourceTree = "<group>"; };
+		A59774D31556EE8D0093DD6B /* UKTemplateFieldProtocol-Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UKTemplateFieldProtocol-Protocol.h"; sourceTree = "<group>"; };
+		A59774D41556EE8D0093DD6B /* UKTemplateFieldProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UKTemplateFieldProtocol.h; sourceTree = "<group>"; };
+		A59774D51556EE8D0093DD6B /* UKTextUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UKTextUtilities.h; sourceTree = "<group>"; };
+		A59774D61556EE8D0093DD6B /* UKUnsignedIntegerTemplateField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UKUnsignedIntegerTemplateField.h; sourceTree = "<group>"; };
+		A59774D71556EE8D0093DD6B /* SamplePluginFieldType_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SamplePluginFieldType_Prefix.pch; sourceTree = "<group>"; };
+		A59774F11556EE950093DD6B /* SamplePluginTemplateField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SamplePluginTemplateField.m; sourceTree = "<group>"; };
+		A59774FB1556EF2F0093DD6B /* Templar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Templar.h; sourceTree = "<group>"; };
 		E1193608099830D300A3A6EA /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/FontDocument.nib; sourceTree = "<group>"; };
 		E11936620998551200A3A6EA /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E119367D099864AD00A3A6EA /* ElementUBYT.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = ElementUBYT.h; sourceTree = "<group>"; };
@@ -453,10 +509,8 @@
 		F50DFE6C036C258301A8010A /* Templar.rsrc */ = {isa = PBXFileReference; lastKnownFileType = archive.rsrc; path = Templar.rsrc; sourceTree = "<group>"; };
 		F50DFE6D036C258301A8010A /* TemplateWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = TemplateWindow.cpp; sourceTree = "<group>"; };
 		F50DFE6E036C258301A8010A /* TemplateWindow.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TemplateWindow.h; sourceTree = "<group>"; };
-		F535443E0226752901A80001 /* NGSTemplateWindowController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = NGSTemplateWindowController.h; sourceTree = "<group>"; };
 		F535443F0226752901A80001 /* NGSTemplateWindowController.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = NGSTemplateWindowController.m; sourceTree = "<group>"; };
 		F53544430226778D01A80001 /* TemplateWindow.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = TemplateWindow.nib; path = English.lproj/TemplateWindow.nib; sourceTree = "<group>"; };
-		F535444D0226B5F501A80001 /* NGSElement.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = NGSElement.h; sourceTree = "<group>"; };
 		F535444E0226B5F501A80001 /* NGSElement.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = NGSElement.m; sourceTree = "<group>"; };
 		F543AFDB027B2A5001A8010C /* DataSource.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = DataSource.h; sourceTree = "<group>"; };
 		F543AFDC027B2A5001A8010C /* DataSource.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = DataSource.m; sourceTree = "<group>"; };
@@ -826,9 +880,36 @@
 		F50DFE20036C258201A8010A /* Uli's Template Editor */ = {
 			isa = PBXGroup;
 			children = (
+				A59774F11556EE950093DD6B /* SamplePluginTemplateField.m */,
+				A59774BF1556EE8D0093DD6B /* CDStructures.h */,
+				A59774C01556EE8D0093DD6B /* NSObject-UKSubclasses.h */,
+				A59774C11556EE8D0093DD6B /* NSObject+Subclasses.h */,
+				A59774C21556EE8D0093DD6B /* NSOutlineView-UKExpandAllItems.h */,
+				A59774C31556EE8D0093DD6B /* SamplePluginTemplateField.h */,
+				A59774C41556EE8D0093DD6B /* UKAngelTemplateAppDelegate.h */,
+				A59774C51556EE8D0093DD6B /* UKArrayItemTemplateField.h */,
+				A59774C61556EE8D0093DD6B /* UKArrayTemplateField.h */,
+				A59774C71556EE8D0093DD6B /* UKBooleanTemplateField.h */,
+				A59774C81556EE8D0093DD6B /* UKCommentTemplateField.h */,
+				A59774C91556EE8D0093DD6B /* UKCStringTemplateField.h */,
+				A59774CA1556EE8D0093DD6B /* UKIntegerTemplateField.h */,
+				A59774CB1556EE8D0093DD6B /* UKNibOwner.h */,
+				A59774CC1556EE8D0093DD6B /* UKPluginRegistry.h */,
+				A59774CD1556EE8D0093DD6B /* UKPluginTemplateField.h */,
+				A59774CE1556EE8D0093DD6B /* UKPStringTemplateField.h */,
+				A59774CF1556EE8D0093DD6B /* UKScrollDocumentView.h */,
+				A59774D01556EE8D0093DD6B /* UKTemplateDocument.h */,
+				A59774D11556EE8D0093DD6B /* UKTemplateField.h */,
+				A59774D21556EE8D0093DD6B /* UKTemplateFieldOverridableMethods-Protocol.h */,
+				A59774D31556EE8D0093DD6B /* UKTemplateFieldProtocol-Protocol.h */,
+				A59774D41556EE8D0093DD6B /* UKTemplateFieldProtocol.h */,
+				A59774D51556EE8D0093DD6B /* UKTextUtilities.h */,
+				A59774D61556EE8D0093DD6B /* UKUnsignedIntegerTemplateField.h */,
+				A59774D71556EE8D0093DD6B /* SamplePluginFieldType_Prefix.pch */,
 				F50DFE63036C258301A8010A /* main.h */,
 				F50DFE62036C258301A8010A /* main.cpp */,
 				F50DFE67036C258301A8010A /* Templar.cpp */,
+				A59774FB1556EF2F0093DD6B /* Templar.h */,
 				F50DFE22036C258201A8010A /* BoolTemplateField.cpp */,
 				F50DFE23036C258201A8010A /* BoolTemplateField.h */,
 				F50DFE56036C258301A8010A /* DividerTemplateField.cpp */,
@@ -871,9 +952,9 @@
 		F5354435022673C101A80001 /* Nick's Template Editor */ = {
 			isa = PBXGroup;
 			children = (
-				F535443E0226752901A80001 /* NGSTemplateWindowController.h */,
+				A59774A01556EBB30093DD6B /* NGSElement.h */,
+				A597747E1556EB2D0093DD6B /* NGSTemplateWindowController.h */,
 				F535443F0226752901A80001 /* NGSTemplateWindowController.m */,
-				F535444D0226B5F501A80001 /* NGSElement.h */,
 				F535444E0226B5F501A80001 /* NGSElement.m */,
 				F5D0CBD302278F8B01A80001 /* TemplateWindow.nib */,
 				E13F846908F18FBE00E2A5CB /* Info.plist */,
@@ -1310,6 +1391,34 @@
 				E18BF551069FEA1300F076B8 /* RKEditorRegistry.h in Headers */,
 				E18BF552069FEA1300F076B8 /* RKSupportResourceRegistry.h in Headers */,
 				0EBA8666122CF49800FEC1AC /* NGSCategories.h in Headers */,
+				A597747F1556EB2D0093DD6B /* NGSTemplateWindowController.h in Headers */,
+				A59774A11556EBB30093DD6B /* NGSElement.h in Headers */,
+				A59774D81556EE8D0093DD6B /* CDStructures.h in Headers */,
+				A59774D91556EE8D0093DD6B /* NSObject-UKSubclasses.h in Headers */,
+				A59774DA1556EE8D0093DD6B /* NSObject+Subclasses.h in Headers */,
+				A59774DB1556EE8D0093DD6B /* NSOutlineView-UKExpandAllItems.h in Headers */,
+				A59774DC1556EE8D0093DD6B /* SamplePluginTemplateField.h in Headers */,
+				A59774DD1556EE8D0093DD6B /* UKAngelTemplateAppDelegate.h in Headers */,
+				A59774DE1556EE8D0093DD6B /* UKArrayItemTemplateField.h in Headers */,
+				A59774DF1556EE8D0093DD6B /* UKArrayTemplateField.h in Headers */,
+				A59774E01556EE8D0093DD6B /* UKBooleanTemplateField.h in Headers */,
+				A59774E11556EE8D0093DD6B /* UKCommentTemplateField.h in Headers */,
+				A59774E21556EE8D0093DD6B /* UKCStringTemplateField.h in Headers */,
+				A59774E31556EE8D0093DD6B /* UKIntegerTemplateField.h in Headers */,
+				A59774E41556EE8D0093DD6B /* UKNibOwner.h in Headers */,
+				A59774E51556EE8D0093DD6B /* UKPluginRegistry.h in Headers */,
+				A59774E61556EE8D0093DD6B /* UKPluginTemplateField.h in Headers */,
+				A59774E71556EE8D0093DD6B /* UKPStringTemplateField.h in Headers */,
+				A59774E81556EE8D0093DD6B /* UKScrollDocumentView.h in Headers */,
+				A59774E91556EE8D0093DD6B /* UKTemplateDocument.h in Headers */,
+				A59774EA1556EE8D0093DD6B /* UKTemplateField.h in Headers */,
+				A59774EB1556EE8D0093DD6B /* UKTemplateFieldOverridableMethods-Protocol.h in Headers */,
+				A59774EC1556EE8D0093DD6B /* UKTemplateFieldProtocol-Protocol.h in Headers */,
+				A59774ED1556EE8D0093DD6B /* UKTemplateFieldProtocol.h in Headers */,
+				A59774EE1556EE8D0093DD6B /* UKTextUtilities.h in Headers */,
+				A59774EF1556EE8D0093DD6B /* UKUnsignedIntegerTemplateField.h in Headers */,
+				A59774F01556EE8D0093DD6B /* SamplePluginFieldType_Prefix.pch in Headers */,
+				A59774FD1556EF2F0093DD6B /* Templar.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1331,8 +1440,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E18BF5A9069FEA1400F076B8 /* NGSTemplateWindowController.h in Headers */,
-				E18BF5AA069FEA1400F076B8 /* NGSElement.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1813,6 +1920,7 @@
 				E18BF584069FEA1300F076B8 /* RKEditorRegistry.m in Sources */,
 				E18BF585069FEA1300F076B8 /* RKSupportResourceRegistry.m in Sources */,
 				0EBA8667122CF49800FEC1AC /* NGSCategories.m in Sources */,
+				A59774F21556EE950093DD6B /* SamplePluginTemplateField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
