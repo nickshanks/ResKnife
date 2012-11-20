@@ -10,7 +10,6 @@
 			<key>CFBundleTypeExtensions</key>
 			<array>
 				<string>rsrc</string>
-				<string>*</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
 			<string>Resource file.icns</string>
@@ -21,7 +20,6 @@
 				<string>rsrc</string>
 				<string>RSRC</string>
 				<string>????</string>
-				<string>****</string>
 			</array>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
@@ -29,6 +27,22 @@
 			<array>
 				<string>com.apple.resource-map</string>
 			</array>
+			<key>NSDocumentClass</key>
+			<string>ResourceDocument</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>*</string>
+			</array>
+			<key>CFBundleTypeName</key>
+			<string>any</string>
+			<key>CFBundleTypeOSTypes</key>
+			<array>
+				<string>****</string>
+			</array>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
 			<key>NSDocumentClass</key>
 			<string>ResourceDocument</string>
 		</dict>
