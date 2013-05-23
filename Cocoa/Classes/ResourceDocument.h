@@ -1,13 +1,16 @@
 #import <Cocoa/Cocoa.h>
 #import <Carbon/Carbon.h>	// Actually I only need CarbonCore.framework
 
-@class ResourceWindowController, ResourceDataSource, Resource;
+@class CreateResourceSheetController, ResourceWindowController, ResourceDataSource, Resource;
 
-@interface ResourceDocument : NSDocument
+@protocol ResKnifePluginProtocol;
+
+@interface ResourceDocument : NSDocument <NSToolbarDelegate>
 {
 	IBOutlet ResourceDataSource		*dataSource;
 	IBOutlet NSWindow				*mainWindow;
 	IBOutlet NSOutlineView			*outlineView;
+	CreateResourceSheetController	*sheetController;
 	
 	NSMutableDictionary	*toolbarItems;
 	NSMutableArray	*resources;
@@ -18,8 +21,8 @@
 }
 
 - (BOOL)readFork:(NSString *)forkName asStreamFromFile:(FSRef *)fileRef;
-- (BOOL)readResourceMap:(SInt16)fileRefNum;
-- (BOOL)writeResourceMap:(SInt16)fileRefNum;
+- (BOOL)readResourceMap:(ResFileRefNum)fileRefNum;
+- (BOOL)writeResourceMap:(ResFileRefNum)fileRefNum;
 - (BOOL)writeForkStreamsToFile:(NSString *)fileName;
 
 - (IBAction)exportResources:(id)sender;
@@ -33,9 +36,9 @@
 - (IBAction)openResources:(id)sender;
 - (IBAction)openResourcesInTemplate:(id)sender;
 - (IBAction)openResourcesAsHex:(id)sender;
-- (void)openResourceUsingEditor:(Resource *)resource;
-- (void)openResource:(Resource *)resource usingTemplate:(NSString *)templateName;
-- (void)openResourceAsHex:(Resource *)resource;
+- (id <ResKnifePluginProtocol>)openResourceUsingEditor:(Resource *)resource;
+- (id <ResKnifePluginProtocol>)openResource:(Resource *)resource usingTemplate:(NSString *)templateName;
+- (id <ResKnifePluginProtocol>)openResourceAsHex:(Resource *)resource;
 - (IBAction)playSound:(id)sender;
 - (void)sound:(NSSound *)sound didFinishPlaying:(BOOL)finished;
 

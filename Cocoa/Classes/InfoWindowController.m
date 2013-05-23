@@ -4,9 +4,56 @@
 #import "Resource.h"
 #import "ApplicationDelegate.h"
 #import "NSOutlineView-SelectedItems.h"
-#import "MoreFilesX.h"
+//#import "MoreFilesX.h"
 
 @implementation InfoWindowController
+
+static OSErr
+FSGetForkSizes(
+			   const FSRef *ref,
+			   UInt64 *dataLogicalSize,	/* can be NULL */
+			   UInt64 *rsrcLogicalSize)	/* can be NULL */
+{
+	OSErr				result;
+	FSCatalogInfoBitmap whichInfo;
+	FSCatalogInfo		catalogInfo;
+	
+	whichInfo = kFSCatInfoNodeFlags;
+	if ( NULL != dataLogicalSize )
+	{
+		/* get data fork size */
+		whichInfo |= kFSCatInfoDataSizes;
+	}
+	if ( NULL != rsrcLogicalSize )
+	{
+		/* get resource fork size */
+		whichInfo |= kFSCatInfoRsrcSizes;
+	}
+	
+	/* get nodeFlags and catalog info */
+	result = FSGetCatalogInfo(ref, whichInfo, &catalogInfo, NULL, NULL,NULL);
+	require_noerr(result, FSGetCatalogInfo);
+	
+	/* make sure FSRef was to a file */
+	require_action(0 == (catalogInfo.nodeFlags & kFSNodeIsDirectoryMask), FSRefNotFile, result = notAFileErr);
+	
+	if ( NULL != dataLogicalSize )
+	{
+		/* return data fork size */
+		*dataLogicalSize = catalogInfo.dataLogicalSize;
+	}
+	if ( NULL != rsrcLogicalSize )
+	{
+		/* return resource fork size */
+		*rsrcLogicalSize = catalogInfo.rsrcLogicalSize;
+	}
+	
+FSRefNotFile:
+FSGetCatalogInfo:
+	
+	return ( result );
+}
+
 
 - (void)dealloc
 {
@@ -67,19 +114,19 @@
 		// get sizes of forks as they are on disk
 		UInt64 dataLogicalSize = 0, rsrcLogicalSize = 0;
 		FSRef *fileRef = (FSRef *) NewPtrClear(sizeof(FSRef));
-		if(fileRef && [currentDocument fileName])
+		if(fileRef && [currentDocument fileURL])
 		{
-			OSStatus error = FSPathMakeRef((unsigned char *)[[currentDocument fileName] fileSystemRepresentation], fileRef, nil);
+			OSStatus error = FSPathMakeRef((unsigned char *)[[[currentDocument fileURL] path] fileSystemRepresentation], fileRef, nil);
 			if(!error) FSGetForkSizes(fileRef, &dataLogicalSize, &rsrcLogicalSize);
 		}
 		if(fileRef) DisposePtr((Ptr) fileRef);
 		
 		// set info window elements to correct values
 		[[self window] setTitle:NSLocalizedString(@"Document Info",nil)];
-		if([currentDocument fileName])	// document has been saved
+		if([currentDocument fileURL])	// document has been saved
 		{
-			[iconView setImage:[[NSWorkspace sharedWorkspace] iconForFile:[currentDocument fileName]]];
-			[nameView setStringValue:[[currentDocument fileName] lastPathComponent]];
+			[iconView setImage:[[NSWorkspace sharedWorkspace] iconForFile:[[currentDocument fileURL] path]]];
+			[nameView setStringValue:[[currentDocument fileURL] lastPathComponent]];
 		}
 		else								// new, untitled document
 		{
@@ -87,9 +134,16 @@
 			[nameView setStringValue:[currentDocument displayName]];
 		}
 		
-		#warning FIXME: the creator and type codes need to be swapped on intel
-		[[filePropertyForm cellAtIndex:0] setStringValue:[[[NSString alloc] initWithData:[currentDocument creator] encoding:NSMacOSRomanStringEncoding] autorelease]];
-		[[filePropertyForm cellAtIndex:1] setStringValue:[[[NSString alloc] initWithData:[currentDocument type] encoding:NSMacOSRomanStringEncoding] autorelease]];
+		FourCharCode creator;
+		[[currentDocument creator] getBytes:&creator length:sizeof(creator)];
+		FourCharCode type;
+		[[currentDocument type] getBytes:&type length:sizeof(type)];
+		
+		creator = CFSwapInt32BigToHost(creator);
+		type = CFSwapInt32BigToHost(type);
+
+		[[filePropertyForm cellAtIndex:0] setStringValue:[[[NSString alloc] initWithBytes:&creator length:sizeof(creator) encoding:NSMacOSRomanStringEncoding] autorelease]];
+		[[filePropertyForm cellAtIndex:1] setStringValue:[[[NSString alloc] initWithBytes:&type length:sizeof(type) encoding:NSMacOSRomanStringEncoding] autorelease]];
 //		[[filePropertyForm cellAtIndex:2] setObjectValue:[NSNumber numberWithUnsignedLongLong:dataLogicalSize]];
 //		[[filePropertyForm cellAtIndex:3] setObjectValue:[NSNumber numberWithUnsignedLongLong:rsrcLogicalSize]];
 		[[filePropertyForm cellAtIndex:2] setStringValue:[[NSNumber numberWithUnsignedLongLong:dataLogicalSize] description]];
@@ -136,12 +190,13 @@
 - (void)documentInfoDidChange:(NSNotification *)notification
 {
 #pragma unused(notification)
+	currentDocument = [[notification object] objectForKey:@"NSDocument"];
 	[self updateInfoWindow];
 }
 
 - (IBAction)attributesChanged:(id)sender
 {
-	short attr = 0x0001 << [sender selectedRow]+1;
+	short attr = (short)(0x0001 << [sender selectedRow]+1);
 	short number = ([[selectedResource attributes] shortValue] ^ attr);
 	[selectedResource setAttributes:[NSNumber numberWithShort:number]];
 }

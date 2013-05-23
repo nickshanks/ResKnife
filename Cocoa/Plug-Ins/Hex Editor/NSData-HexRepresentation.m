@@ -27,7 +27,7 @@
 		buffer[currentByte*3 +2] = 0x20;
 	}
 	
-	return [NSString stringWithCString:buffer length:(dataLength*3 -1)];
+	return [[[NSString alloc] initWithBytes:buffer length:(dataLength*3 -1) encoding:NSASCIIStringEncoding] autorelease];
 }
 
 - (NSString *)asciiRepresentation
@@ -44,7 +44,7 @@
 		else buffer[currentByte] = 0x2E;	// full stop								
 	}
 	
-	return [NSString stringWithCString:buffer length:dataLength];
+	return [[[NSString alloc] initWithBytes:buffer length:dataLength encoding:NSASCIIStringEncoding] autorelease];
 }
 
 - (NSString *)nonLossyAsciiRepresentation
@@ -63,7 +63,7 @@
 		else buffer[currentByte] = 0x2E;	// full stop								
 	}
 	
-	return [NSString stringWithCString:buffer length:dataLength];
+	return [[[NSString alloc] initWithBytes:buffer length:dataLength encoding:NSASCIIStringEncoding] autorelease];
 }
 
 @end
@@ -73,11 +73,11 @@
 - (NSData *)dataFromHex
 {
 	unsigned long actualBytesEncoded = 0;
-	unsigned long maxBytesEncoded = floor([self cStringLength] / 2.0);
-	const char *bytes = [self cString];
+	unsigned long maxBytesEncoded = (unsigned long)floor([self lengthOfBytesUsingEncoding:NSASCIIStringEncoding] / 2.0);
+	const char *bytes = [self cStringUsingEncoding:NSASCIIStringEncoding];
 	char *buffer = (char *) malloc(maxBytesEncoded);
 	signed char hex1, hex2;
-	int i;
+	unsigned long i;
 	
 	for(i = 0; i < maxBytesEncoded * 2;)
 	{
@@ -86,7 +86,7 @@
 		hex1 -= (hex1 < 'A')? 0x30 : ((hex1 < 'a')? 0x37 : 0x57);   // 0-9 < A-Z < a-z
 		hex2 -= (hex2 < 'A')? 0x30 : ((hex2 < 'a')? 0x37 : 0x57);
 		if(hex1 & 0xF0 || hex2 & 0xF0) { i++; continue; }			// invalid character found, move forward one byte and try again
-		buffer[actualBytesEncoded++] = (hex1 << 4) + hex2;
+		buffer[actualBytesEncoded++] = (char)(hex1 << 4) + hex2;
 		i += 2;
 	}
 	return [NSData dataWithBytesNoCopy:buffer length:actualBytesEncoded freeWhenDone:YES];

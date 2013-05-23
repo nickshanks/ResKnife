@@ -41,14 +41,14 @@
 
 - (NSString *)stringValue
 {
-	return [NSString stringWithFormat:@"%ld", value];
+	return [NSString stringWithFormat:@"%d", value];
 }
 
 - (void)setStringValue:(NSString *)str
 {
 	char cstr[256];
 	char *endPtr = cstr + 255;
-	strncpy(cstr, [str cString], 255);
+	strncpy(cstr, [str cStringUsingEncoding:NSMacOSRomanStringEncoding], 255);
 	value = strtol(cstr, &endPtr, 10);
 }
 

@@ -15,14 +15,12 @@ NSString *RKResourcePboardType = @"RKResourcePboardType";
 
 - (id)initWithType:(NSString *)typeValue andID:(NSNumber *)resIDValue
 {
-	[self initWithType:typeValue andID:resIDValue withName:@"" andAttributes:[NSNumber numberWithUnsignedShort:0]];
-	return self;
+	return [self initWithType:typeValue andID:resIDValue withName:@"" andAttributes:[NSNumber numberWithUnsignedShort:0]];
 }
 
 - (id)initWithType:(NSString *)typeValue andID:(NSNumber *)resIDValue withName:(NSString *)nameValue andAttributes:(NSNumber *)attributesValue
 {
-	[self initWithType:typeValue andID:resIDValue withName:nameValue andAttributes:attributesValue data:[NSData data]];
-	return self;
+	return [self initWithType:typeValue andID:resIDValue withName:nameValue andAttributes:attributesValue data:[NSData data]];
 }
 
 - (id)initWithType:(NSString *)typeValue andID:(NSNumber *)resIDValue withName:(NSString *)nameValue andAttributes:(NSNumber *)attributesValue data:(NSData *)dataValue
@@ -60,9 +58,7 @@ NSString *RKResourcePboardType = @"RKResourcePboardType";
 
 + (Resource *)getResourceOfType:(NSString *)typeValue andID:(NSNumber *)resIDValue inDocument:(NSDocument *)searchDoc
 {
-	NSDocument *doc;
-	NSEnumerator *enumerator = [[[NSDocumentController sharedDocumentController] documents] objectEnumerator];
-	while(doc = [enumerator nextObject])
+	for (NSDocument *doc in [[NSDocumentController sharedDocumentController] documents])
 	{
 		if(searchDoc == nil || searchDoc == doc)
 		{
@@ -79,9 +75,7 @@ NSString *RKResourcePboardType = @"RKResourcePboardType";
 + (NSArray *)allResourcesOfType:(NSString *)typeValue inDocument:(NSDocument *)searchDoc
 {
 	NSMutableArray *array = [NSMutableArray array];
-	NSDocument *doc;
-	NSEnumerator *enumerator = [[[NSDocumentController sharedDocumentController] documents] objectEnumerator];
-	while(doc = [enumerator nextObject])
+	for (NSDocument *doc in [[NSDocumentController sharedDocumentController] documents])
 	{
 		// parse document for resources
 		if(searchDoc == nil || searchDoc == doc)
@@ -92,9 +86,7 @@ NSString *RKResourcePboardType = @"RKResourcePboardType";
 
 + (Resource *)resourceOfType:(NSString *)typeValue withName:(NSString *)nameValue inDocument:(NSDocument *)searchDoc
 {
-	NSDocument *doc;
-	NSEnumerator *enumerator = [[[NSDocumentController sharedDocumentController] documents] objectEnumerator];
-	while(doc = [enumerator nextObject])
+	for (NSDocument *doc in [[NSDocumentController sharedDocumentController] documents])
 	{
 		if(searchDoc == nil || searchDoc == doc)
 		{
@@ -108,9 +100,7 @@ NSString *RKResourcePboardType = @"RKResourcePboardType";
 
 + (Resource *)resourceOfType:(NSString *)typeValue andID:(NSNumber *)resIDValue inDocument:(NSDocument *)searchDoc
 {
-	NSDocument *doc;
-	NSEnumerator *enumerator = [[[NSDocumentController sharedDocumentController] documents] objectEnumerator];
-	while(doc = [enumerator nextObject])
+	for (NSDocument *doc in [[NSDocumentController sharedDocumentController] documents])
 	{
 		if(searchDoc == nil || searchDoc == doc)
 		{
@@ -125,9 +115,7 @@ NSString *RKResourcePboardType = @"RKResourcePboardType";
 // should probably be in resource document, not resource, but it fits in with the above methods quite well
 + (NSDocument *)documentForResource:(Resource *)resource
 {
-	NSDocument *doc;
-	NSEnumerator *enumerator = [[[NSDocumentController sharedDocumentController] documents] objectEnumerator];
-	while(doc = [enumerator nextObject])
+	for (NSDocument *doc in [[NSDocumentController sharedDocumentController] documents])
 	{
 		Resource *res;
 		NSEnumerator *enumerator2 = [[(ResourceDocument *)doc resources] objectEnumerator];
@@ -154,7 +142,7 @@ NSString *RKResourcePboardType = @"RKResourcePboardType";
 
 - (id)copyWithZone:(NSZone *)zone
 {
-	Resource *copy = [[Resource alloc] initWithType:type andID:resID withName:name andAttributes:attributes data:[data copy]];
+	Resource *copy = [[Resource alloc] initWithType:type andID:resID withName:name andAttributes:attributes data:[[data copy] autorelease]];
 	[copy setDocumentName:_docName];
 	return copy;
 }
@@ -356,7 +344,7 @@ NSString *RKResourcePboardType = @"RKResourcePboardType";
 
 - (NSString *)description
 {
-	return [NSString stringWithFormat:@"\n%@\nName: %@\nType: %@  ID: %@\nSize: %d  Modified: %@", [super description], name, type, resID, [data length], dirty? @"YES":@"NO"];
+	return [NSString stringWithFormat:@"\n%@\nName: %@\nType: %@  ID: %@\nSize: %ld  Modified: %@", [super description], name, type, resID, [data length], dirty? @"YES":@"NO"];
 }
 
 @end

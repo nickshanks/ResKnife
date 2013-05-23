@@ -1,5 +1,7 @@
 #import "FontWindowController.h"
 #import "NGSCategories.h"
+#import "ResourceDocument.h"
+#import "Resource.h"
 #import <stdarg.h>
 
 UInt32 TableChecksum(UInt32 *table, UInt32 length)
@@ -79,7 +81,7 @@ UInt32 TableChecksum(UInt32 *table, UInt32 length)
 	if(![[resource name] isEqualToString:@""])
 	{
 		[[self window] setTitle:[resource name]];
-		SetWindowAlternateTitle((WindowRef) [[self window] windowRef], (CFStringRef) [NSString stringWithFormat:NSLocalizedString(@"%@ %@: '%@'", nil), [resource type], [resource resID], [resource name]]);
+		//SetWindowAlternateTitle((WindowRef) [[self window] windowRef], (CFStringRef) [NSString stringWithFormat:NSLocalizedString(@"%@ %@: '%@'", nil), [resource type], [resource resID], [resource name]]);
 	}
 	
 	// we don't want this notification until we have a window! (Only register for notifications on the resource we're editing)
@@ -212,7 +214,7 @@ UInt32 TableChecksum(UInt32 *table, UInt32 length)
 						[NSNumber numberWithUnsignedLong: 0], @"length",
 						[NSData data], @"data", nil];
 	[headerTable addObject:table];
-	numTables = [headerTable count];
+	numTables = (UInt16)[headerTable count];
 	[self openTable:table inEditor:YES];
 	[self setDocumentEdited:YES];
 }
@@ -252,7 +254,7 @@ UInt32 TableChecksum(UInt32 *table, UInt32 length)
 	[self setTableData:[notification object]];
 }
 
-- (void)setTableData:(id)tableResource
+- (void)setTableData:(id <ResKnifeResourceProtocol>)tableResource
 {
 	NSDictionary *table = [headerTable firstObjectReturningValue:[tableResource type] forKey:@"name"];
 	if(!table)

@@ -63,6 +63,10 @@
 	if(length < _minLength) length = _minLength;
 	
 	// read string
+	
+	if (length == 0)
+		return;
+	
 	void *buffer = malloc(length);
 	if(_minLength) memset(buffer, 0, _minLength);
 	[stream readAmount:length toBuffer:buffer];
@@ -83,10 +87,7 @@
 
 - (unsigned int)sizeOnDisk
 {
-	UInt32 length;
-	if([value respondsToSelector:@selector(lengthOfBytesUsingEncoding:)])	// 10.4
-		length = [value lengthOfBytesUsingEncoding:NSMacOSRomanStringEncoding];
-	else length = [value cStringLength];
+	UInt32 length = [value lengthOfBytesUsingEncoding:NSMacOSRomanStringEncoding];
 	if(_maxLength && length > _maxLength) length = _maxLength;
 	if(length < _minLength) length = _minLength;
 	length += _lengthBytes + (_terminatingByte? 1:0);

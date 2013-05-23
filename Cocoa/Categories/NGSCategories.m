@@ -4,12 +4,15 @@
 - (NSArray *)subarrayWithIndicies:(NSIndexSet *)indicies
 {
 	NSRange range = {0,[self count]};
-	unsigned int count = [indicies count];
-	unsigned int *buffer = (unsigned int *) calloc(count, sizeof(int));
+	NSUInteger count = [indicies count];
+	NSUInteger *buffer = (NSUInteger *)calloc(count, sizeof(NSUInteger));
 	NSMutableArray *newArray = [NSMutableArray arrayWithCapacity:count];
 	[indicies getIndexes:buffer maxCount:count inIndexRange:&range];
 	for(unsigned int i = 0; i < count; i++)
 		[newArray addObject:[self objectAtIndex:*(buffer+i)]];
+
+	free(buffer);
+	
 	return [NSArray arrayWithArray:newArray];
 }
 @end
@@ -21,7 +24,7 @@
 }
 - (id)firstObjectReturningValue:(id)value forKey:(id)key
 {
-	int index = [[self valueForKey:key] indexOfObject:value];
+	NSUInteger index = [[self valueForKey:key] indexOfObject:value];
 	if(index != NSNotFound)
 		return [self objectAtIndex:index];
 	else return nil;
@@ -65,7 +68,7 @@
 #endif
 + (NSCharacterSet *)tabCharacterSet
 {
-	unsigned char bitmapRep[8192];
+	unsigned char bitmapRep[8192] = { 0 };
 	bitmapRep[0x09 >> 3] |= (((unsigned int)1) << (0x09 & 7));
 	bitmapRep[0x0B >> 3] |= (((unsigned int)1) << (0x0B & 7));
 	NSData *data = [NSData dataWithBytesNoCopy:bitmapRep length:8192 freeWhenDone:YES];
@@ -80,7 +83,7 @@
 {	return [NSIndexSet indexSetWithIndexesInRange:range]; }
 - (id)initWithIndiciesInRange:(NSRange)range
 {	return [self initWithIndexesInRange:range]; }
-- (unsigned int)getIndicies:(unsigned int *)indexBuffer maxCount:(unsigned int)bufferSize inIndexRange:(NSRangePointer)range
+- (NSUInteger)getIndicies:(NSUInteger *)indexBuffer maxCount:(NSUInteger)bufferSize inIndexRange:(NSRangePointer)range
 {	return [self getIndexes:indexBuffer maxCount:bufferSize inIndexRange:range]; }
 - (BOOL)containsIndiciesInRange:(NSRange)range
 {	return [self containsIndexesInRange:range]; }
@@ -211,7 +214,7 @@
 	NSMutableArray *items = [NSMutableArray array];
 #if MAC_OS_X_VERSION_MIN_REQUIRED >= MAC_OS_X_VERSION_10_3
 	NSIndexSet *indicies = [self selectedRowIndexes];
-    unsigned int rowIndex = [indicies firstIndex];
+    NSUInteger rowIndex = [indicies firstIndex];
     while (rowIndex != NSNotFound)
 	{
         [items addObject:[self itemAtRow:rowIndex]];
@@ -262,6 +265,8 @@
 		[colours addObject: [colour colorWithAlphaComponent: alpha]];
 	}
 	NSGradient *gradient = [[NSGradient alloc] initWithColors: colours atLocations: locations colorSpace: [self colorSpace]];
+
+	free(locations);
 	return [gradient autorelease];
 }
 @end
@@ -272,10 +277,13 @@
 
 /* CGLContext access for pre-10.3 */
 @implementation NSOpenGLContext (CGLContextAccess)
-- (CGLContextObj)cglContext;
+- (CGLContextObj)cglContext
 {
+#if !__LP64__
 	if(NSAppKitVersionNumber < 700.0)
 		return _contextAuxiliary;
-	else return (CGLContextObj) [self CGLContextObj];
+	else
+#endif
+		return (CGLContextObj) [self CGLContextObj];
 }
 @end

@@ -50,7 +50,7 @@
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(templateDataDidChange:) name:ResourceDataDidChangeNotification object:tmplResource];
 	[self readTemplate:tmplResource];	// reads (but doesn't retain) the template for this resource (TMPL resource with name equal to the passed resource's type)
 	
-	while(tmplResource = va_arg(resourceList, id))
+	while((tmplResource = va_arg(resourceList, id)))
 		NSLog(@"Too many params passed to -initWithResources:%@", [tmplResource description]);
 	va_end(resourceList);
 	
@@ -102,7 +102,7 @@
 {
 	if(!liveEdit)
 		// bug: should display alert asking if you want to replace data in this editor or reassert this data, revoking the other editor's changes
-		[resource setData:[[backup data] copy]];
+		[resource setData:[[[backup data] copy] autorelease]];
 	[self loadResource];
 }
 
@@ -124,13 +124,13 @@
 		Class cc = [clone class];
 		
 		BOOL pushedCounter = NO;
-		BOOL pushedKey = NO;
+		//BOOL pushedKey = NO;
 		if(cc == [ElementOCNT class])
 		{	[stream pushCounter:(ElementOCNT *)clone]; pushedCounter = YES; }
 		if(cc == [ElementKBYT class] ||
 		   cc == [ElementKWRD class] ||
 		   cc == [ElementKLNG class] )
-		{	[stream pushKey:clone]; pushedKey = YES; }
+		{	[stream pushKey:clone]; /* pushedKey = YES; */ }
 		[clone readDataFrom:stream];				// fill it with resource data.
 		if(cc == [ElementLSTE class] && pushedCounter)
 			[stream popCounter];
@@ -142,7 +142,7 @@
 	id item;
 	[dataList reloadData];
 	int row = [dataList numberOfRows];
-	while(item = [dataList itemAtRow: --row])
+	while((item = [dataList itemAtRow: --row]))
 	{
 		if([dataList isExpandable: item] && ![dataList isItemExpanded: item])
 			[dataList expandItem: item expandChildren: YES];
@@ -204,14 +204,14 @@
 	{
 		[[NSNotificationCenter defaultCenter] removeObserver:self name:ResourceDataDidChangeNotification object:resource];
 		[resource setData:newData];
-		[backup setData:[newData copy]];
+		[backup setData:[[newData copy] autorelease]];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resourceDataDidChange:) name:ResourceDataDidChangeNotification object:resource];
 	}
 	else
 	{
 		[[NSNotificationCenter defaultCenter] removeObserver:self name:ResourceDataDidChangeNotification object:backup];
 		[resource setData:newData];
-		[backup setData:[newData copy]];
+		[backup setData:[[newData copy] autorelease]];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resourceDataDidChange:) name:ResourceDataDidChangeNotification object:backup];
 		[self setDocumentEdited:NO];
 	}
@@ -219,7 +219,7 @@
 
 - (void)revertResource:(id)sender
 {
-	[resource setData:[[backup data] copy]];
+	[resource setData:[[[backup data] copy] autorelease]];
 }
 
 - (void)readTemplate:(id<ResKnifeResourceProtocol>)tmplRes
@@ -370,6 +370,11 @@
 	[createItem setAction:@selector(createListEntry:)];
 }
 
+- (NSString *)windowTitleForDocumentDisplayName:(NSString *)displayName
+{
+	return [resource defaultWindowTitle];
+}
+
 - (void)windowDidResignKey:(NSNotification *)notification
 {
 	NSMenu *resourceMenu = [[[NSApp mainMenu] itemAtIndex:3] submenu];
@@ -444,7 +449,7 @@ static NSString *RKTEDisplayTMPLIdentifier	= @"com.nickshanks.resknife.templatee
 	
 	if(selectedItem && [selectedItem editable] && ([[event characters] isEqualToString:@"\r"] || [[event characters] isEqualToString:@"\t"]))
 		[self editColumn:1 row:selectedRow withEvent:nil select:YES];
-	else if(selectedItem && [selectedItem respondsToSelector:@selector(clear:)] && [[event characters] isEqualToString:[NSString stringWithCString:"\x7F"]])
+	else if(selectedItem && [selectedItem respondsToSelector:@selector(clear:)] && [[event characters] isEqualToString:@"\x7F"])
 		[[[self window] windowController] clear:nil];
 	else [super keyDown:event];
 }
