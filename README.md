@@ -41,7 +41,8 @@ development. It is considered the most bug-free and most feature-complete ('most
 for Carbon).
 
 This branch of ResKnife ("`pulled-from-Wevah`" on GitHub) requires the 
-[HexFiend](https://github.com/ridiculousfish/HexFiend) framework as a dependency.
+[HexFiend](https://github.com/ridiculousfish/HexFiend) framework as a dependency. It is a git submodule in this 
+branch.
 
 
 BUILDING A PLUGIN
