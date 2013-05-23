@@ -63,17 +63,17 @@
 			HFSUniStr255 *resourceForkName = (HFSUniStr255 *) NewPtrClear(sizeof(HFSUniStr255));
 			OSErr error = FSGetResourceForkName(resourceForkName);
 			forkName = [(NSDictionary *)[forks objectAtIndex:row] objectForKey:[tableColumn identifier]];
-			
+
 			// return custom names for data and resource forks
 			if([forkName isEqualToString:@""])
 				forkName = NSLocalizedString(@"Data Fork", nil);
 			else if(!error && [forkName isEqualToString:[NSString stringWithCharacters:resourceForkName->unicode length:resourceForkName->length]])
 				forkName = NSLocalizedString(@"Resource Fork", nil);
-			
+
 			DisposePtr((Ptr) resourceForkName);
 			return forkName;
 		}
-		
+
 		// return default value otherwise
 		return [(NSDictionary *)[forks objectAtIndex:row] objectForKey:[tableColumn identifier]];
 	}
@@ -95,7 +95,7 @@
 	[forks addObject:[NSDictionary dictionaryWithObjectsAndKeys:NSLocalizedString(@"UNTITLED_FORK", nil), @"forkname", [NSNumber numberWithInt:0], @"forksize", [NSNumber numberWithInt:0], @"forkallocation", nil]];
 	[forkTableView noteNumberOfRowsChanged];
 	[forkTableView reloadData];
-	
+
 	// start editing placeholder
 	[forkTableView selectRowIndexes:[NSIndexSet indexSetWithIndex:[forks count]-1] byExtendingSelection:NO];
 	[forkTableView editColumn:0 row:[forks count]-1 withEvent:nil select:YES];
@@ -105,7 +105,7 @@
 {
 	// display warning
 	// delete fork
-	
+
 	// update table view
 	[forks removeObjectAtIndex:[forkTableView selectedRow]+1];
 	[forkTableView noteNumberOfRowsChanged];
