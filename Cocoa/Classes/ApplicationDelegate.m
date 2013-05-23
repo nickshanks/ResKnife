@@ -39,11 +39,11 @@
 	// Part of my EvilPlanª to find out how many people use ResKnife and how often!
 	int launchCount = [[NSUserDefaults standardUserDefaults] integerForKey:@"LaunchCount"];
 	[[NSUserDefaults standardUserDefaults] setInteger:launchCount + 1 forKey:@"LaunchCount"];
-	
+
 	// initalise an empty icon cache and create timer used to pre-cache a number of common icons
 	_icons = [[NSMutableDictionary alloc] init];
 	[NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(precacheIcons:) userInfo:nil repeats:NO];
-	
+
 	// set default preferences
     [self initUserDefaults];
 }
@@ -78,12 +78,12 @@
 - (NSArray *)forksForFile:(FSRef *)fileRef
 {
 	if(!fileRef) return nil;
-	
+
 	FSCatalogInfo		catalogInfo;
 	FSCatalogInfoBitmap whichInfo = kFSCatInfoNodeFlags;
 	CatPositionRec		forkIterator = { 0 };
 	NSMutableArray *forks = [NSMutableArray array];
-	
+
 	// check we have a file, not a folder
 	OSErr error = FSGetCatalogInfo(fileRef, whichInfo, &catalogInfo, NULL, NULL, NULL);
 	if(!error && !(catalogInfo.nodeFlags & kFSNodeIsDirectoryMask))
@@ -94,7 +94,7 @@
 			HFSUniStr255 forkName;
 			SInt64 forkSize;
 			UInt64 forkPhysicalSize;	// used if opening selected fork fails to find empty forks
-			
+
 			error = FSIterateForks(fileRef, &forkIterator, &forkName, &forkSize, &forkPhysicalSize);
 			if(!error)
 			{
@@ -192,20 +192,20 @@
 	//	since its universally useful.  It loads a defaults.plist file
 	//	from the app wrapper, and then sets the defaults if they don't
 	//	already exist.
-	
+
 	NSUserDefaults *defaults;
 	NSDictionary *defaultsPlist;
 	NSEnumerator *overDefaults;
 	id eachDefault;
-	
+
 	// this isn't required, but saves us a few method calls
 	defaults = [NSUserDefaults standardUserDefaults];
-	
+
 	// load the defaults.plist from the app wrapper.  This makes it
 	//	easy to add new defaults just using a text editor instead of
 	//	hard-coding them into the application
 	defaultsPlist = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"defaults" ofType:@"plist"]];
-	
+
 	// enumerate over all the keys in the dictionary
 	overDefaults = [[defaultsPlist allKeys] objectEnumerator];
 	while(eachDefault = [overDefaults nextObject])
@@ -218,7 +218,7 @@
 			[defaults setObject:[defaultsPlist objectForKey:eachDefault] forKey:eachDefault];
 		}
 	}
-	
+
 	// force the defaults to save to the disk
 	[defaults synchronize];
 }
@@ -242,16 +242,16 @@
 	NSImage *icon = nil;
 	if([resourceType isEqualToString:@""])
 		resourceType = nil;
-	
+
 	if(resourceType)
 	{
 		// check if we have image in cache already
 		icon = [[self _icons] objectForKey:resourceType];		// valueForKey: raises when the resourceType begins with '@' (e.g. the @GN4 owner resource from Gene!)
-		
+
 		if(!icon)
 		{
 			NSString *iconPath = nil;
-			
+
 			// try to load icon from the default editor for that type
 			Class editor = [[RKEditorRegistry defaultRegistry] editorForType:resourceType];
 			if(editor)
@@ -259,7 +259,7 @@
 				// ask politly for icon
 				if([editor respondsToSelector:@selector(iconForResourceType:)])
 					icon = [editor iconForResourceType:resourceType];
-				
+
 				// try getting it myself
 				if(!icon)
 				{
@@ -268,7 +268,7 @@
 						icon = [[[NSImage alloc] initWithContentsOfFile:iconPath] autorelease];
 				}
 			}
-			
+
 			// try to load icon from the ResKnife app bundle itself
 			if(!icon)
 			{
@@ -276,7 +276,7 @@
 				if(iconPath)
 					icon = [[[NSImage alloc] initWithContentsOfFile:iconPath] autorelease];
 			}
-			
+
 			// try to retrieve from file system using our resource type to file name extension/bundle identifier code
 			if(!icon)
 			{
@@ -291,13 +291,13 @@
 						icon = [[NSWorkspace sharedWorkspace] iconForFile:bundlePath];
 				}
 			}
-			
-			// TODO: convert to a UTI and try that 
-			
+
+			// TODO: convert to a UTI and try that
+
 			// try to retrieve from file system as an OSType code
 			if(!icon)
 				icon = [[NSWorkspace sharedWorkspace] iconForFileType:[NSString stringWithFormat:@"'%@'", resourceType]];
-			
+
 			// save the newly retrieved icon in the cache
 			if(icon)
 				[[self _icons] setObject:icon forKey:resourceType];
@@ -310,7 +310,7 @@
 //		if(!icon)	icon = [[NSWorkspace sharedWorkspace] iconForFileType:@"'    '"];
 		if(!icon)	icon = [[NSWorkspace sharedWorkspace] iconForFileType:[NSString stringWithFormat:@"'%@'", @"????"]];
 	}
-	
+
 	// return the cached icon, or nil if none was found
 	return icon;
 }

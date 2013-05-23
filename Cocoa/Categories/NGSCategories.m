@@ -102,7 +102,7 @@
 - (void)removeIndiciesInRange:(NSRange)range
 {	[self removeIndexesInRange:range]; }
 - (void)shiftIndiciesStartingAtIndex:(unsigned int)index by:(int)delta
-{	[self shiftIndexesStartingAtIndex:index by:delta]; }   
+{	[self shiftIndexesStartingAtIndex:index by:delta]; }
 @end
 
 #pragma mark -

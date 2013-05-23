@@ -19,14 +19,14 @@ enum Attributes
 {
 	IBOutlet NSImageView	*iconView;
 	IBOutlet NSTextField	*nameView;
-	
+
 	IBOutlet NSBox			*placeholderView;
 	IBOutlet NSBox			*resourceView;
 	IBOutlet NSBox			*documentView;
-	
+
 	IBOutlet NSMatrix 		*attributesMatrix;
 	IBOutlet NSForm			*filePropertyForm;
-	
+
 @private
 	ResourceDocument		*currentDocument;
 	Resource				*selectedResource;

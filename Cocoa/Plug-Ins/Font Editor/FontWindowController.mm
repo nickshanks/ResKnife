@@ -2,6 +2,7 @@
 #import "NGSCategories.h"
 #import <stdarg.h>
 
+UInt32 TableChecksum(UInt32 *table, UInt32 length);
 UInt32 TableChecksum(UInt32 *table, UInt32 length)
 {
 	UInt32 sum = 0, nLongs = (length+3) >> 2;
@@ -15,11 +16,11 @@ UInt32 TableChecksum(UInt32 *table, UInt32 length)
 {
 	self = [self initWithWindowNibName:@"FontDocument"];
 	if(!self) return nil;
-	
+
 	resource = [(id)inResource retain];
 	headerTable = [[NSMutableArray alloc] init];
 	[self loadFontFromResource];
-	
+
 	// load the window from the nib
 	[self window];
 	return self;
@@ -81,10 +82,10 @@ UInt32 TableChecksum(UInt32 *table, UInt32 length)
 		[[self window] setTitle:[resource name]];
 		SetWindowAlternateTitle((WindowRef) [[self window] windowRef], (CFStringRef) [NSString stringWithFormat:NSLocalizedString(@"%@ %@: '%@'", nil), [resource type], [resource resID], [resource name]]);
 	}
-	
+
 	// we don't want this notification until we have a window! (Only register for notifications on the resource we're editing)
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resourceDataDidChange:) name:ResourceDataDidChangeNotification object:resource];
-	
+
 	// finally, show the window
 	[self showWindow:self];
 }
@@ -93,7 +94,7 @@ UInt32 TableChecksum(UInt32 *table, UInt32 length)
 {
 	NSMenu *resourceMenu = [[[NSApp mainMenu] itemAtIndex:3] submenu];
 	NSMenuItem *createItem = [resourceMenu itemAtIndex:[resourceMenu indexOfItemWithTarget:nil andAction:@selector(showCreateResourceSheet:)]];
-	
+
 	[createItem setTitle: NSLocalizedString(@"Add Font Table...", nil)];
 	[createItem setAction:@selector(showAddFontTableSheet:)];
 }
@@ -102,7 +103,7 @@ UInt32 TableChecksum(UInt32 *table, UInt32 length)
 {
 	NSMenu *resourceMenu = [[[NSApp mainMenu] itemAtIndex:3] submenu];
 	NSMenuItem *createItem = [resourceMenu itemAtIndex:[resourceMenu indexOfItemWithTarget:nil andAction:@selector(showAddFontTableSheet:)]];
-	
+
 	[createItem setTitle: NSLocalizedString(@"Create New Resource...", nil)];
 	[createItem setAction:@selector(showCreateResourceSheet:)];
 }
@@ -131,11 +132,11 @@ UInt32 TableChecksum(UInt32 *table, UInt32 length)
 			[self saveResource:nil];
 			[[self window] close];
 			break;
-		
+
 		case NSAlertAlternateReturn:	// don't keep
 			[[self window] close];
 			break;
-		
+
 		case NSAlertOtherReturn:		// cancel
 			break;
 	}
@@ -151,7 +152,7 @@ UInt32 TableChecksum(UInt32 *table, UInt32 length)
 	[data appendBytes:&entrySelector length:2];
 	[data appendBytes:&rangeShift length:2];
 	UInt32 offset = 12 + ([headerTable count] << 4);
-	
+
 	// add table index
 	for(int i = 0; i < numTables; i++)
 	{
@@ -170,7 +171,7 @@ UInt32 TableChecksum(UInt32 *table, UInt32 length)
 		if(offset % 4)
 			offset += 4-(offset%4);
 	}
-	
+
 	// append tables
 	long align = 0;
 	for(int i = 0; i < numTables; i++)
@@ -180,7 +181,7 @@ UInt32 TableChecksum(UInt32 *table, UInt32 length)
 		if([data length] % 4)	// pads the last table too... oh well
 			[data appendBytes:&align length:4-([data length]%4)];
 	}
-	
+
 	// write checksum adjustment to head table
 	NSDictionary *head = [headerTable firstObjectReturningValue:@"head" forKey:@"name"];
 	if(head)
@@ -226,7 +227,7 @@ UInt32 TableChecksum(UInt32 *table, UInt32 length)
 		[sender setDoubleAction:@selector(openTableInEditor:)];
 		return;
 	}
-	
+
 	[self openTable:[headerTable objectAtIndex:[sender clickedRow]] inEditor:YES];
 }
 
@@ -260,7 +261,7 @@ UInt32 TableChecksum(UInt32 *table, UInt32 length)
 		NSLog(@"Couldn't retrieve table with name '%@'.", [tableResource type]);
 		return;
 	}
-	
+
 	id undoResource = [[tableResource copy] autorelease];
 	[undoResource setData:[table valueForKey:@"data"]];
 	[[[resource document] undoManager] registerUndoWithTarget:resource selector:@selector(setTableData:) object:undoResource];
@@ -316,7 +317,7 @@ UInt32 TableChecksum(UInt32 *table, UInt32 length)
 							}
 							break;
 						default:	// undefined
-							stringEncoding = NSWindowsCP1250StringEncoding; // guess Win-Latin-2 
+							stringEncoding = NSWindowsCP1250StringEncoding; // guess Win-Latin-2
 							break;
 					}
 					[name setValue:[NSNumber numberWithUnsignedShort:name_table->names[j].platform_id]			forKey:@"platform"];
@@ -328,7 +329,7 @@ UInt32 TableChecksum(UInt32 *table, UInt32 length)
 				}
 				[tables setObject:nameArray forKey:@"name"];
 				break;
-			
+
 			default:
 				// else just save the data of the table
 				[tables setObject:[NSData dataWithBytes:(((char *)[[resource data] bytes]) + header->tableInfo[i].offset) length:header->tableInfo[i].length] forKey:[NSString stringWithCString:&(header->tableInfo[i].tagname) length:4]];

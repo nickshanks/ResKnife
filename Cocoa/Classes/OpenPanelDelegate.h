@@ -10,7 +10,7 @@
 	IBOutlet NSButton			*addForkButton;
 /*!	@var removeForkButton		Button for removing forks from a file. */
 	IBOutlet NSButton			*removeForkButton;
-	
+
 /*!	@var forks					Array of forks representing the currently selected file. */
 	NSMutableArray *forks;
 /*!	@var readOpenPanelForFork	Flag indicating whether ResKnife should ask for a fork to parse in a secondary dialog (false) or obtain it from the selected item in the open dialog (true). */

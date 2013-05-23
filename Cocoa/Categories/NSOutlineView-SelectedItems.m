@@ -27,7 +27,7 @@
 	while (row = [enumerator nextObject])
 		[items addObject:[self itemAtRow:[row intValue]]];
 #endif
-	
+
 	return items;
 }
 

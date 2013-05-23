@@ -41,14 +41,14 @@
 {
 	NSArray *newResources;
 	NSArray *oldResources = [(ResourceDataSource *)[tableView dataSource] resources];
-	
+
 	// sort the array
 	NSImage *indicator = [tableView indicatorImageInTableColumn:tableColumn];
 	NSImage *upArrow = [NSTableView _defaultTableHeaderSortImage];
 	if(indicator == upArrow)
 		newResources = [oldResources sortedArrayUsingFunction:compareResourcesAscending context:[tableColumn identifier]];
 	else newResources = [oldResources sortedArrayUsingFunction:compareResourcesDescending context:[tableColumn identifier]];
-	
+
 	// swap new array for old one
 	[(ResourceDataSource *)[tableView dataSource] setResources:[NSMutableArray arrayWithArray:newResources]];
 	[tableView reloadData];
@@ -103,18 +103,18 @@ int compareResourcesDescending(Resource *r1, Resource *r2, void *context)
 {
 	Resource *resource = (Resource *)item;
 	NSString *identifier = [tableColumn identifier];
-	
+
 	// set formatters for cells (remove when IB can set a formatter for an entire table column)
 	if([identifier isEqualToString:@"size"])			[cell setFormatter:sizeFormatter];
 	else if([identifier isEqualToString:@"attributes"])	[cell setFormatter:attributesFormatter];
-	
+
 	// set resource icon
 	if([identifier isEqualToString:@"name"])
 	{
 		if(![resource representedFork])
 			[(ResourceNameCell *)cell setImage:[(ApplicationDelegate *)[NSApp delegate] iconForResourceType:[resource type]]];
 		else [(ResourceNameCell *)cell setImage:[(ApplicationDelegate *)[NSApp delegate] iconForResourceType:nil]];
-		
+
 		if([[resource name] isEqualToString:@""])
 		{
 			if([cell respondsToSelector:@selector(setPlaceholderString:)])	// 10.3+
@@ -150,14 +150,14 @@ int compareResourcesDescending(Resource *r1, Resource *r2, void *context)
 				else if([[resource type] isEqualToString:@"vers"] && [[resource resID] shortValue] == 2)
 					[cell setTitle:NSLocalizedString(@"Package Version", nil)];
 				else [cell setTitle:NSLocalizedString(@"Untitled Resource", nil)];
-				
+
 //				if([[outlineView selectedItems] containsObject:resource])
 //					[cell setTextColor:[NSColor whiteColor]];
 //				else [cell setTextColor:[NSColor grayColor]];
 			}
 		}
 	}
-	
+
 	// draw alternating blue/white backgrounds (if pre-10.3)
 	if(NSAppKitVersionNumber < 700.0)
 	{
@@ -200,7 +200,7 @@ int compareResourcesDescending(Resource *r1, Resource *r2, void *context)
 		[self abortEditing];
 		return YES;
 	}
-	
+
 	// pressed tab, move to next editable field
 	else if(selector == @selector(insertTab:))
 	{
@@ -213,11 +213,11 @@ int compareResourcesDescending(Resource *r1, Resource *r2, void *context)
 			if([newColIdentifier isEqualToString:@"size"] || [newColIdentifier isEqualToString:@"attributes"])
 				newColumn = (newColumn +1) % [self numberOfColumns];
 		}
-		
+
 		[self editColumn:newColumn row:[self selectedRow] withEvent:nil select:YES];
 		return YES;
 	}
-	
+
 	// pressed shift-tab, move to previous editable field
 	else if(selector == @selector(insertBacktab:))
 	{
@@ -230,11 +230,11 @@ int compareResourcesDescending(Resource *r1, Resource *r2, void *context)
 			if([newColIdentifier isEqualToString:@"size"] || [newColIdentifier isEqualToString:@"attributes"])
 				newColumn = (newColumn + [self numberOfColumns] -1) % [self numberOfColumns];
 		}
-		
+
 		[self editColumn:newColumn row:[self selectedRow] withEvent:nil select:YES];
 		return YES;
 	}
-	
+
 	return NO;
 }
 
@@ -264,7 +264,7 @@ int compareResourcesDescending(Resource *r1, Resource *r2, void *context)
 			// if there is an existing selection, clear it's image
 			if([self highlightedTableColumn] != nil)
 				[self setIndicatorImage:nil inTableColumn:[self highlightedTableColumn]];
-			
+
 			// sort name and type columns ascending by default
 			if([[tableColumn identifier] isEqualToString:@"name"] || [[tableColumn identifier] isEqualToString:@"type"])
 				[self setIndicatorImage:upArrow inTableColumn:tableColumn];

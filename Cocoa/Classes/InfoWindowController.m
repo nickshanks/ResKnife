@@ -17,17 +17,17 @@
 - (void)windowDidLoad
 {
 	[super windowDidLoad];
-	
+
 	// set window to only accept key when editing text boxes
 	[(NSPanel *)[self window] setBecomesKeyOnlyIfNeeded:YES];
-	
+
 	// retain views for swapping in and out
 	[[documentView retain] removeFromSuperview];
 	[[resourceView retain] removeFromSuperview];
-	
+
 	[self setMainWindow:[NSApp mainWindow]];
 	[self updateInfoWindow];
-	
+
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(mainWindowChanged:) name:NSWindowDidBecomeMainNotification object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(selectedResourceChanged:) name:NSOutlineViewSelectionDidChangeNotification object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resourceAttributesDidChange:) name:ResourceAttributesDidChangeNotification object:nil];
@@ -45,7 +45,7 @@
 {
 	[nameView setEditable:(selectedResource != nil)];
 	[nameView setDrawsBackground:(selectedResource != nil)];
-	
+
 	if(selectedResource)
 	{
 		// set UI values
@@ -58,7 +58,7 @@
 		[[attributesMatrix cellAtRow:lockedBox column:0]	setState:[[selectedResource attributes] shortValue] & resLocked];
 		[[attributesMatrix cellAtRow:purgableBox column:0]	setState:[[selectedResource attributes] shortValue] & resPurgeable];
 		[[attributesMatrix cellAtRow:systemHeapBox column:0] setState:[[selectedResource attributes] shortValue] & resSysHeap];
-		
+
 		// swap box
 		[placeholderView setContentView:resourceView];
 	}
@@ -73,7 +73,7 @@
 			if(!error) FSGetForkSizes(fileRef, &dataLogicalSize, &rsrcLogicalSize);
 		}
 		if(fileRef) DisposePtr((Ptr) fileRef);
-		
+
 		// set info window elements to correct values
 		[[self window] setTitle:NSLocalizedString(@"Document Info",nil)];
 		if([currentDocument fileName])	// document has been saved
@@ -86,7 +86,7 @@
 			[iconView setImage:[NSImage imageNamed:@"Resource file"]];
 			[nameView setStringValue:[currentDocument displayName]];
 		}
-		
+
 		#warning FIXME: the creator and type codes need to be swapped on intel
 		[[filePropertyForm cellAtIndex:0] setStringValue:[[[NSString alloc] initWithData:[currentDocument creator] encoding:NSMacOSRomanStringEncoding] autorelease]];
 		[[filePropertyForm cellAtIndex:1] setStringValue:[[[NSString alloc] initWithData:[currentDocument type] encoding:NSMacOSRomanStringEncoding] autorelease]];
@@ -94,7 +94,7 @@
 //		[[filePropertyForm cellAtIndex:3] setObjectValue:[NSNumber numberWithUnsignedLongLong:rsrcLogicalSize]];
 		[[filePropertyForm cellAtIndex:2] setStringValue:[[NSNumber numberWithUnsignedLongLong:dataLogicalSize] description]];
 		[[filePropertyForm cellAtIndex:3] setStringValue:[[NSNumber numberWithUnsignedLongLong:rsrcLogicalSize] description]];
-		
+
 		// swap box
 		[placeholderView setContentView:documentView];
 	}
@@ -109,11 +109,11 @@
 - (void)setMainWindow:(NSWindow *)mainWindow
 {
 	NSWindowController *controller = [mainWindow windowController];
-	
+
 	if([[controller document] isKindOfClass:[ResourceDocument class]])
 		currentDocument = [controller document];
 	else currentDocument = nil;
-	
+
 	if(currentDocument)
 		selectedResource = [[currentDocument outlineView] selectedItem];
 	else selectedResource = [controller resource];
