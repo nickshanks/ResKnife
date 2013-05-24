@@ -16,3 +16,7 @@ movedaside/*
 
 -1
 *.log
+
+# This branch ("pulled-from-kainjow") doesn't need HexFiend
+# It's only necessary for the branch "pulled-from-Wevah"
+HexFiend/*
