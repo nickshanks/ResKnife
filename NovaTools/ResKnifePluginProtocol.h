@@ -1,0 +1,1 @@
+../Cocoa/Plug-Ins/ResKnifePluginProtocol.h
