@@ -119,7 +119,6 @@ public:
 	OSStatus			ReadDataFork( OSStatus rfError );
 	OSStatus			InitDataBrowser( void );
 	OSStatus			SaveFile( FSSpecPtr saveSpec = null );
-private:
 /*!
 	@function			ReadResourceMap
 	@discussion			Requires the fork containing resources to be at the top of the resource chain
@@ -128,7 +127,6 @@ private:
 	OSStatus			SaveResourceMap( void );
 	
 	// carbon routines
-public:
 	OSStatus			Zoomed( EventRef event );
 	OSStatus			SetIdealSize( EventRef event );
 	OSStatus			DisplaySaveDialog( void );
@@ -143,10 +141,8 @@ public:
 	// resource map processing
 	OSStatus			CreateNewResource( ConstStr255Param name, ResType type, SInt16 resID, SInt16 attribs );
 	OSStatus			OpenResource( DataBrowserItemID itemID, MenuCommand command );
-private:
 	OSStatus			DisposeResourceMap( void );
 
-public:
 	// sound handlers
 	OSStatus			PlaySound( DataBrowserItemID itemID );
 	
