@@ -44,35 +44,35 @@ public:
 /*!
  *	@function			PlugWindow
  */
-						PlugWindow( FileWindowPtr ownerFile );
+						PlugWindow(FileWindowPtr ownerFile);
 /*!
  *	@function			File
  */
-	FileWindowPtr		File( void );
+	FileWindowPtr		File(void);
 #if !TARGET_API_MAC_CARBON
 /*!
  *	@function			InstallClassicEventHandler
  */
-	void				InstallClassicEventHandler( ClassicEventHandlerProcPtr newHandler );
+	void				InstallClassicEventHandler(ClassicEventHandlerProcPtr newHandler);
 /*!
  *	@function			Close
  */
-	virtual OSStatus	Close( void );
+	virtual OSStatus	Close(void);
 /*!
  *	@function			Activate
  */
-	virtual OSStatus	Activate( Boolean active = true );
+	virtual OSStatus	Activate(Boolean active = true);
 /*!
  *	@function			Update
  */
-	virtual OSStatus	Update( RgnHandle region = null );
+	virtual OSStatus	Update(RgnHandle region = null);
 /*!
  *	@function			Click
  */
-	virtual OSStatus	Click( Point mouse, EventModifiers modifiers );
+	virtual OSStatus	Click(Point mouse, EventModifiers modifiers);
 #endif
-	void				SetRefCon( UInt32 value );
-	UInt32				GetRefCon( void );
+	void				SetRefCon(UInt32 value);
+	UInt32				GetRefCon(void);
 };
 
 #endif

@@ -94,7 +94,7 @@ extern "C"						// functions beginning "Host_" are in ResKnife/Resurrection
  *	@discussion					Plug-ins should call this function immediatly after creating a window to swap their Mac OS <tt>WindowRef</tt>
  *									for a <tt>Plug_WindowRef</tt>, which allows the host to track the window, it's contents, and to send events there.
  */
-	ResCall Plug_WindowRef		Host_RegisterWindow( Plug_PlugInRef plug, Plug_ResourceRef resource, WindowRef window );
+	ResCall Plug_WindowRef		Host_RegisterWindow(Plug_PlugInRef plug, Plug_ResourceRef resource, WindowRef window);
 /*!
  *	@function					Host_InstallClassicWindowEventHandler
  *	@abstract					Without this, non-carbon plugs will not receive events
@@ -103,136 +103,136 @@ extern "C"						// functions beginning "Host_" are in ResKnife/Resurrection
  *						
  *									&bull; kEventWindowClickContentRgn
  */
-	ResCall void				Host_InstallClassicWindowEventHandler( Plug_WindowRef plugWindow, RoutineDescriptor *handler );
+	ResCall void				Host_InstallClassicWindowEventHandler(Plug_WindowRef plugWindow, RoutineDescriptor *handler);
 /*!
  *	@function					Host_GetWindowRefFromPlugWindow
  *	@abstract					Allows plug-ins to obtain a Mac OS <tt>WindowRef</tt> from their <tt>Plug_WindowRef</tt>
  *	@discussion					This call must not be made before the window has been registered using <tt>Host_RegisterWindow()</tt>
  */
-	ResCall WindowRef			Host_GetWindowRefFromPlugWindow( Plug_WindowRef plugWindow );
+	ResCall WindowRef			Host_GetWindowRefFromPlugWindow(Plug_WindowRef plugWindow);
 /*!
  *	@function					Host_GetPlugWindowFromWindowRef
  *	@abstract					Allows plug-ins to obtain a <tt>Plug_WindowRef</tt> from their Mac OS <tt>WindowRef</tt>
  *	@discussion					This call must not be made before the window has been registered using <tt>Host_RegisterWindow()</tt>
  */
-	ResCall Plug_WindowRef		Host_GetPlugWindowFromWindowRef( WindowRef window );
+	ResCall Plug_WindowRef		Host_GetPlugWindowFromWindowRef(WindowRef window);
 /*!
  *	@function					Host_GetPlugRef
  *	@discussion					You will probably need to call this if the system calls one of your routines directly.
  */
-	ResCall Plug_PlugInRef		Host_GetPlugRef( WindowRef window );
+	ResCall Plug_PlugInRef		Host_GetPlugRef(WindowRef window);
 /*!
  *	@function					Host_GetResource
  *	@discussion					Returns a reference to any arbitrary resource.
  *	@param limitToDoc			If true, the function will only search the same document that contains the resource returned by Host_GetTargetResource. If false, it will return any resource in the current resource chain.
  */
-	ResCall Plug_ResourceRef	Host_GetResource( SInt32 type, SInt32 resID, Boolean limitToDoc );
+	ResCall Plug_ResourceRef	Host_GetResource(SInt32 type, SInt32 resID, Boolean limitToDoc);
 /*!
  *	@function					Host_GetTargetResource
  *	@discussion					Returns the reference to the resource you're actually editing.
  */
-	ResCall Plug_ResourceRef	Host_GetTargetResource( Plug_WindowRef plugWindow );
+	ResCall Plug_ResourceRef	Host_GetTargetResource(Plug_WindowRef plugWindow);
 /*!
  *	@function					Host_GetResourceData
  *	@discussion					Dispose of with <tt>Host_ReleaseResourceData()</tt>
  */
-	ResCall Handle				Host_GetResourceData( Plug_ResourceRef resource );
+	ResCall Handle				Host_GetResourceData(Plug_ResourceRef resource);
 /*!
  *	@function					Host_GetPartialResourceData
  *	@discussion					Dispose of with <tt>Host_ReleasePartialResourceData()</tt>
  */
-	ResCall Handle				Host_GetPartialResourceData( Plug_ResourceRef resource, UInt32 offset, UInt32 length );
+	ResCall Handle				Host_GetPartialResourceData(Plug_ResourceRef resource, UInt32 offset, UInt32 length);
 /*!
  *	@function					Host_ReleaseResourceData
  */
-	ResCall	void				Host_ReleaseResourceData( Plug_ResourceRef resource );
+	ResCall	void				Host_ReleaseResourceData(Plug_ResourceRef resource);
 /*!
  *	@function					Host_ReleasePartialResourceData
  */
-	ResCall	void				Host_ReleasePartialResourceData( Plug_ResourceRef resource, Handle data );
+	ResCall	void				Host_ReleasePartialResourceData(Plug_ResourceRef resource, Handle data);
 /*!
  *	@function					Host_GetResourceType
  */
-	ResCall ResType				Host_GetResourceType( Plug_ResourceRef resource );
+	ResCall ResType				Host_GetResourceType(Plug_ResourceRef resource);
 /*!
  *	@function					Host_GetResourceID
  */
-	ResCall SInt16				Host_GetResourceID( Plug_ResourceRef resource );
+	ResCall SInt16				Host_GetResourceID(Plug_ResourceRef resource);
 /*!
  *	@function					Host_GetResourceSize
  */
-	ResCall UInt32				Host_GetResourceSize( Plug_ResourceRef resource );
+	ResCall UInt32				Host_GetResourceSize(Plug_ResourceRef resource);
 /*!
  *	@function					Host_GetResourceName
  */
-	ResCall void				Host_GetResourceName( Plug_ResourceRef resource, Str255 name );
-/*	ResCall void				Host_SetResourceName( Plug_ResourceRef resource, ConstStr255Param name );	*/
+	ResCall void				Host_GetResourceName(Plug_ResourceRef resource, Str255 name);
+/*	ResCall void				Host_SetResourceName(Plug_ResourceRef resource, ConstStr255Param name);	*/
 /*!
  *	@function					Host_GetResourceDirty
  */
-	ResCall Boolean				Host_GetResourceDirty( Plug_ResourceRef resource );
+	ResCall Boolean				Host_GetResourceDirty(Plug_ResourceRef resource);
 /*!
  *	@function					Host_SetResourceDirty
  */
-	ResCall void				Host_SetResourceDirty( Plug_ResourceRef resource, Boolean dirty );
-/*	ResCall Boolean				Host_GetResourceIsOnDisk( Plug_ResourceRef resource );		*/				// name may change soon
+	ResCall void				Host_SetResourceDirty(Plug_ResourceRef resource, Boolean dirty);
+/*	ResCall Boolean				Host_GetResourceIsOnDisk(Plug_ResourceRef resource);		*/				// name may change soon
 /*!
  *	@function					Host_GetWindowRefCon
  */
-	ResCall UInt32				Host_GetWindowRefCon( Plug_WindowRef plugWindow );
+	ResCall UInt32				Host_GetWindowRefCon(Plug_WindowRef plugWindow);
 /*!
  *	@function					Host_SetWindowRefCon
  */
-	ResCall void				Host_SetWindowRefCon( Plug_WindowRef plugWindow, UInt32 value );
+	ResCall void				Host_SetWindowRefCon(Plug_WindowRef plugWindow, UInt32 value);
 /*!
  *	@function					Host_GetGlobalRefCon
  */
-	ResCall UInt32				Host_GetGlobalRefCon( Plug_PlugInRef plugRef );
+	ResCall UInt32				Host_GetGlobalRefCon(Plug_PlugInRef plugRef);
 /*!
  *	@function					Host_SetGlobalRefCon
  */
-	ResCall void				Host_SetGlobalRefCon( Plug_PlugInRef plugRef, UInt32 value );
-/*	ResCall OSStatus			Host_OpenEditor( Plug_ResourceRef resource, ResOpenMode mode );
-	ResCall OSStatus			Host_SaveResource( Plug_ResourceRef resource );							// VERY IMPORTANT CALL! - Make when closing window
-	ResCall void				Host_SetCursor( Plug_PlugInRef plugRef, Cursor *cursor );
-	ResCall void				Host_SetCursorToID( Plug_PlugInRef plugRef, SInt16 resID );
+	ResCall void				Host_SetGlobalRefCon(Plug_PlugInRef plugRef, UInt32 value);
+/*	ResCall OSStatus			Host_OpenEditor(Plug_ResourceRef resource, ResOpenMode mode);
+	ResCall OSStatus			Host_SaveResource(Plug_ResourceRef resource);							// VERY IMPORTANT CALL! - Make when closing window
+	ResCall void				Host_SetCursor(Plug_PlugInRef plugRef, Cursor *cursor);
+	ResCall void				Host_SetCursorToID(Plug_PlugInRef plugRef, SInt16 resID);
 */
 /*!
  *	@function					Host_GetDefaultTemplate
  *	@abstract					Returns the default TMPL resource for the resource type passed in.
  *	@discussion					Handle is <tt>NULL</tt> if no template exists. You must dispose of the handle yourself.
  */
-	ResCall Handle				Host_GetDefaultTemplate( ResType type );
+	ResCall Handle				Host_GetDefaultTemplate(ResType type);
 /*!
  *	@function					Host_AppendMenuToBar
  *	@discussion					The host will track your window, and hide the menu when you are not fromtmost.
  */
-	ResCall void				Host_AppendMenuToBar( Plug_PlugInRef plug, SInt16 resID );
+	ResCall void				Host_AppendMenuToBar(Plug_PlugInRef plug, SInt16 resID);
 /*!
  *	@function					Host_RemoveMenuFromBar
  */
-	ResCall void				Host_RemoveMenuFromBar( Plug_PlugInRef plug, SInt16 resID );
+	ResCall void				Host_RemoveMenuFromBar(Plug_PlugInRef plug, SInt16 resID);
 /*!
  *	@function					Host_UpdateMenus
  */
-	ResCall void				Host_UpdateMenus( Plug_ResourceRef resource );
+	ResCall void				Host_UpdateMenus(Plug_ResourceRef resource);
 /*!
  *	@function					Host_DisplayError
  *	@discussion					Errors the user should see
  */
-	ResCall void				Host_DisplayError( ConstStr255Param error, ConstStr255Param explanation, UInt8 severity );
+	ResCall void				Host_DisplayError(ConstStr255Param error, ConstStr255Param explanation, UInt8 severity);
 /*!
  *	@function					Host_DebugError
  *	@discussion					Errors the user shouldn't see
  */
-	ResCall void				Host_DebugError( ConstStr255Param error, OSStatus number );
+	ResCall void				Host_DebugError(ConstStr255Param error, OSStatus number);
 }
 
 /*** EXPORTED FUNCTIONS ***/
 extern "C"						// functions beginning "Plug_" should be in your plug-in editor
 {
 	/* required functions - plug-in won't be loaded if all these symbols cannot be found */
-/*	ResCallBack OSStatus		Plug_EditorType( Plug_PlugInRef plugRef, EditorType *type, ResType *kind, UInt8 *number );			// called to identify the number of different types of resources it can handle
+/*	ResCallBack OSStatus		Plug_EditorType(Plug_PlugInRef plugRef, EditorType *type, ResType *kind, UInt8 *number);			// called to identify the number of different types of resources it can handle
 */
 /*!
  *	@function					Plug_InitInstance
@@ -241,14 +241,14 @@ extern "C"						// functions beginning "Plug_" should be in your plug-in editor
  *	@param plug					A reference which has been assigned to this plug-in. It will not necessarily remain constant, so do not save it beyond this call returning.
  *	@param resource				A reference to the resource whose editing session has been requested.
  */
-	ResCallBack	OSStatus		Plug_InitInstance( Plug_PlugInRef plug, Plug_ResourceRef resource );
-/*	ResCallBack OSStatus		Plug_FlattenResource( Plug_PlugInRef plugRef, Plug_ResourceRef resource );			// update the handle provided by the host (see Host_GetResData)
-	ResCallBack OSStatus		Plug_ResourceChanged( Plug_PlugInRef plugRef, Plug_ResourceRef resource );			// another editor has changed the resource your working on (normally responded to by calling Host_GetResData and a window update)
+	ResCallBack	OSStatus		Plug_InitInstance(Plug_PlugInRef plug, Plug_ResourceRef resource);
+/*	ResCallBack OSStatus		Plug_FlattenResource(Plug_PlugInRef plugRef, Plug_ResourceRef resource);			// update the handle provided by the host (see Host_GetResData)
+	ResCallBack OSStatus		Plug_ResourceChanged(Plug_PlugInRef plugRef, Plug_ResourceRef resource);			// another editor has changed the resource your working on (normally responded to by calling Host_GetResData and a window update)
 */	/* optional functions - only called if they are requested & found */
-/*	ResCallBack OSStatus		Plug_UpdateMenu( Plug_PlugInRef plugRef, Plug_WindowRef windowObject );
-	ResCallBack OSStatus		Plug_HandleMenuCommand( Plug_PlugInRef plugRef, Plug_MenuCommand menuCmd, Boolean *handled );
-	ResCallBack OSStatus		Plug_HandleMenuItem( Plug_PlugInRef plugRef, SInt16 menuID, SInt16 itemID, Boolean *handled );	// name change
-	ResCallBack OSStatus		Plug_AboutBox( Plug_PlugInRef plugRef );
+/*	ResCallBack OSStatus		Plug_UpdateMenu(Plug_PlugInRef plugRef, Plug_WindowRef windowObject);
+	ResCallBack OSStatus		Plug_HandleMenuCommand(Plug_PlugInRef plugRef, Plug_MenuCommand menuCmd, Boolean *handled);
+	ResCallBack OSStatus		Plug_HandleMenuItem(Plug_PlugInRef plugRef, SInt16 menuID, SInt16 itemID, Boolean *handled);	// name change
+	ResCallBack OSStatus		Plug_AboutBox(Plug_PlugInRef plugRef);
 */}
 
 #endif

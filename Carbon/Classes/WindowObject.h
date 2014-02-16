@@ -40,46 +40,46 @@ public:
  *	@function			WindowObject
  *	@discussion			Constructor function.
  */
-						WindowObject( void );
+						WindowObject(void);
 /*!
  *	@function			WindowObject
  *	@discussion			Desturctor function.
  */
-	virtual				~WindowObject( void );
+	virtual				~WindowObject(void);
 /*!
  *	@function			Window
  *	@discussion			Accessor for the object&rsquo;s <tt>WindowRef</tt>.
  */
-	virtual WindowRef	Window( void );
+	virtual WindowRef	Window(void);
 /*!
  *	@function			BoundsChanging
  */
-	virtual OSStatus	BoundsChanging( EventRef event );
+	virtual OSStatus	BoundsChanging(EventRef event);
 /*!
  *	@function			BoundsChanged
  */
-	virtual OSStatus	BoundsChanged( EventRef event );
+	virtual OSStatus	BoundsChanged(EventRef event);
 #if !TARGET_API_MAC_CARBON
 /*!
  *	@function			Close
  */
-	virtual OSStatus	Close( void );
+	virtual OSStatus	Close(void);
 /*!
  *	@function			Activate
  */
-	virtual OSStatus	Activate( Boolean active = true );
+	virtual OSStatus	Activate(Boolean active = true);
 /*!
  *	@function			Update
  */
-	virtual OSStatus	Update( RgnHandle region = null );
+	virtual OSStatus	Update(RgnHandle region = null);
 /*!
  *	@function			UpdateScrollBars
  */
-	virtual OSStatus	UpdateScrollBars( void );
+	virtual OSStatus	UpdateScrollBars(void);
 /*!
  *	@function			Click
  */
-	virtual OSStatus	Click( Point mouse, EventModifiers modifiers );
+	virtual OSStatus	Click(Point mouse, EventModifiers modifiers);
 #endif
 };
 

@@ -6,7 +6,7 @@
 extern globals g;
 
 /*** CREATOR ***/
-EditorWindow::EditorWindow( FileWindowPtr ownerFile, ResourceObjectPtr targetResource, WindowRef inputWindow ) : PlugWindow( ownerFile )
+EditorWindow::EditorWindow(FileWindowPtr ownerFile, ResourceObjectPtr targetResource, WindowRef inputWindow) : PlugWindow(ownerFile)
 {
 //	OSStatus error = noErr;
 
@@ -17,33 +17,33 @@ EditorWindow::EditorWindow( FileWindowPtr ownerFile, ResourceObjectPtr targetRes
 	// set up default window title
 	Str255 windowTitle, resTypeStr, resIDStr;
 	FSSpec spec = *ownerFile->GetFileSpec();
-	CopyPString( spec.name, windowTitle );
-	TypeToPString( resource->Type(), resTypeStr );
-	NumToString( resource->ID(), resIDStr );
-	AppendPString( windowTitle, "\p: " );
-	AppendPString( windowTitle, resTypeStr );
-	AppendPString( windowTitle, "\p " );
-	AppendPString( windowTitle, resIDStr );
-	if( *resource->Name() != 0x00 )	// resource has name
+	CopyPString(spec.name, windowTitle);
+	TypeToPString(resource->Type(), resTypeStr);
+	NumToString(resource->ID(), resIDStr);
+	AppendPString(windowTitle, "\p: ");
+	AppendPString(windowTitle, resTypeStr);
+	AppendPString(windowTitle, "\p ");
+	AppendPString(windowTitle, resIDStr);
+	if(*resource->Name() != 0x00)	// resource has name
 	{
-		AppendPString( windowTitle, "\p, “" );
-		AppendPString( windowTitle, resource->Name() );
-		AppendPString( windowTitle, "\p”" );
+		AppendPString(windowTitle, "\p, “");
+		AppendPString(windowTitle, resource->Name());
+		AppendPString(windowTitle, "\p”");
 	}
 	
 	// save EditorWindow class in window's refcon
-	SetWindowRefCon( window, (UInt32) this );
-	SetWindowKind( window, kEditorWindowKind );
-	SetWindowTitle( window, windowTitle );
+	SetWindowRefCon(window, (UInt32) this);
+	SetWindowKind(window, kEditorWindowKind);
+	SetWindowTitle(window, windowTitle);
 }
 
 #if !TARGET_API_MAC_CARBON
 
 /*** CLOSE ***/
-OSStatus EditorWindow::Close( void )
+OSStatus EditorWindow::Close(void)
 {
 	// bug: need to tell plug it is about to die.
-	CloseWindow( window );
+	CloseWindow(window);
 	delete this;
 	return noErr;
 }
@@ -51,7 +51,7 @@ OSStatus EditorWindow::Close( void )
 #endif
 
 /*** RESOURCE ACCESSOR ***/
-ResourceObjectPtr EditorWindow::Resource( void )
+ResourceObjectPtr EditorWindow::Resource(void)
 {
 	return resource;
 }

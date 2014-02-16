@@ -36,42 +36,42 @@ public:
 	@function		GetConnectionID
 	@discussion		Accessor function.
 */
-	CFragConnectionID	GetConnectionID( void );
+	CFragConnectionID	GetConnectionID(void);
 /*!
 	@function		SetConnectionID
 	@discussion		Accessor function.
 */
-	void				SetConnectionID( CFragConnectionID newID );
+	void				SetConnectionID(CFragConnectionID newID);
 /*!
 	@function		GetWindowObject
 	@discussion		Accessor function.
 */
-	WindowObjectPtr		GetWindowObject( void );
+	WindowObjectPtr		GetWindowObject(void);
 /*!
 	@function		SetWindowObject
 	@discussion		Accessor function.
 */
-	void				SetWindowObject( WindowObjectPtr newWindowObj );
+	void				SetWindowObject(WindowObjectPtr newWindowObj);
 /*!
 	@function		GetResourceObject
 	@discussion		Accessor function.
 */
-	ResourceObjectPtr	GetResourceObject( void );
+	ResourceObjectPtr	GetResourceObject(void);
 /*!
 	@function		SetResourceObject
 	@discussion		Accessor function.
 */
-	void				SetResourceObject( ResourceObjectPtr newResourceObj );
+	void				SetResourceObject(ResourceObjectPtr newResourceObj);
 /*!
 	@function		SetRefCon
 	@discussion		Accessor function.
 */
-	void				SetRefCon( UInt32 value );
+	void				SetRefCon(UInt32 value);
 /*!
 	@function		GetRefCon
 	@discussion		Accessor function.
 */
-	UInt32				GetRefCon( void );
+	UInt32				GetRefCon(void);
 }	PlugObject,			*PlugObjectPtr;
 
 /*!
@@ -80,18 +80,18 @@ public:
 	@param resource	The resource to be edited.
 	@param libName	A string containing the fragment name of the editor to be used, for example "icns Editor" or "PICT Picker".
 */
-OSStatus LoadEditor( ResourceObjectPtr resource, ConstStr63Param libName );
+OSStatus LoadEditor(ResourceObjectPtr resource, ConstStr63Param libName);
 /*!
 	@function		UnloadEditor
 	@discussion		Unloads the given plug.
 	@param plug		The plug-in to be killed.
 */
-OSStatus UnloadEditor( PlugObjectPtr plug );
+OSStatus UnloadEditor(PlugObjectPtr plug);
 
 /*!
 	@typedef		InitPlugProcPtr
 	@discussion		The pointer to Plug_InitInstance() that FindSymbol returns.
 */
-typedef OSStatus (* InitPlugProcPtr)( PlugObjectPtr plug, ResourceObjectPtr resource );
+typedef OSStatus (* InitPlugProcPtr)(PlugObjectPtr plug, ResourceObjectPtr resource);
 
 #endif

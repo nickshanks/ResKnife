@@ -89,87 +89,87 @@ class FileWindow : WindowObject
 	
 	/* methods */
 public:
-						FileWindow( FSSpecPtr spec = null );
-	virtual				~FileWindow( void );
+						FileWindow(FSSpecPtr spec = null);
+	virtual				~FileWindow(void);
 	// overridden inherited functions
 /*!
  *	@function			Window
  *	@discussion			Accessor for the object&rsquo;s <tt>WindowRef</tt>.
  */
-	virtual WindowRef	Window( void );
-	virtual OSStatus	BoundsChanging( EventRef event );
-	virtual OSStatus	BoundsChanged( EventRef event );
+	virtual WindowRef	Window(void);
+	virtual OSStatus	BoundsChanging(EventRef event);
+	virtual OSStatus	BoundsChanged(EventRef event);
 #if !TARGET_API_MAC_CARBON
-	virtual OSStatus	Activate( Boolean active = true );
-	virtual OSStatus	Update( RgnHandle region = null );
-	virtual OSStatus	Click( Point mouse, EventModifiers modifiers );
+	virtual OSStatus	Activate(Boolean active = true);
+	virtual OSStatus	Update(RgnHandle region = null);
+	virtual OSStatus	Click(Point mouse, EventModifiers modifiers);
 	
 	// drawing
 private:
-	virtual OSStatus	UpdateScrollBars( void );
-	OSStatus			DrawResourceIcon( ResourceObjectPtr resource, UInt16 line );
+	virtual OSStatus	UpdateScrollBars(void);
+	OSStatus			DrawResourceIcon(ResourceObjectPtr resource, UInt16 line);
 	
 	// fake data brwser
-	OSStatus			ClearSelection( void );
+	OSStatus			ClearSelection(void);
 #endif
 	
 	// file manipulation
 public:
-	OSStatus			ReadResourceFork( void );
-	OSStatus			ReadDataFork( OSStatus rfError );
-	OSStatus			InitDataBrowser( void );
-	OSStatus			SaveFile( FSSpecPtr saveSpec = null );
+	OSStatus			ReadResourceFork(void);
+	OSStatus			ReadDataFork(OSStatus rfError);
+	OSStatus			InitDataBrowser(void);
+	OSStatus			SaveFile(FSSpecPtr saveSpec = null);
 /*!
 	@function			ReadResourceMap
 	@discussion			Requires the fork containing resources to be at the top of the resource chain
 */
-	OSStatus			ReadResourceMap( void );	// fork-independent resource routines
-	OSStatus			SaveResourceMap( void );
+	OSStatus			ReadResourceMap(void);	// fork-independent resource routines
+	OSStatus			SaveResourceMap(void);
 	
 	// carbon routines
-	OSStatus			Zoomed( EventRef event );
-	OSStatus			SetIdealSize( EventRef event );
-	OSStatus			DisplaySaveDialog( void );
-	OSStatus			DisplayModelessAskSaveChangesDialog( void );
-	OSStatus			DisplaySaveAsDialog( void );
-	OSStatus			DisplayModelessPutFileDialog( void );
-	OSStatus			DisplayRevertFileDialog( void );
-	OSStatus			DisplayModelessAskDiscardChangesDialog( void );
-	OSStatus			DisplayNewResourceDialog( void );
-	OSStatus			DisplayNewResourceSheet( void );
+	OSStatus			Zoomed(EventRef event);
+	OSStatus			SetIdealSize(EventRef event);
+	OSStatus			DisplaySaveDialog(void);
+	OSStatus			DisplayModelessAskSaveChangesDialog(void);
+	OSStatus			DisplaySaveAsDialog(void);
+	OSStatus			DisplayModelessPutFileDialog(void);
+	OSStatus			DisplayRevertFileDialog(void);
+	OSStatus			DisplayModelessAskDiscardChangesDialog(void);
+	OSStatus			DisplayNewResourceDialog(void);
+	OSStatus			DisplayNewResourceSheet(void);
 	
 	// resource map processing
-	OSStatus			CreateNewResource( ConstStr255Param name, ResType type, SInt16 resID, SInt16 attribs );
-	OSStatus			OpenResource( DataBrowserItemID itemID, MenuCommand command );
-	OSStatus			DisposeResourceMap( void );
+	OSStatus			CreateNewResource(ConstStr255Param name, ResType type, SInt16 resID, SInt16 attribs);
+	OSStatus			OpenResource(DataBrowserItemID itemID, MenuCommand command);
+	OSStatus			DisposeResourceMap(void);
 
 	// sound handlers
-	OSStatus			PlaySound( DataBrowserItemID itemID );
+	OSStatus			PlaySound(DataBrowserItemID itemID);
 	
 	// file accessors
-	FSSpecPtr			GetFileSpec( void );
-	void				SetFileSpec( FSSpecPtr spec );
-	Boolean				IsFileDirty( void );
-	void				SetFileDirty( Boolean dirty = true );
+	FSSpecPtr			GetFileSpec(void);
+	void				SetFileSpec(FSSpecPtr spec);
+	Boolean				IsFileDirty(void);
+	void				SetFileDirty(Boolean dirty = true);
 #if TARGET_API_MAC_CARBON
-	ControlRef			GetDataBrowser( void );
+	ControlRef			GetDataBrowser(void);
 #endif
 	
 	// resource accessors
-	UInt32				GetResourceCount( ResType wanted = 0x00000000 );
-	ResourceObjectPtr	GetResource( DataBrowserItemID itemID );
-	UInt8*				GetResourceName( DataBrowserItemID itemID );
-	UInt32				GetResourceSize( DataBrowserItemID itemID );
-	ResType				GetResourceType( DataBrowserItemID itemID );
-	SInt16				GetResourceID( DataBrowserItemID itemID );
-	SInt16				GetResourceAttributes( DataBrowserItemID itemID );
+	UInt32				GetResourceCount(ResType wanted = 0x00000000);
+	ResourceObjectPtr	GetResource(DataBrowserItemID itemID);
+	UInt8*				GetResourceName(DataBrowserItemID itemID);
+	UInt32				GetResourceSize(DataBrowserItemID itemID);
+	ResType				GetResourceType(DataBrowserItemID itemID);
+	SInt16				GetResourceID(DataBrowserItemID itemID);
+	SInt16				GetResourceAttributes(DataBrowserItemID itemID);
 };
 
 /* window event handler */
-pascal void				FileWindowScrollAction( ControlHandle control, SInt16 controlPart );
-pascal OSStatus			FileWindowEventHandler( EventHandlerCallRef callRef, EventRef event, void *userData );
-pascal OSStatus			FileWindowUpdateMenus( EventHandlerCallRef callRef, EventRef event, void *userData );
-pascal OSStatus			FileWindowParseMenuSelection( EventHandlerCallRef callRef, EventRef event, void *userData );
-pascal OSStatus			NewResourceEventHandler( EventHandlerCallRef callRef, EventRef event, void *userData );
+pascal void				FileWindowScrollAction(ControlHandle control, SInt16 controlPart);
+pascal OSStatus			FileWindowEventHandler(EventHandlerCallRef callRef, EventRef event, void *userData);
+pascal OSStatus			FileWindowUpdateMenus(EventHandlerCallRef callRef, EventRef event, void *userData);
+pascal OSStatus			FileWindowParseMenuSelection(EventHandlerCallRef callRef, EventRef event, void *userData);
+pascal OSStatus			NewResourceEventHandler(EventHandlerCallRef callRef, EventRef event, void *userData);
 
 #endif

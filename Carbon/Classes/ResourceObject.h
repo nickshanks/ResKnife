@@ -57,103 +57,103 @@ public:
 	@function		ResourceObject
 	@discussion		Creator function.
 */
-					ResourceObject( FileWindowPtr owner = null );
+					ResourceObject(FileWindowPtr owner = null);
 /*!
 	@function		~ResourceObject
 	@discussion		Destructor function.
 */
-					~ResourceObject( void );
+					~ResourceObject(void);
 /*!
 	@function		Retain
 	@discussion		Accessor function.
 */
-	OSStatus		Retain( void );
+	OSStatus		Retain(void);
 /*!
 	@function		Release
 	@discussion		Accessor function.
 */
-	void			Release( void );
+	void			Release(void);
 /*!
 	@function		File
 	@discussion		Accessor function.
 */
-	FileWindowPtr	File( void );
+	FileWindowPtr	File(void);
 /*!
 	@function		Next
 	@discussion		Accessor function.
 */
-	ResourceObjectPtr Next( void );
+	ResourceObjectPtr Next(void);
 /*!
 	@function		SetDirty
 	@discussion		Accessor function.
 */
-	void			SetDirty( Boolean value );
+	void			SetDirty(Boolean value);
 /*!
 	@function		Dirty
 	@discussion		Accessor function.
 */
-	Boolean			Dirty( void );
+	Boolean			Dirty(void);
 /*!
 	@function		Select
 	@discussion		Accessor function.
 	@param select	Pass true to select, false to deselect this resource in the file window.
 */
-	void			Select( Boolean select );
+	void			Select(Boolean select);
 /*!
 	@function		Selected
 	@discussion		Accessor function.
 */
-	Boolean			Selected( void );
+	Boolean			Selected(void);
 /*!
 	@function		Number
 	@discussion		Accessor function.
 */
-	DataBrowserItemID Number( void );
+	DataBrowserItemID Number(void);
 /*!
 	@function		RepresentsDataFork
 	@discussion		Accessor function.
 */
-	Boolean			RepresentsDataFork( void );
+	Boolean			RepresentsDataFork(void);
 /*!
 	@function		Data
 	@discussion		Accessor function. Warning: This functions returns the ACTUAL data handle - do not dispose of it.
 */
-	Handle			Data( void );
+	Handle			Data(void);
 /*!
 	@function		Name
 	@discussion		Accessor function.
 */
-	UInt8*			Name( void );
+	UInt8*			Name(void);
 /*!
 	@function		Size
 	@discussion		Accessor function.
 */
-	UInt32			Size( void );
+	UInt32			Size(void);
 /*!
 	@function		Type
 	@discussion		Accessor function.
 */
-	ResType			Type( void );
+	ResType			Type(void);
 /*!
 	@function		ID
 	@discussion		Accessor function.
 */
-	SInt16			ID( void );
+	SInt16			ID(void);
 /*!
 	@function		Attributes
 	@discussion		Accessor function.
 */
-	SInt16			Attributes( void );
+	SInt16			Attributes(void);
 	
-	friend OSStatus FileWindow::ReadResourceMap( void );
-	friend OSStatus FileWindow::ReadDataFork( OSStatus RFError );
-	friend OSStatus FileWindow::InitDataBrowser( void );
+	friend OSStatus FileWindow::ReadResourceMap(void);
+	friend OSStatus FileWindow::ReadDataFork(OSStatus RFError);
+	friend OSStatus FileWindow::InitDataBrowser(void);
 #if !TARGET_API_MAC_CARBON
-	friend OSStatus FileWindow::Click( Point mouse, EventModifiers modifiers );
-	friend OSStatus FileWindow::DrawResourceIcon( ResourceObjectPtr resource, UInt16 line );
+	friend OSStatus FileWindow::Click(Point mouse, EventModifiers modifiers);
+	friend OSStatus FileWindow::DrawResourceIcon(ResourceObjectPtr resource, UInt16 line);
 #endif
-	friend OSStatus FileWindow::CreateNewResource( ConstStr255Param name, ResType type, SInt16 resID, SInt16 attribs );
-	friend OSStatus FileWindow::DisposeResourceMap( void );
+	friend OSStatus FileWindow::CreateNewResource(ConstStr255Param name, ResType type, SInt16 resID, SInt16 attribs);
+	friend OSStatus FileWindow::DisposeResourceMap(void);
 };
 
 #endif

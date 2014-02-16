@@ -10,12 +10,12 @@
 class InspectorWindow : WindowObject
 {
 public:
-						InspectorWindow( void );
-						~InspectorWindow( void );
-	virtual OSStatus	Update( RgnHandle region = null );	// unused parameter
+						InspectorWindow(void);
+						~InspectorWindow(void);
+	virtual OSStatus	Update(RgnHandle region = null);	// unused parameter
 };
 
-pascal OSStatus CloseInspectorWindow( EventHandlerCallRef callRef, EventRef event, void *userData );
+pascal OSStatus CloseInspectorWindow(EventHandlerCallRef callRef, EventRef event, void *userData);
 
 // inspector window dimentions
 const UInt16 kInspectorHeaderHeight		= 48 + 4;	// 48 for huge icon

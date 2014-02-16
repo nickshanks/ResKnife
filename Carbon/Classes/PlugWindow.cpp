@@ -8,14 +8,14 @@ extern globals g;
 /*********************/
 
 /*** CREATOR ***/
-PlugWindow::PlugWindow( FileWindowPtr ownerFile )
+PlugWindow::PlugWindow(FileWindowPtr ownerFile)
 {
-	memset( this, 0, sizeof(PlugWindow) );
+	memset(this, 0, sizeof(PlugWindow));
 	file = ownerFile;
 }
 
 /*** GET FILE WINDOW ***/
-FileWindowPtr PlugWindow::File( void )
+FileWindowPtr PlugWindow::File(void)
 {
 	return file;
 }
@@ -23,13 +23,13 @@ FileWindowPtr PlugWindow::File( void )
 #if !TARGET_API_MAC_CARBON
 
 /*** INSTALL CLASSIC EVENT HANDLER ***/
-void PlugWindow::InstallClassicEventHandler( ClassicEventHandlerProcPtr newHandler )
+void PlugWindow::InstallClassicEventHandler(ClassicEventHandlerProcPtr newHandler)
 {
 	handler = newHandler;
 }
 
 /*** UPDATE WINDOW ***/
-OSStatus PlugWindow::Update( RgnHandle region )
+OSStatus PlugWindow::Update(RgnHandle region)
 {
 	EventRecord event;
 	event.what = updateEvt;
@@ -38,12 +38,12 @@ OSStatus PlugWindow::Update( RgnHandle region )
 	event.where = NewPoint();
 	event.modifiers = null;
 	
-	OSStatus error = (* handler)( &event, kEventWindowUpdate, null );
+	OSStatus error = (* handler)(&event, kEventWindowUpdate, null);
 	return error;
 }
 
 /*** ACTIVATE WINDOW ***/
-OSStatus PlugWindow::Activate( Boolean active )
+OSStatus PlugWindow::Activate(Boolean active)
 {
 	EventRecord event;
 	event.what = activateEvt;
@@ -52,12 +52,12 @@ OSStatus PlugWindow::Activate( Boolean active )
 	event.where = NewPoint();
 	event.modifiers = null;
 	
-	OSStatus error = (* handler)( &event, active? kEventWindowActivated:kEventWindowDeactivated, null );
+	OSStatus error = (* handler)(&event, active? kEventWindowActivated:kEventWindowDeactivated, null);
 	return error;
 }
 
 /*** CLOSE WINDOW ***/
-OSStatus PlugWindow::Close( void )
+OSStatus PlugWindow::Close(void)
 {
 	EventRecord event;
 	event.what = mouseUp;
@@ -66,12 +66,12 @@ OSStatus PlugWindow::Close( void )
 	event.where = NewPoint();
 	event.modifiers = null;
 	
-	OSStatus error = (* handler)( &event, kEventWindowClose, null );
+	OSStatus error = (* handler)(&event, kEventWindowClose, null);
 	return error;
 }
 
 /*** HANDLE CLICK IN WINDOW ***/
-OSStatus PlugWindow::Click( Point mouse, EventModifiers modifiers )
+OSStatus PlugWindow::Click(Point mouse, EventModifiers modifiers)
 {
 	EventRecord event;
 	event.what = mouseDown;
@@ -80,12 +80,12 @@ OSStatus PlugWindow::Click( Point mouse, EventModifiers modifiers )
 	event.where = mouse;
 	event.modifiers = modifiers;
 	
-	OSStatus error = (* handler)( &event, kEventWindowClickContentRgn, null );
+	OSStatus error = (* handler)(&event, kEventWindowClickContentRgn, null);
 	return error;
 }
 
 #endif
 
 /*** ACCESSORS ***/
-void	PlugWindow::SetRefCon( UInt32 value )	{	refcon = value;	}
-UInt32	PlugWindow::GetRefCon( void )			{	return refcon;	}
+void	PlugWindow::SetRefCon(UInt32 value)	{	refcon = value;	}
+UInt32	PlugWindow::GetRefCon(void)			{	return refcon;	}

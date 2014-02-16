@@ -25,13 +25,13 @@ public:
  *	@function		EditorWindow
  *	@discussion		Constructor function.
  */
-						EditorWindow( FileWindowPtr ownerFile, ResourceObjectPtr targetResource, WindowRef inputWindow );
+						EditorWindow(FileWindowPtr ownerFile, ResourceObjectPtr targetResource, WindowRef inputWindow);
 /*!
  *	@function		Close
  *	@discussion		Sends a close message to the plug, then closes the window.
  */
-	OSStatus			Close( void );
-	ResourceObjectPtr	Resource( void );
+	OSStatus			Close(void);
+	ResourceObjectPtr	Resource(void);
 };
 
 #endif

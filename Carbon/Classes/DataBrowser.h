@@ -37,51 +37,51 @@ const DataBrowserItemID kDataBrowserDataForkItem = 0xFFFFFFFE;	// bug in data br
  *	@function		AddDataBrowserColumn
  *	@discussion		Adds columns to the data browser one at a time.
  */
-void AddDataBrowserColumn( ControlRef browser, DataBrowserPropertyID column, UInt16 position );
+void AddDataBrowserColumn(ControlRef browser, DataBrowserPropertyID column, UInt16 position);
 /*!
  *	@function		DataBrowserItemData
  *	@discussion		DataBrowser callback.
  */
-pascal OSStatus DataBrowserItemData( ControlRef browser, DataBrowserItemID itemID, DataBrowserPropertyID property, DataBrowserItemDataRef itemData, Boolean changeValue );
+pascal OSStatus DataBrowserItemData(ControlRef browser, DataBrowserItemID itemID, DataBrowserPropertyID property, DataBrowserItemDataRef itemData, Boolean changeValue);
 /*!
  *	@function		SortDataBrowser
  *	@discussion		DataBrowser callback.
  */
-pascal Boolean SortDataBrowser( ControlRef browser, DataBrowserItemID itemOne, DataBrowserItemID itemTwo, DataBrowserPropertyID sortProperty );
+pascal Boolean SortDataBrowser(ControlRef browser, DataBrowserItemID itemOne, DataBrowserItemID itemTwo, DataBrowserPropertyID sortProperty);
 /*!
  *	@function		DataBrowserMessage
  *	@discussion		DataBrowser callback.
  */
-pascal void DataBrowserMessage( ControlRef browser, DataBrowserItemID itemID, DataBrowserItemNotification message/*, DataBrowserItemDataRef itemData*/ );
+pascal void DataBrowserMessage(ControlRef browser, DataBrowserItemID itemID, DataBrowserItemNotification message/*, DataBrowserItemDataRef itemData*/);
 /*!
  *	@function		DataBrowserAddDragItem
  *	@discussion		DataBrowser callback.
  */
-pascal Boolean DataBrowserAddDragItem( ControlRef browser, DragRef drag, DataBrowserItemID item, DragItemRef *itemRef );
+pascal Boolean DataBrowserAddDragItem(ControlRef browser, DragRef drag, DataBrowserItemID item, DragItemRef *itemRef);
 /*!
  *	@function		DataBrowserAcceptDrag
  *	@discussion		DataBrowser callback.
  */
-pascal Boolean DataBrowserAcceptDrag( ControlRef browser, DragRef drag, DataBrowserItemID item );
+pascal Boolean DataBrowserAcceptDrag(ControlRef browser, DragRef drag, DataBrowserItemID item);
 /*!
  *	@function		DataBrowserReceiveDrag
  *	@discussion		DataBrowser callback.
  */
-pascal Boolean DataBrowserReceiveDrag( ControlRef browser, DragRef drag, DataBrowserItemID item );
+pascal Boolean DataBrowserReceiveDrag(ControlRef browser, DragRef drag, DataBrowserItemID item);
 /*!
  *	@function		DataBrowserPostProcessDrag
  *	@discussion		DataBrowser callback.
  */
-pascal void DataBrowserPostProcessDrag( ControlRef browser, DragRef drag, OSStatus trackDragResult );
+pascal void DataBrowserPostProcessDrag(ControlRef browser, DragRef drag, OSStatus trackDragResult);
 /*!
  *	@function		SendPromisedFile
  *	@discussion		Creates the promised file and sends the FSSpec for it back.
  */
-pascal OSErr SendPromisedFile( FlavorType theType, void *dragSendRefCon, ItemReference item, DragReference drag );
+pascal OSErr SendPromisedFile(FlavorType theType, void *dragSendRefCon, ItemReference item, DragReference drag);
 /*!
  *	@function		AddResourceToDragFile
  *	@discussion		Adds each resource to the file created by SendPromisedFile. Called once per resource.
  */
-pascal void AddResourceToDragFile( DataBrowserItemID item, DataBrowserItemState state, void *clientData );
+pascal void AddResourceToDragFile(DataBrowserItemID item, DataBrowserItemState state, void *clientData);
 
 #endif
