@@ -1604,6 +1604,7 @@
 				E18BF56F069FEA1300F076B8 /* Sources */,
 				E18BF586069FEA1300F076B8 /* Frameworks */,
 				E18BF589069FEA1300F076B8 /* Rez */,
+				0EF0A9D818B18F3D00BF3F47 /* Run Versioning Script */,
 			);
 			buildRules = (
 			);
@@ -2026,6 +2027,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXRezBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0EF0A9D818B18F3D00BF3F47 /* Run Versioning Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Versioning Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PROJECT_DIR}/Scripts/build-version.sh";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8415918618AFE39B00306B4F /* Sources */ = {

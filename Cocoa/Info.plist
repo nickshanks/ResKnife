@@ -48,11 +48,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.6 cvs</string>
+	<string></string>
 	<key>CFBundleSignature</key>
 	<string>ResK</string>
 	<key>CFBundleVersion</key>
-	<string>19</string>
+	<string></string>
 	<key>NSAppleScriptEnabled</key>
 	<true/>
 	<key>NSMainNibFile</key>
