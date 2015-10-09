@@ -65,7 +65,7 @@ Notes on commenting/documenting for the ResKnife project:
 
 ResKnife methods, functions, headers, classes, ivars and practically anything else is commented using the format specified by HeaderDoc (a C-based equivalent to JavaDoc), although with ResKnife-specific modifications (NB: although I've yet to modify HeaderDoc to read these new parameters, they should still be used for the time being). The general format is to use the standard C block-commenting mechanism, with the addition of an exclamation mark immediatly after the open comment marker. Following this are one or more lines beginning with an at sign, a keyword, arguments if any, and finally a string value. For source code consistancy, I (Nicholas) am suggesting the following when documenting an object.
 
-	1) All HeaderDoc comments immediatly preceede the object to which they pertain.
+	1) All HeaderDoc comments immediatly precede the object to which they pertain.
 	2) HeaderDoc comments documenting a method or function must follow the following order (for consistancy & readability), where an ellipsis indicates the line above can be repeated multiple times:
 		
 		@method or @function
