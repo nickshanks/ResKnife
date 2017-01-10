@@ -274,8 +274,6 @@
 @implementation NSOpenGLContext (CGLContextAccess)
 - (CGLContextObj)cglContext;
 {
-	if(NSAppKitVersionNumber < 700.0)
-		return _contextAuxiliary;
-	else return (CGLContextObj) [self CGLContextObj];
+	return (CGLContextObj) [self CGLContextObj];
 }
 @end
