@@ -2,7 +2,14 @@
 #import "ApplicationDelegate.h"
 #import "OpenPanelDelegate.h"
 
+#import "ResourceDocument.h"
+
 @implementation RKDocumentController
+
+- (nullable Class)documentClassForType:(NSString *)typeName
+{
+	return [ResourceDocument class];
+}
 
 - (int)runModalOpenPanel:(NSOpenPanel *)openPanel forTypes:(NSArray *)extensions
 {
@@ -17,7 +24,7 @@
 	[openPanelAccessoryView setAutoresizingMask:NSViewWidthSizable | NSViewHeightSizable];
 	
 	// run panel
-	int button = [super runModalOpenPanel:openPanel forTypes:extensions];
+	int button = [super runModalOpenPanel:openPanel forTypes:nil/*extensions*/];
 	if(button == NSOKButton)
 		[openPanelDelegate setReadOpenPanelForFork:YES];
 	return button;
