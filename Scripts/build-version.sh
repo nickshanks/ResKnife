@@ -24,7 +24,7 @@ INFO_STRINGS="${TARGET_BUILD_DIR}/${INFOSTRINGS_PATH}"
 BUILD_VERSION=$(git describe --tags --always --dirty=+)
 
 # Use the latest tag for short version (expected tag format "n[.n[.n]]")
-LATEST_TAG=$(git describe --tags --abbrev=0)
+LATEST_TAG=$(git describe --tags --always --abbrev=0)
 COMMIT_COUNT_SINCE_TAG=$(git rev-list --count ${LATEST_TAG}..)
 if [ $LATEST_TAG = "start" ]
   then LATEST_TAG=0

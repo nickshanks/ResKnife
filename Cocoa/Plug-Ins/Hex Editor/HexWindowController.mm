@@ -73,7 +73,8 @@ OSStatus Plug_InitInstance(Plug_PlugInRef plug, Plug_ResourceRef resource)
 	
 	// insert the resources' data into the text fields
 	[self refreshData:[resource data]];
-	[[self window] setResizeIncrements:NSMakeSize(kWindowStepWidthPerChar * kWindowStepCharsPerStep, 1)];
+	CGFloat charWidth = [@"0" sizeWithAttributes: @{ NSFontAttributeName: [NSFont fontWithName: @"Courier" size: 12] }].width;
+	[[self window] setResizeIncrements:NSMakeSize((charWidth * 3.0) * kWindowStepCharsPerStep, 1)];
 	// min 346, step 224, norm 570, step 224, max 794
 	
 	// here because we don't want these notifications until we have a window! (Only register for notifications on the resource we're editing)
@@ -91,12 +92,13 @@ OSStatus Plug_InitInstance(Plug_PlugInRef plug, Plug_ResourceRef resource)
 {
 	int width = [(NSWindow *)[notification object] frame].size.width;
 	int oldBytesPerRow = bytesPerRow;
-	bytesPerRow = (((width - (kWindowStepWidthPerChar * kWindowStepCharsPerStep) - 122) / (kWindowStepWidthPerChar * kWindowStepCharsPerStep)) + 1) * kWindowStepCharsPerStep;
+	CGFloat charWidth = [@"0" sizeWithAttributes: @{ NSFontAttributeName: [NSFont fontWithName: @"Courier" size: 12] }].width;
+	bytesPerRow = (((width - ((charWidth * 3.0) * kWindowStepCharsPerStep) - 122) / (kWindowStepWidthPerChar * kWindowStepCharsPerStep)) + 1) * kWindowStepCharsPerStep;
 	if(bytesPerRow != oldBytesPerRow)
 		[offset	setString:[hexDelegate offsetRepresentation:[resource data]]];
-	[[hex enclosingScrollView] setFrameSize:NSMakeSize((bytesPerRow * 21) + 5, [[hex enclosingScrollView] frame].size.height)];
-	[[ascii enclosingScrollView] setFrameOrigin:NSMakePoint((bytesPerRow * 21) + 95, 20)];
-	[[ascii enclosingScrollView] setFrameSize:NSMakeSize((bytesPerRow * 7) + 28, [[ascii enclosingScrollView] frame].size.height)];
+	[[hex enclosingScrollView] setFrameSize:NSMakeSize((bytesPerRow * (charWidth * 3.0)) + 5+5, [[hex enclosingScrollView] frame].size.height)];
+	[[ascii enclosingScrollView] setFrameOrigin:NSMakePoint((bytesPerRow * (charWidth * 3.0)) + 95, 20)];
+	[[ascii enclosingScrollView] setFrameSize:NSMakeSize((bytesPerRow * charWidth) + 28, [[ascii enclosingScrollView] frame].size.height)];
 }
 
 - (void)windowDidBecomeKey:(NSNotification *)notification
@@ -230,6 +232,10 @@ OSStatus Plug_InitInstance(Plug_PlugInRef plug, Plug_ResourceRef resource)
 	NSMutableParagraphStyle *paragraph = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
 	[paragraph setLineBreakMode:NSLineBreakByCharWrapping];
 	NSDictionary *dictionary = [NSDictionary dictionaryWithObject:paragraph forKey:NSParagraphStyleAttributeName];
+
+	NSMutableParagraphStyle *hexParagraph = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+	//[hexParagraph setLineBreakMode:NSLineBreakByCharWrapping];
+	NSDictionary *hexDictionary = [NSDictionary dictionaryWithObject:hexParagraph forKey:NSParagraphStyleAttributeName];
 	
 	// do stuff with data
 	[offset setString:[hexDelegate offsetRepresentation:data]];
@@ -240,7 +246,7 @@ OSStatus Plug_InitInstance(Plug_PlugInRef plug, Plug_ResourceRef resource)
 	
 	// apply attributes
 	[[offset textStorage] addAttributes:dictionary range:NSMakeRange(0, [[offset textStorage] length])];
-	[[hex	 textStorage] addAttributes:dictionary range:NSMakeRange(0, [[hex textStorage] length])];
+	[[hex	 textStorage] addAttributes:hexDictionary range:NSMakeRange(0, [[hex textStorage] length])];
 	[[ascii	 textStorage] addAttributes:dictionary range:NSMakeRange(0, [[ascii textStorage] length])];
 	
 	// restore selections (this is the dumbest way to do it, but it'll do for now)
